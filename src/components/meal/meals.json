@@ -2,15 +2,17 @@
     {
       "id": 1,
       "mealType": "breakfast",
-      "name": "oatmeals",
+      "name": "Oatmeals",
+      "kcal": "300",
       "time": "30 minut",
       "image": "https://fitfoodiefinds.com/wp-content/uploads/2015/10/classic-oatmeal.png"
     },
     {
       "id": 2,
       "mealType": "breakfast",
-      "name": "scrumble eggs",
+      "name": "Scrumble eggs",
       "time": "45 minut",
+      "kcal": "370",
       "image": "https://www.jestemfit.pl/upload/gallery/2016/04/id_1846_1460715762_750x500.jpg"
     }
   

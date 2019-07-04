@@ -1,5 +1,7 @@
 
 import React from 'react'
+import styles from './Meal.module.css';
+
 
 
 
@@ -11,11 +13,10 @@ export function MealPhoto(props) {
     return (
      
        
-        <img src={image} alt={"tu jest tekst"} />
+        <div >
+            <img className={styles.mealPhoto} src={image} />
+        </div>
      
     );
   }
   
-
-
-

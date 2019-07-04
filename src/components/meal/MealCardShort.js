@@ -2,19 +2,21 @@
 import React from 'react';
 import {MealInfo} from './MealInfo';
 import {MealPhoto} from './MealPhoto';
+import styles from './Meal.module.css';
 
 
 
 
 export function MealCardShort(props) {
 const {meal} = props;
-const {mealType, name, time, image} = meal;
+const {mealType, name, time, image, kcal} = meal;
+
 
   
     return (
-        <div >
-        <MealInfo name={name} mealType={mealType} time={time} />
-        <MealPhoto src={image} alt={"tu jest tekst"} />
+        <div className={styles.mealCardShort}>
+        <MealInfo name={name} mealType={mealType} time={time} kcal={kcal} />
+        <MealPhoto image={image} alt={"tu jest tekst"} />
 
       </div>
        

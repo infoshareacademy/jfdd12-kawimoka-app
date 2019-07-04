@@ -1,0 +1,14 @@
+.mealCardShort {
+    border: 1px solid black;
+    margin: 20px;
+    display: flex;
+}
+
+.mealPhoto{
+
+    width: 400px;
+}
+
+.mealInfo {
+   color: blue;
+}
