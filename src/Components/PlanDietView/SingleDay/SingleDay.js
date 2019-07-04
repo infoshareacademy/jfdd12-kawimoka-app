@@ -9,6 +9,6 @@ export const SingleDay = () => {
         <MealSpace mealType = {"Lunch"}/>
         <MealSpace mealType = {"Snacks"}/>
         <MealSpace mealType = {"Dinner"}/>
-        <Summary />
+        <Summary sumCalories = {"1230"} kcalGoal = {"1800"} leftCalories />
     </div>
 }
