@@ -3,7 +3,7 @@ import { MealSpace } from './MealSpace'
 import { Summary } from './Summary'
 import s from './SingleDay.module.css'
 
-export const SingleDay = () => {
+const SingleDay = () => {
     return <div className={s.singleDayContainer}>
         <MealSpace mealType = {"Breakfast"} />
         <MealSpace mealType = {"Lunch"}/>
@@ -12,3 +12,5 @@ export const SingleDay = () => {
         <Summary sumCalories = {"1230"} kcalGoal = {"1800"} leftCalories />
     </div>
 }
+
+export default SingleDay
