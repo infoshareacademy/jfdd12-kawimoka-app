@@ -9,13 +9,13 @@ import styles from './Meal.module.css';
 
 export function MealCardShort(props) {
 const {meal} = props;
-const {mealType, name, time, image, kcal} = meal;
+const { name, time, image, kcal} = meal;
 
 
   
     return (
         <div className={styles.mealCardShort}>
-        <MealInfo name={name} mealType={mealType} time={time} kcal={kcal} />
+        <MealInfo name={name} time={time} kcal={kcal} />
         <MealPhoto image={image} alt={"tu jest tekst"} />
 
       </div>

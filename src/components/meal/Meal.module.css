@@ -1,14 +1,39 @@
 .mealCardShort {
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 10px 8px #888888;
+    background-color: rgb(200, 191, 191);
     margin: 20px;
     display: flex;
+    flex-flow: row;
+   justify-content: space-between;
+    width: 350px;
+
 }
 
 .mealPhoto{
-
-    width: 400px;
+    justify-content: center;
+    margin: 5px;
+    width: 130px;
+ 
 }
 
 .mealInfo {
-   color: blue;
+   color: rgb(14, 11, 11);
+   margin: 5px;
+   display: flex;
+   flex-flow: column;
+   justify-content: space-between;
+}
+.mealInfo h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    
+}
+.mealInfo h2 {
+    font-size: 10px;
+}
+.mealInfo h3 {
+    font-size: 15px;
 }
