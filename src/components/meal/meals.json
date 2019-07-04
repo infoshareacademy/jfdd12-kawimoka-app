@@ -1,78 +1,78 @@
 [
     {
       "id": 1,
-      "mealType": "breakfast",
+      "type": "breakfast",
       "name": "Three-grain porridge",
       "kcal": "179",
       "time": "10",
       "image": "https://fitfoodiefinds.com/wp-content/uploads/2015/10/classic-oatmeal.png",
-      "Nutritions": {
+      "nutritions": {
         "fat": 2,
         "carbs": 32,
         "protein":7
     },
-    "Ingradients": ["300g oatmeal",
+    "ingradients": ["300g oatmeal",
       "300g spelt flakes",
       "300g barley flakes",
       "agave nectar",
       "sliced strawberries"],
-    "Recipe": "Working in batches, toast the oatmeal, spelt flakes and barley in a large, dry frying pan for 5 mins until golden, then leave to cool and store in an airtight container. When you want to eat it, simply combine 50g of the porridge mixture in a saucepan with 300ml milk or water. Cook for 5 mins, stirring occasionally, then top with a drizzle of honey and strawberries, if you like (optional). Will keep for 6 months."
+    "recipe": "Working in batches, toast the oatmeal, spelt flakes and barley in a large, dry frying pan for 5 mins until golden, then leave to cool and store in an airtight container. When you want to eat it, simply combine 50g of the porridge mixture in a saucepan with 300ml milk or water. Cook for 5 mins, stirring occasionally, then top with a drizzle of honey and strawberries, if you like (optional). Will keep for 6 months."
 
     },
     {
       "id": 2,
-      "mealType": "breakfast",
+      "type": "breakfast",
       "name": "Baked green eggs",
       "time": "45",
       "kcal": "370",
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/baked-green-eggs.jpg?itok=ID6NZMjp",
-      "Nutritions": {
+      "nutritions": {
         "fat": 54,
         "carbs": 3,
         "protein":19
     },
-    "Ingradients": ["100g baby spinach",
+    "ingradients": ["100g baby spinach",
       "4 tbsp fresh pesto",      
      "100ml double cream",
       "1 tbsp finely grated gruyère",
       "4 medium eggs"],
-    "Recipe": "Heat oven to 200C/180C fan/gas 6. Mix together the spinach, pesto, cream and some seasoning, and tip into 2 individual shallow ovenproof dishes. Sprinkle the cheese over the top. Make 2 shallow hollows in the mixture in each dish and break an egg into each hollow. Bake in the oven for 10-12 mins until the whites are set and the yolks are still runny."
+    "recipe": "Heat oven to 200C/180C fan/gas 6. Mix together the spinach, pesto, cream and some seasoning, and tip into 2 individual shallow ovenproof dishes. Sprinkle the cheese over the top. Make 2 shallow hollows in the mixture in each dish and break an egg into each hollow. Bake in the oven for 10-12 mins until the whites are set and the yolks are still runny."
 
     }, 
     {
       "id": 3,
-      "mealType": "breakfast",
+      "type": "breakfast",
       "name": "American pancakes",
       "time": "5",
       "kcal": "579",
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/05/american-style-pancakes.jpg?itok=_tikdZhR",
-      "Nutritions": {
+      "nutritions": {
           "fat": 13,
           "carbs": 46,
           "protein":13
       },
-      "Ingradients": ["200g self-raising flour",
+      "ingradients": ["200g self-raising flour",
         "1 ½ tsp baking powder",        
         "1 tbsp golden caster sugar",
         "3 large eggs",
         "25g melted butter",      
         "200ml milk",        
         "vegetable oil for cookin"],
-      "Recipe": "Mix the flour, baking powder, caster sugar and a pinch of salt together in a large bowl. Create a well in the centre with the back of your spoon then add the eggs, melted butter and milk. Whisk together either with a balloon whisk or electric hand beaters until smooth then pour into a jug.Heat a small knob of butter and 1 tsp of oil in a large, non-stick frying pan over a medium heat. When the butter looks frothy pour in rounds of the batter, approximately 8cm wide. Make sure you don’t put the pancakes too close together as they will spread during cooking. Cook the pancakes on their first side for about 1-2 mins or until lots of tiny bubbles start to appear and pop on the surface. Flip the pancakes over and cook for a further minute on the other side. Repeat until all the batter is used up. "
+      "recipe": "Mix the flour, baking powder, caster sugar and a pinch of salt together in a large bowl. Create a well in the centre with the back of your spoon then add the eggs, melted butter and milk. Whisk together either with a balloon whisk or electric hand beaters until smooth then pour into a jug.Heat a small knob of butter and 1 tsp of oil in a large, non-stick frying pan over a medium heat. When the butter looks frothy pour in rounds of the batter, approximately 8cm wide. Make sure you don’t put the pancakes too close together as they will spread during cooking. Cook the pancakes on their first side for about 1-2 mins or until lots of tiny bubbles start to appear and pop on the surface. Flip the pancakes over and cook for a further minute on the other side. Repeat until all the batter is used up. "
     },
     {
       "id": 4,
-      "mealType": "breakfast",
+      "type": "breakfast",
       "name": "Shakshuka",
       "time": "25",
       "kcal": "340",
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--12141_11.jpg?itok=RUtvuKpX",
-      "Nutritions": {
+      "nutritions": {
           "fat": 20,
           "carbs": 21,
           "protein":21
       },
-      "Ingradients": ["1 tbsp olive oil",
+      "ingradients": ["1 tbsp olive oil",
         "2 red onions, chopped",
         "1 red chilli, deseeded",
         "1 garlic clove, sliced",
@@ -80,28 +80,28 @@
         "2 400g cans cherry tomatoes",
         "1 tsp caster sugar",
         "4 eggs"],
-      "Recipe": "Heat the oil in a frying pan that has a lid, then soften the onions, chilli, garlic and coriander stalks for 5 mins until soft. Stir in the tomatoes and sugar, then bubble for 8-10 mins until thick. Can be frozen for 1 month. Using the back of a large spoon, make 4 dips in the sauce, then crack an egg into each one. Put a lid on the pan, then cook over a low heat for 6-8 mins, until the eggs are done to your liking. Scatter with the coriander leaves and serve with crusty bread."
+      "recipe": "Heat the oil in a frying pan that has a lid, then soften the onions, chilli, garlic and coriander stalks for 5 mins until soft. Stir in the tomatoes and sugar, then bubble for 8-10 mins until thick. Can be frozen for 1 month. Using the back of a large spoon, make 4 dips in the sauce, then crack an egg into each one. Put a lid on the pan, then cook over a low heat for 6-8 mins, until the eggs are done to your liking. Scatter with the coriander leaves and serve with crusty bread."
     },
     {
       "id": 5,
-      "mealType": "breakfast",
+      "type": "breakfast",
       "name": "Matcha breakfast bowl",
       "time": "15",
       "kcal": "261",
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2016/06/matcha-breakfast-bowl.jpg?itok=1sOJNp07",
-      "Nutritions": {
+      "nutritions": {
           "fat": 11,
           "carbs": 27,
           "protein":10
       },
-      "Ingradients": ["300g natural yogurt",
+      "ingradients": ["300g natural yogurt",
         "1 tbsp matcha powder",
         "2 tsp maple syrup",        
         "1 kiwi fruit",    
         "1 peach",
         "100g blueberries",
         "20g coconut flakes"],
-      "Recipe": "Mix the yogurt with the matcha and maple syrup, and divide between two bowls. Top with the kiwi, peach and blueberries. Sprinkle over the coconut flakes just before serving."
+      "recipe": "Heat the oil in a frying pan that has a lid, then soften the onions, chilli, garlic and coriander stalks for 5 mins until soft. Stir in the tomatoes and sugar, then bubble for 8-10 mins until thick. Can be frozen for 1 month. Using the back of a large spoon, make 4 dips in the sauce, then crack an egg into each one. Put a lid on the pan, then cook over a low heat for 6-8 mins, until the eggs are done to your liking. Scatter with the coriander leaves and serve with crusty bread."
     }
   
   

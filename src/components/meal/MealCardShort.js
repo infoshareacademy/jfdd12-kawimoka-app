@@ -15,8 +15,9 @@ const { name, time, image, kcal} = meal;
   
     return (
         <div className={styles.mealCardShort}>
-        <MealInfo name={name} time={time} kcal={kcal} />
+        <MealInfo name={name}  time={time} kcal={kcal} />
         <MealPhoto image={image} alt={"tu jest tekst"} />
+        
 
       </div>
        
