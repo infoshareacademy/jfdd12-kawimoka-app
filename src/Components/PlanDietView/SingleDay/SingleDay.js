@@ -1,14 +1,18 @@
 import React from 'react'
 import { MealSpace } from './MealSpace'
-import { Summary } from './Summary'
+import { SummaryDay } from './SummaryDay'
+import { DayPicker } from './DayPicker'
 import s from './SingleDay.module.css'
 
-export const SingleDay = () => {
+const SingleDay = () => {
     return <div className={s.singleDayContainer}>
+    <DayPicker />
         <MealSpace mealType = {"Breakfast"} />
         <MealSpace mealType = {"Lunch"}/>
         <MealSpace mealType = {"Snacks"}/>
         <MealSpace mealType = {"Dinner"}/>
-        <Summary />
+        <SummaryDay sumCalories = {"1230"} kcalGoal = {"1800"} leftCalories />
     </div>
 }
+
+export default SingleDay
