@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export function Footer(props) {
   return (
     <footer className={s.footerContainer}>
-      >
       <div>
         <p>
           <a href=''>Terms of Services</a>
@@ -17,15 +16,19 @@ export function Footer(props) {
       <div>
         <p>
           <a href='' target='_blank'>
-            <FontAwesomeIcon icon='facebook' />
+            <FontAwesomeIcon
+              icon={['fab', 'facebook-square']}
+              size='2x'
+              style={{ color: '#08ada0' }}
+            />
           </a>{' '}
-          />
           <a href='' target='_blank'>
-            <FontAwesomeIcon icon='instagram' />
+            <FontAwesomeIcon icon={['fab', 'instagram']} size='2x' style={{ color: '#08ada0' }} />
           </a>{' '}
-          />
         </p>
-        <p>&copy 2019 by KaWiMoKa</p>
+        <p>
+          <span>{'\u00A9'}</span> 2019 by KaWiMoKa
+        </p>
       </div>
       <div>
         <p>Homepage update: 10.06.19</p>

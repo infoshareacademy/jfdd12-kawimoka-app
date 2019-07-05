@@ -6,10 +6,9 @@ import * as serviceWorker from './serviceWorker'
 import { PlanDietContainer } from './Components/PlanDietView/PlanDietContainer'
 import { Footer } from './Components/Footer'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faFacebook, faInstagram } from '@fortawesome/free-solid-svg-icons'
+import { fab, faFacebookSquare, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
-library.add(fab, faFacebook, faInstagram)
+library.add(fab, faFacebookSquare, faInstagram)
 
 ReactDOM.render(<Footer />, document.getElementById('root'))
 
