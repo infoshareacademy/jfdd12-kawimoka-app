@@ -13,6 +13,7 @@
 
 .mealPhoto{
     justify-content: center;
+    border-radius: 0px 15px 0px 0px;
     margin: 5px;
     width: 130px;
 }
@@ -46,11 +47,25 @@
     margin: 20px;
     display: flex;
     flex-flow: column;
-   justify-content: space-between;
+    justify-content: space-between;
     width: 800px;
     height: 600px;
 }
 
-meal.mealCardFull p {
-    font-size: 5px;
+.mealCardFull img{
+    width: 300px;
+}
+
+.mealCardFullTop{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.mealCardFull p {
+    font-size: 20px;
+}
+.bothCardsVisible {
+    display: flex;
+    flex-flow: row;
 }

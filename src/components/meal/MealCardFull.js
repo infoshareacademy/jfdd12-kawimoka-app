@@ -9,19 +9,33 @@ import styles from './Meal.module.css';
 
 export function MealCardFull(props) {
 const {meal} = props;
-const { name, time, image, kcal, nutritions, recipe } = meal;
+const { name, type, time, image, kcal, nutritions, recipe } = meal;
 const {fat, carb, protein} = nutritions;
 
 
   
   return (
     <div className={styles.mealCardFull}>
-      <MealInfo name={name} time={time} kcal={kcal} />
-      <MealPhoto image={image} alt={"tu jest tekst"} />
-      <p>fat={fat}g carb={carb}g protein={protein}g </p> 
-      <p>{recipe}</p>
-    
-        
+      <div className={styles.mealCardFullTop}>
+        <MealInfo name={name} time={time} kcal={kcal} type={type}/>        
+     
+        <MealPhoto image={image} alt={"tu jest tekst"} />
+
+      </div>
+      <div>
+        <div>
+        <h3>Nutritions</h3>  
+        <p>fat={fat}g</p>
+        <p> carb={carb}g </p>
+        <p>protein={protein}g </p> 
+        </div>
+        <h3> Recipe</h3>
+        <p>{recipe}</p>
+      </div>
+     
+     
+       
+     
     </div>
        
 
