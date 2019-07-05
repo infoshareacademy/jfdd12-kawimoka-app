@@ -34,3 +34,9 @@
 .mealSpace {
     height: 150px;
 }
+
+.dayPicker {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

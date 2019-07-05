@@ -2,7 +2,7 @@ import React from 'react'
 import s from './SingleDay.module.css'
 
 
-export function Summary(props) {
+export function SummaryDay(props) {
     let { sumCalories, kcalGoal, leftCalories } = props
     leftCalories = kcalGoal - sumCalories
 
