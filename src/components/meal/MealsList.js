@@ -8,7 +8,7 @@ export class MealsList extends Component {
     return (
       <div>
         {meals.map(mealFromJson => (
-          <MealCardFull key={mealFromJson.id} meal={mealFromJson} />
+          <MealCardShort key={mealFromJson.id} meal={mealFromJson} />
         ))}
       </div>
     );

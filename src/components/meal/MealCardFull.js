@@ -14,18 +14,19 @@ const {fat, carb, protein} = nutritions;
 
 
   
-    return (
-        <div className={styles.mealCardFull}>
-        <MealInfo name={name} time={time} kcal={kcal} />
-        <MealPhoto image={image} alt={"tu jest tekst"} />
-        <p>fat={fat} carb={carb} protein={protein} </p> 
+  return (
+    <div className={styles.mealCardFull}>
+      <MealInfo name={name} time={time} kcal={kcal} />
+      <MealPhoto image={image} alt={"tu jest tekst"} />
+      <p>fat={fat}g carb={carb}g protein={protein}g </p> 
+      <p>{recipe}</p>
     
         
-      </div>
+    </div>
        
 
-    );
-  }
+  );
+}
   
 
   //TODO: Dopisać elementy nutritions, recipe, ingradients
