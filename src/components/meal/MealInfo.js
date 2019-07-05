@@ -3,7 +3,7 @@ import styles from './Meal.module.css';
 
 export function MealInfo(props) {
 
-    const { name, time, kcal} = props;
+    const { name, time, kcal, type} = props;
     
   
     return (
@@ -14,6 +14,7 @@ export function MealInfo(props) {
             <div>
             <h3>Calories: {kcal} kcal</h3>
             <h3>Prep Time: {time} min </h3>
+            <h2>{type}</h2>
             </div>
 
             

@@ -1,3 +1,5 @@
+/* Meal Card - short version */
+
 .mealCardShort {
     border: 2px solid rgb(43, 41, 41);
     border-radius: 15px;
@@ -8,7 +10,7 @@
     flex-flow: row;
    justify-content: space-between;
     width: 350px;
-
+    height: 180px;
 }
 
 .mealPhoto{
@@ -25,6 +27,7 @@
    flex-flow: column;
    justify-content: space-between;
 }
+
 .mealInfo h1 {
     font-size: 20px;
     text-transform: uppercase;
@@ -48,12 +51,12 @@
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-    width: 800px;
-    height: 600px;
+    width: 900px;
+    height: 800px;
 }
 
 .mealCardFull img{
-    width: 300px;
+    width: 400px;
 }
 
 .mealCardFullTop{
@@ -68,4 +71,14 @@
 .bothCardsVisible {
     display: flex;
     flex-flow: row;
+}
+
+.mealsTypesList h1 {
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 10px 8px #888888;
+    width: 200px;
+    height: 80px;
+    margin: 20px;
+    text-align: center;
 }
