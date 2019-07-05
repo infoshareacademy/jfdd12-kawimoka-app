@@ -6,7 +6,7 @@ import s from './SingleDay.module.css'
 
 const SingleDay = () => {
     return <div className={s.singleDayContainer}>
-    <DayPicker />
+    <DayPicker day = {15} />
         <MealSpace mealType = {"Breakfast"} />
         <MealSpace mealType = {"Lunch"}/>
         <MealSpace mealType = {"Snacks"}/>
