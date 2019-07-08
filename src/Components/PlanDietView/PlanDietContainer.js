@@ -1,9 +1,15 @@
 import React from 'react'
-import  SingleDay  from './SingleDay'
+import SingleDay  from './SingleDay'
+import { MealsList } from './MealList/MealsList';
+import {DragDropContext} from 'react-beautiful-dnd';
 
-export function PlanDietContainer(props) {
+export class PlanDietContainer extends React.Component{
 
-    return <div>
-        <SingleDay date = {props.date} />
-    </div>
+    render(){
+        return <div style={{display: "flex", flexDirection: "row"}}>
+            <MealsList />
+            <SingleDay date = {this.props.date} />
+        </div>
+    }
+    
 }
