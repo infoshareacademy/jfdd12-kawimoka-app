@@ -1,8 +1,9 @@
 import React from 'react'
 import  SingleDay  from './SingleDay'
 
-export function PlanDietContainer() {
+export function PlanDietContainer(props) {
+
     return <div>
-        <SingleDay />
+        <SingleDay date = {props.date} />
     </div>
 }
