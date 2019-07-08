@@ -8,32 +8,43 @@ import styles from './Meal.module.css';
 export class MealsList extends Component {
 
 state={
-  selectedMealType: meals[0],
-  selectedMeal: meals[0]
+  selectedMeal: {},
+  mealFilter: "",
 }
 
+  setMealFilter = (filterName) => {
+    this.setState({
+      mealFilter: filterName
+    })
+  }
 
   render() {
+    console.log(meals)
     return (
-      <div className={styles.bothCardsVisible}>
+    <div className={styles.bothCardsVisible}>
       <div >
-        <h1> Breakfast</h1>
-        <h1> Lunch</h1>
-        <h1> Dinner</h1>
-        <h1> Snacks</h1>
+
+
+        <h1 onClick={() => this.setMealFilter('breakfast')}> Breakfast</h1>
+        <h1 onClick={() => this.setMealFilter('lunch')}> Lunch</h1>
+        <h1 onClick={() => console.log('dinner')}> Dinner</h1>
+        <h1 onClick={() => console.log('snacks')}> Snacks</h1>
+        
       </div>
 
       <div>
-        {meals.map(mealFromJson => (
+        {meals.filter(meal => meal.type === this.state.mealFilter).map(filteredMeal => (
          <div onClick={()=> {
-           this.setState({selectedMeal: mealFromJson})
-         }}> <MealCardShort key={mealFromJson.id} meal={mealFromJson} /> </div>
+           this.setState({selectedMeal: filteredMeal})
+         }}> <MealCardShort key={filteredMeal.id} meal={filteredMeal} /> </div>
         ))}
       </div>
+
       <div>
-          <MealCardFull meal={this.state.selectedMeal}/>
+        {this.state.selectedMeal.id && <MealCardFull meal={this.state.selectedMeal}/> }
       </div>
-      </div>
+
+    </div>
     );
   }
 }

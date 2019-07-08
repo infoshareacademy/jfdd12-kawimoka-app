@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import MealCardShort from './components/meal/MealCardShort';
 import { MealsList } from './components/meal/MealsList';
+import { MealsTypesList } from './components/meal/MealsTypesList';
 
 ReactDOM.render(<MealsList />, document.getElementById('root'));
 
