@@ -4,11 +4,11 @@
     border: 2px solid rgb(43, 41, 41);
     border-radius: 15px;
     box-shadow: 5px 10px 8px #888888;
-    background-color: rgb(205, 248, 242);
+   
     margin: 20px;
     display: flex;
     flex-flow: row;
-   justify-content: space-between;
+    justify-content: space-between;
     width: 350px;
     height: 180px;
 }
@@ -46,7 +46,7 @@
     border: 2px solid black;
     border-radius: 15px;
     box-shadow: 5px 10px 8px #888888;
-    background-color: rgb(200, 191, 191);
+   
     margin: 20px;
     display: flex;
     flex-flow: column;
@@ -73,12 +73,31 @@
     flex-flow: row;
 }
 
-.mealsTypesList h1 {
-    border: 2px solid black;
-    border-radius: 15px;
-    box-shadow: 5px 10px 8px #888888;
-    width: 200px;
-    height: 80px;
-    margin: 20px;
+.mealsList h1 {
     text-align: center;
+    border: 2px black solid;
+    border-radius: 15px;
+   
+    height: 100px;
+    width: 200px;
+    margin: 30px;
+}
+
+.addMealButton {
+    font-size: 40px;
+    font-weight: bolder;
+    border-radius: 40px;
+    background-color: green;
+    width: 80px;
+    height: 80px;
+
+}
+
+.closeCardButton {
+    font-size: 40px;
+    font-weight: bolder;
+    border-radius: 40px;
+    background-color: red;
+    width: 80px;
+    height: 80px;
 }

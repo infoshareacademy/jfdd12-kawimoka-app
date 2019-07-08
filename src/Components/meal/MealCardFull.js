@@ -3,6 +3,8 @@ import React from 'react';
 import {MealInfo} from './MealInfo';
 import {MealPhoto} from './MealPhoto';
 import styles from './Meal.module.css';
+import {AddMealButton} from './AddMealButton';
+
 
 
 
@@ -32,7 +34,10 @@ const {fat, carb, protein} = nutritions;
         <h3> Recipe</h3>
         <p>{recipe}</p>
       </div>
-     
+     <div>
+       <AddMealButton />
+       <button onClick={() => props.onMealClose()} className={styles.closeCardButton}> X </button>
+     </div>
      
        
      
