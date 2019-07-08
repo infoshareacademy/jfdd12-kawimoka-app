@@ -1,0 +1,43 @@
+.singleDayContainer {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: auto;
+    border: 1px solid black;
+    justify-content: space-between;
+}
+
+.mealTypeTitle {
+    margin: 10px;
+}
+
+.summaryContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+
+.summaryText {
+    margin: 5px 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.mealSpaceContainer {
+    border-bottom: 1px dashed grey;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+}
+
+.mealSpace {
+    height: 150px;
+}
+
+.dayPicker {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
