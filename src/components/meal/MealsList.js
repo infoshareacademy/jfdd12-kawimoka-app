@@ -18,17 +18,25 @@ state={
     })
   }
 
+clearMeal =() => {
+  this.setState({
+    selectedMeal: {},
+  })
+}
+
+
+
   render() {
     console.log(meals)
     return (
     <div className={styles.bothCardsVisible}>
-      <div >
+      <div className={styles.mealsList}>
 
-
-        <h1 onClick={() => this.setMealFilter('breakfast')}> Breakfast</h1>
-        <h1 onClick={() => this.setMealFilter('lunch')}> Lunch</h1>
-        <h1 onClick={() => console.log('dinner')}> Dinner</h1>
-        <h1 onClick={() => console.log('snacks')}> Snacks</h1>
+      <div><h1 onClick={() => this.setMealFilter('breakfast')}> Breakfast</h1></div>
+      <div><h1 onClick={() => this.setMealFilter('lunch')}> Lunch</h1></div>
+      <div><h1 onClick={() => this.setMealFilter('Dinner')}> Dinner</h1></div>
+      <div><h1 onClick={() => this.setMealFilter('Snack')}> Snacks</h1></div> 
+        
         
       </div>
 
@@ -41,10 +49,11 @@ state={
       </div>
 
       <div>
-        {this.state.selectedMeal.id && <MealCardFull meal={this.state.selectedMeal}/> }
+        {this.state.selectedMeal.id && <MealCardFull meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
       </div>
 
     </div>
-    );
+    )
   }
+
 }
