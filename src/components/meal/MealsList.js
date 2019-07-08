@@ -30,7 +30,7 @@ clearMeal =() => {
     console.log(meals)
     return (
     <div className={styles.bothCardsVisible}>
-      <div className={styles.mealsTypesList}>
+      <div className={styles.mealsList}>
 
       <div><h1 onClick={() => this.setMealFilter('breakfast')}> Breakfast</h1></div>
       <div><h1 onClick={() => this.setMealFilter('lunch')}> Lunch</h1></div>
