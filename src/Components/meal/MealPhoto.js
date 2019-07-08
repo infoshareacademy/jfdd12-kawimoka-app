@@ -11,11 +11,10 @@ export function MealPhoto(props) {
     
   
     return (
-     
        
-        <div >
-            <img className={styles.mealPhoto} src={image} alt={name}/>
-        </div>
+    <div>
+        <img className={styles.mealPhoto} src={image} alt={name}/>
+    </div>
      
     );
   }

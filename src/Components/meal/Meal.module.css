@@ -1,10 +1,9 @@
 /* Meal Card - short version */
 
 .mealCardShort {
-    border: 2px solid rgb(43, 41, 41);
-    border-radius: 15px;
+    border: 1px solid rgb(43, 41, 41);
+    border-radius: 5px;
     box-shadow: 5px 10px 8px #888888;
-   
     margin: 20px;
     display: flex;
     flex-flow: row;
@@ -13,91 +12,191 @@
     height: 180px;
 }
 
-.mealPhoto{
-    justify-content: center;
-    border-radius: 0px 15px 0px 0px;
+.mealCardShortInfo {
+    color: rgb(56, 56, 56);
     margin: 5px;
-    width: 130px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
 }
 
-.mealInfo {
-   color: rgb(56, 56, 56);
-   margin: 5px;
-   display: flex;
-   flex-flow: column;
-   justify-content: space-between;
-}
-
-.mealInfo h1 {
-    font-size: 20px;
+.mealCardShortInfo h1 {
+    font-size: 18px;
     text-transform: uppercase;
     text-decoration: underline;
     
 }
-.mealInfo h2 {
-    font-size: 10px;
-}
-.mealInfo h3 {
+.mealCardShortInfo h2 {
     font-size: 15px;
+    margin: 0px;
 }
 
+.mealPhoto{
+    justify-content: center;
+    border-radius: 0px 5px 0px 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 130px;
+}
+
+
+
+/* FULL CARD */
 
 .mealCardFull{
-    border: 2px solid black;
-    border-radius: 15px;
-    box-shadow: 5px 10px 8px #888888;
-   
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 10px 8px #888888;  
     margin: 20px;
     display: flex;
-    flex-flow: column;
+    flex-wrap: wrap;
     justify-content: space-between;
-    width: 900px;
-    height: 800px;
+    width: 600px;
+    height: 600px;
+}
+
+.mealCardTop{
+ display: flex;
+ flex-flow: row;
+}
+
+.mealCardFullInfo{
+    color: rgb(56, 56, 56);
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    width: 400px;
+    padding: 0px;
+    
+}
+
+.mealCardFullInfo h1{
+    font-size: 30px;
+    margin-left: 10px;
+    padding: 0px;
+}
+.mealCardFullInfo h2{
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 0px;
 }
 
 .mealCardFull img{
-    width: 400px;
-}
+    width: 200px;
+    margin: 0px;
+    padding: 0px;
 
-.mealCardFullTop{
+}
+.mealCardMain{
     display: flex;
-    justify-content: space-between;
-
+    flex-flow: row;
 }
 
-.mealCardFull p {
-    font-size: 20px;
+.mealCardMainLeft{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    width: 200px;
 }
+.nutritions{
+    display: flex;
+    flex-flow: column;
+    width: 200px;
+    margin-bottom: 10px;
+}
+.nutritions h3{
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 2px;
+}
+.nutritions p{
+    font-size: 15px;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 2px;
+}
+.ingradients {
+    display: flex;
+    flex-flow: column;
+    width: 200px;
+}
+.ingradients h3{
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 2px;
+}
+.ingradients p{
+    font-size: 15px;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 2px;
+}
+
+.recipe{
+    display: flex;
+    flex-flow: column;
+    width: 400px;
+    margin-bottom: 10px;
+    border-left: 1px solid black;
+}
+.recipe h3{
+    font-size: 18px;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 2px;
+}
+.recipe p{
+    font-size: 15px;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 2px;
+}
+
+
+.mealCardFooter{
+    display: flex;
+    flex-flow: row;
+    align-items: space-between;
+}
+.mealCardFooter button{
+
+    margin: 10px;
+}
+
+
 .bothCardsVisible {
     display: flex;
     flex-flow: row;
 }
 
-.mealsList h1 {
+
+.mealsTypesList h1 {
     text-align: center;
-    border: 2px black solid;
-    border-radius: 15px;
-   
+    border: 1px black solid;
+    border-radius: 5px; 
     height: 100px;
     width: 200px;
     margin: 30px;
 }
 
 .addMealButton {
-    font-size: 40px;
+    font-size: 18px;
     font-weight: bolder;
-    border-radius: 40px;
+    border-radius: 5px;
     background-color: green;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 60px;
 
 }
 
 .closeCardButton {
-    font-size: 40px;
+    font-size: 18px;
     font-weight: bolder;
-    border-radius: 40px;
+    border-radius: 5px;
     background-color: red;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 60px;
 }
