@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import { Navbar } from './Components/Navbar'
 import { PlanDietContainer } from './Components/PlanDietView/PlanDietContainer'
 import { Footer } from './Components/Footer'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -10,7 +11,20 @@ import { fab, faFacebookSquare, faInstagram } from '@fortawesome/free-brands-svg
 
 library.add(fab, faFacebookSquare, faInstagram)
 
-ReactDOM.render(<Footer />, document.getElementById('root'))
+ReactDOM.render(
+  <div>
+    <div>
+      <Navbar />
+    </div>
+
+    <App />
+
+    <div>
+      <Footer />
+    </div>
+  </div>,
+  document.getElementById('root')
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
