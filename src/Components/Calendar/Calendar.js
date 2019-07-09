@@ -1,7 +1,7 @@
-import React, { Component } from "./node_modules/react";
-import { Calendar, momentLocalizer } from "./node_modules/react-big-calendar";
-import moment from "./node_modules/moment";
-import "./node_modules/react-big-calendar/lib/css/react-big-calendar.css";
+import React, { Component } from "react";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from "moment";
+import "../../../node_modules/react-big-calendar/lib/css/react-big-calendar.css";
 import events from "../../events";
 
 const localizer = momentLocalizer(moment);
