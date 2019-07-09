@@ -6,6 +6,8 @@ import s from './SingleDay.module.css'
 
 
 class SingleDay extends React.Component {
+
+
     
 
 
@@ -13,10 +15,10 @@ class SingleDay extends React.Component {
         return (
             <div className={s.singleDayContainer}>
             <DayPicker date = {this.props.date} />
-                <MealSpace mealType = {"Breakfast"} />
-                <MealSpace mealType = {"Lunch"}/>
-                <MealSpace mealType = {"Snacks"}/>
-                <MealSpace mealType = {"Dinner"}/>
+                <MealSpace mealType = {"Breakfast"} selectedMealId = {this.props.selectedMealId}/>
+                <MealSpace mealType = {"Lunch"} selectedMealId = {this.props.selectedMealId}/>
+                <MealSpace mealType = {"Snacks"} selectedMealId = {this.props.selectedMealId}/>
+                <MealSpace mealType = {"Dinner"} selectedMealId = {this.props.selectedMealId}/>
                 <SummaryDay sumCalories = {"1230"} kcalGoal = {"1800"} leftCalories />
             </div>
             )

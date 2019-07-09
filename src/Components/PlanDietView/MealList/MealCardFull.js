@@ -6,7 +6,7 @@ import styles from './Meal.module.css';
 import {AddMealButton} from './AddMealButton';
 
 export function MealCardFull(props) {
-const {meal, onAdd, id} = props;
+const {meal, onAdd, selectedMealId} = props;
 const { name, type, time, image, kcal, nutritions, recipe } = meal;
 const {fat, carbs, protein} = nutritions;
 
@@ -30,7 +30,7 @@ const {fat, carbs, protein} = nutritions;
         <p>{recipe}</p>
       </div>
      <div>
-       <AddMealButton onAdd={onAdd} id={id}/>
+       <AddMealButton onAdd={onAdd} selectedMealId={selectedMealId}/>
        <button onClick={() => props.onMealClose()} className={styles.closeCardButton}> X </button>
      </div>
      

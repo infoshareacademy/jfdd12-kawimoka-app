@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import meals from "./meals.json";
 import { MealCardShort } from "./MealCardShort";
-import {Droppable, Draggable} from 'react-beautiful-dnd'
+// import {Droppable, Draggable} from 'react-beautiful-dnd'
 import { MealCardFull } from "./MealCardFull";  
 import styles from './Meal.module.css';
 
@@ -61,7 +61,7 @@ render() {
           }
       </div>
       <div>
-        {this.state.selectedMeal.id && <MealCardFull id={this.state.selectedMeal.id} onAdd ={this.props.onAdd} meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
+        {this.state.selectedMeal.id && <MealCardFull selectedMealId={this.state.selectedMeal.id} onAdd ={this.props.onAdd} meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
       </div>
 
     </div>

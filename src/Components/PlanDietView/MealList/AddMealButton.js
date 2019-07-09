@@ -1,9 +1,9 @@
 import React from "react";
 import styles from './Meal.module.css';
 
-export const AddMealButton = (props) => {
+export function AddMealButton(props) {
   const { onAdd, selectedMealId } = props
   
-  return <button onClick={() => onAdd(selectedMealId)} className={styles.addMealButton}> + </button>
+  return <button onClick={(e) => onAdd(selectedMealId)} className={styles.addMealButton}> + </button>
 };
 
