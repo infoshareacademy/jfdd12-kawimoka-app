@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
@@ -12,20 +13,27 @@ import { MealsList } from './Components/meal/MealsList'
 
 library.add(fab, faFacebookSquare, faInstagram)
 
-ReactDOM.render(
-  <div>
-    <div>
-      <Navbar />
-    </div>
+const Root = props => {
+  return (
+    <Router>
+      <div>
+        <Navbar />
+        <div>
+          <Switch>
+            <Route exact path='/' component={App} />
+            <Route exact path='/mealslist' component={MealsList} />
+          </Switch>
+          <div />
+          <div>
+            <Footer />
+          </div>
+        </div>
+      </div>
+    </Router>
+  )
+}
 
-    <App />
-    <MealsList />
-    <div>
-      <Footer />
-    </div>
-  </div>,
-  document.getElementById('root')
-)
+ReactDOM.render(<Root />, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

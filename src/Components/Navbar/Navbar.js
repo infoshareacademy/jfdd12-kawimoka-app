@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import s from './Navbar.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -19,12 +20,14 @@ export function Navbar(props) {
         </a>
 
         <ul>
-          <a onclick='topFunction()' href=''>
+          <NavLink exact className={'default-link'} activeClassName={'active-link'} to='/'>
             Home
-          </a>
-          <a href='#sign-up'>Sign-up</a>
+          </NavLink>
+          <NavLink exact className={'default-link'} activeClassName={'active-link'} to='/mealslist'>
+            Meals list{' '}
+          </NavLink>
           <a href='#features'>Features</a>
-          <a href='#developers'>Team</a>
+          <a href='#Meals List'>Team</a>
         </ul>
       </nav>
     </header>
