@@ -30,15 +30,7 @@ clearMeal =() => {
     console.log(meals)
     return (
     <div className={styles.bothCardsVisible}>
-      <div className={styles.mealsList}>
 
-      <div><h1 onClick={() => this.setMealFilter('breakfast')}> Breakfast</h1></div>
-      <div><h1 onClick={() => this.setMealFilter('lunch')}> Lunch</h1></div>
-      <div><h1 onClick={() => this.setMealFilter('dinner')}> Dinner</h1></div>
-      <div><h1 onClick={() => this.setMealFilter('snack')}> Snacks</h1></div> 
-        
-        
-      </div>
 
       <div>
         {meals.filter(meal => meal.type === this.state.mealFilter).map(filteredMeal => (
@@ -47,6 +39,17 @@ clearMeal =() => {
          }}> <MealCardShort key={filteredMeal.id} meal={filteredMeal} /> </div>
         ))}
       </div>
+
+
+      <div className={styles.mealsList}>
+
+<div><h1 onClick={() => this.setMealFilter('breakfast')}> Breakfast</h1></div>
+<div><h1 onClick={() => this.setMealFilter('lunch')}> Lunch</h1></div>
+<div><h1 onClick={() => this.setMealFilter('dinner')}> Dinner</h1></div>
+<div><h1 onClick={() => this.setMealFilter('snack')}> Snacks</h1></div> 
+  
+  
+</div>
 
       <div>
         {this.state.selectedMeal.id && <MealCardFull meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
