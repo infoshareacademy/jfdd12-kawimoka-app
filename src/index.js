@@ -13,21 +13,24 @@ import { MealsList } from './Components/meal/MealsList'
 
 library.add(fab, faFacebookSquare, faInstagram)
 
+const NoMatch = () => <h1>404</h1>
+
 const Root = props => {
   return (
     <Router>
       <div>
         <Navbar />
-        <div>
-          <Switch>
-            <Route exact path='/' component={App} />
-            <Route exact path='/mealslist' component={MealsList} />
-          </Switch>
-          <div />
-          <div>
-            <Footer />
-          </div>
-        </div>
+      </div>
+      <div>
+        <Switch>
+          <Route exact path='/' component={App} />
+          <Route exact path='/mealslist' component={MealsList} />
+          <Redirect from='/home' to='/' />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
+      <div>
+        <Footer />
       </div>
     </Router>
   )

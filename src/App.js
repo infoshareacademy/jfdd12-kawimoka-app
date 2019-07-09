@@ -10,13 +10,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <Calendar
-          selectedDate={this.state.date}
-          setSelectedDate={date => this.setState({ date })}
-        />
-        <PlanDietContainer date={this.state.date} />
-      </>
+      <Calendar selectedDate={this.state.date} setSelectedDate={date => this.setState({ date })} />
     )
   }
 }
