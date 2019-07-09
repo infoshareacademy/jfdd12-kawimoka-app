@@ -16,6 +16,7 @@ class App extends React.Component {
       <div style={{display: "flex", flexDirection: "row"}}>
         <MealsList />
         <PlanDietContainer date={this.state.date} />
+        
 
         {/* <Calendar
           selectedDate={this.state.date}
