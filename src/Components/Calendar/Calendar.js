@@ -18,7 +18,7 @@ class CalendarContainer extends Component {
   };
 
   onSelect = e => {
-    console.log({ e });
+    
     this.props.setSelectedDate(moment(e.start))
     // this.props.selectedDate
     // this.setState({
