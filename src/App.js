@@ -14,10 +14,10 @@ class App extends React.Component {
       <div>
         <PlanDietContainer date={this.state.date} />
 
-        {/* <Calendar
+        <Calendar
           selectedDate={this.state.date}
           setSelectedDate={date => this.setState({ date })}
-        /> */}
+        />
       </div>
     );
   }

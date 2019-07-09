@@ -1,7 +1,9 @@
 import React from "react";
 import styles from './Meal.module.css';
 
-export const AddMealButton = () => (
-  <button onClick={() => alert("You've added this meal to the active day!!!!")} className={styles.addMealButton}> + </button>
-);
+export const AddMealButton = (props) => {
+  const { onAdd, selectedMealId } = props
+  
+  return <button onClick={() => onAdd(selectedMealId)} className={styles.addMealButton}> + </button>
+};
 
