@@ -24,6 +24,14 @@ export class DayPicker extends React.Component {
         }));
     }
 
+    componentWillReceiveProps(nextProps) {
+        // You don't have to do this check first, but it can help prevent an unneeded render
+        if (nextProps.date !== this.state.dateInner) {
+            
+          this.setState({ dateInner: nextProps.date });
+        }
+      }
+
 
     render () {
         return (

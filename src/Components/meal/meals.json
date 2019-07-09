@@ -1,0 +1,218 @@
+[
+    {
+      "id": 1,
+      "type": "breakfast",
+      "name": "Three-grain porridge",
+      "kcal": "179",
+      "time": "10",
+      "image": "https://fitfoodiefinds.com/wp-content/uploads/2015/10/classic-oatmeal.png",
+      "nutritions": {
+        "fat": 2,
+        "carbs": 32,
+        "protein":7
+    },
+    "ingradients": ["300g oatmeal",
+      "300g spelt flakes",
+      "300g barley flakes",
+      "agave nectar",
+      "sliced strawberries"],
+    "recipe": "Working in batches, toast the oatmeal, spelt flakes and barley in a large, dry frying pan for 5 mins until golden, then leave to cool and store in an airtight container. When you want to eat it, simply combine 50g of the porridge mixture in a saucepan with 300ml milk or water. Cook for 5 mins, stirring occasionally, then top with a drizzle of honey and strawberries, if you like (optional). Will keep for 6 months."
+
+    },
+    {
+      "id": 2,
+      "type": "breakfast",
+      "name": "Baked green eggs",
+      "time": "45",
+      "kcal": "370",
+      "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/baked-green-eggs.jpg?itok=ID6NZMjp",
+      "nutritions": {
+        "fat": 54,
+        "carbs": 3,
+        "protein":19
+    },
+    "ingradients": ["100g baby spinach",
+      "4 tbsp fresh pesto",      
+     "100ml double cream",
+      "1 tbsp finely grated gruyère",
+      "4 medium eggs"],
+    "recipe": "Heat oven to 200C/180C fan/gas 6. Mix together the spinach, pesto, cream and some seasoning, and tip into 2 individual shallow ovenproof dishes. Sprinkle the cheese over the top. Make 2 shallow hollows in the mixture in each dish and break an egg into each hollow. Bake in the oven for 10-12 mins until the whites are set and the yolks are still runny."
+
+    }, 
+    {
+      "id": 3,
+      "type": "breakfast",
+      "name": "American pancakes",
+      "time": "5",
+      "kcal": "579",
+      "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/05/american-style-pancakes.jpg?itok=_tikdZhR",
+      "nutritions": {
+          "fat": 13,
+          "carbs": 46,
+          "protein":13
+      },
+      "ingradients": ["200g self-raising flour",
+        "1 ½ tsp baking powder",        
+        "1 tbsp golden caster sugar",
+        "3 large eggs",
+        "25g melted butter",      
+        "200ml milk",        
+        "vegetable oil for cookin"],
+      "recipe": "Mix the flour, baking powder, caster sugar and a pinch of salt together in a large bowl. Create a well in the centre with the back of your spoon then add the eggs, melted butter and milk. Whisk together either with a balloon whisk or electric hand beaters until smooth then pour into a jug.Heat a small knob of butter and 1 tsp of oil in a large, non-stick frying pan over a medium heat. When the butter looks frothy pour in rounds of the batter, approximately 8cm wide. Make sure you don’t put the pancakes too close together as they will spread during cooking. Cook the pancakes on their first side for about 1-2 mins or until lots of tiny bubbles start to appear and pop on the surface. Flip the pancakes over and cook for a further minute on the other side. Repeat until all the batter is used up. "
+    },
+    {
+      "id": 4,
+      "type": "breakfast",
+      "name": "Shakshuka",
+      "time": "25",
+      "kcal": "340",
+      "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--12141_11.jpg?itok=RUtvuKpX",
+      "nutritions": {
+          "fat": 20,
+          "carbs": 21,
+          "protein":21
+      },
+      "ingradients": ["1 tbsp olive oil",
+        "2 red onions, chopped",
+        "1 red chilli, deseeded",
+        "1 garlic clove, sliced",
+        "small bunch coriander",
+        "2 400g cans cherry tomatoes",
+        "1 tsp caster sugar",
+        "4 eggs"],
+      "recipe": "Heat the oil in a frying pan that has a lid, then soften the onions, chilli, garlic and coriander stalks for 5 mins until soft. Stir in the tomatoes and sugar, then bubble for 8-10 mins until thick. Can be frozen for 1 month. Using the back of a large spoon, make 4 dips in the sauce, then crack an egg into each one. Put a lid on the pan, then cook over a low heat for 6-8 mins, until the eggs are done to your liking. Scatter with the coriander leaves and serve with crusty bread."
+    },
+    {
+      "id": 5,
+      "type": "breakfast",
+      "name": "Matcha breakfast bowl",
+      "time": "15",
+      "kcal": "261",
+      "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2016/06/matcha-breakfast-bowl.jpg?itok=1sOJNp07",
+      "nutritions": {
+          "fat": 11,
+          "carbs": 27,
+          "protein":10
+      },
+      "ingradients": ["300g natural yogurt",
+        "1 tbsp matcha powder",
+        "2 tsp maple syrup",        
+        "1 kiwi fruit",    
+        "1 peach",
+        "100g blueberries",
+        "20g coconut flakes"],
+      "recipe": "Heat the oil in a frying pan that has a lid, then soften the onions, chilli, garlic and coriander stalks for 5 mins until soft. Stir in the tomatoes and sugar, then bubble for 8-10 mins until thick. Can be frozen for 1 month. Using the back of a large spoon, make 4 dips in the sauce, then crack an egg into each one. Put a lid on the pan, then cook over a low heat for 6-8 mins, until the eggs are done to your liking. Scatter with the coriander leaves and serve with crusty bread."
+    },
+    {
+      "id": 6,
+      "type": "lunch",
+      "name": "Spaghetti Genovese",
+      "time": "25",
+      "kcal": "330",
+      "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1845_10.jpg?itok=GvW3gBBJ",
+      "nutritions": {
+          "fat": 23,
+          "carbs": 8,
+          "protein":23
+      },
+      "ingradients": ["300g new potato, sliced",
+        "300g spaghetti",
+        "200g trimmed green bean, cut in half",
+        "120g tub fresh pesto",        
+        "olive oil"],
+      "recipe": "Pour a kettle of boiling water into a very large pan until half full. Return to the boil, then add the potatoes and spaghetti, and a little salt. Cook for 10 minutes until the potatoes and pasta are almost tender. Tip in the green beans and cook for 5 minutes more. Drain well, reserving 4 tbsp of the cooking liquid. Return the potatoes, pasta and beans to the pan, then stir in the fresh pesto and reserved cooking liquid. Season to taste, divide between four serving plates and drizzle with a little olive oil."
+    },
+    {
+      "id": 7,
+      "type": "lunch",
+      "name": "Spaghetti with sardines",
+      "time": "20",
+      "kcal": "495",
+      "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--922495_11.jpg?itok=I-RO2oHv",
+      "nutritions": {
+          "fat": 14,
+          "carbs": 77,
+          "protein":21
+      },
+      "ingradients": ["400g spaghetti",
+        "1 tbsp olive oil",        
+        "2 garlic cloves",
+        "pinch chilli flakes",
+        "227g can chopped tomato",
+        "2 x 95g cans sardines in tomato sauce",        
+        "100g pitted black olives, roughly chopped",
+        "1 tbsp capers"],
+      "recipe": "Cook the spaghetti in a large pan of boiling salted water according to pack instructions. Meanwhile, make the sauce. Heat the oil in a medium pan and cook the garlic for 1 min. Add the chilli flakes, tomatoes and sardines, breaking up roughly with a wooden spoon. Heat for 2-3 mins, then stir in the olives, capers and most of the parsley. Mix well to combine. Drain the pasta, reserving a couple of tbsp of the water. Add the pasta to the sauce and mix well, adding the reserved water if the sauce is a little thick. Divide between 4 bowls and sprinkle with the remaining parsley. "
+    },
+    {
+      "id": 8,
+      "type": "lunch",
+      "name": "Spiced carrot & lentil soup",
+      "time": "25",
+      "kcal": "238",
+      "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1074500_11.jpg?itok=IwEifJO_",
+      "nutritions": {
+          "fat": 7,
+          "carbs": 34,
+          "protein":11
+      },
+      "ingradients": ["2 tsp cumin seeds",
+        "pinch chilli flakes",
+        "2 tbsp olive oil",
+        "600g carrots",
+        "140g split red lentils",
+        "1l hot vegetable stock",
+        "125ml milk",
+        "plain yogurt",
+         "naan bread"],
+      "recipe": "Heat a large saucepan and dry-fry 2 tsp cumin seeds and a pinch of chilli flakes for 1 min, or until they start to jump around the pan and release their aromas. Scoop out about half with a spoon and set aside. Add 2 tbsp olive oil, 600g coarsely grated carrots, 140g split red lentils, 1l hot vegetable stock and 125ml milk to the pan and bring to the boil. immer for 15 mins until the lentils have swollen and softened. Whizz the soup with a stick blender or in a food processor until smooth (or leave it chunky if you prefer). Season to taste and finish with a dollop of plain yogurt and a sprinkling of the reserved toasted spices. Serve with warmed naan breads."
+    },
+    {
+      "id": 9,
+      "type": "lunch",
+      "name": "Falafel burgers",
+      "time": "15",
+      "kcal": "161",
+      "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/01/recipe-image-legacy-id--326597_11.jpg?itok=0bBEqeae",
+      "nutritions": {
+          "fat": 8,
+          "carbs": 18,
+          "protein":6
+      },
+      "ingradients": ["400g can chickpea",
+        "1 small red onion, ",
+        "1 garlic clove, ",
+        "1 tsp ground cumin        ",
+        "1 tsp ground coriander",
+        "1⁄2 tsp harissa paste or chilli powder",
+        "2 tbsp plain flour",
+        "2 tbsp sunflower oil",
+        "200g tub tomato salsa",
+        "green salad"],
+      "recipe": "Drain a 400g can chickpeas and pat dry with kitchen paper. Tip into a food processor along with 1 small roughly chopped red onion, 1 garlic clove, handful of flat-leaf parsley, 1 tsp ground cumin, 1 tsp ground coriander, ½ tsp harissa paste or chillli powder, 2 tbsp plain flour and a little salt. Blend until fairly smooth, then shape into four patties with your hands. Heat 2 tbsp sunflower oil in a non-stick frying pan, add the burgers, then quickly fry for 3 mins on each side until lightly golden. Serve with toasted pitta bread, 200g tub tomato salsa and a green salad."
+    },
+    {
+      "id": 10,
+      "type": "lunch",
+      "name": "Sweet & sour chicken",
+      "time": "25",
+      "kcal": "305",
+      "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1259495_9.jpg?itok=4cr2l-K0",
+      "nutritions": {
+          "fat": 2,
+          "carbs": 38,
+          "protein":36
+      },
+      "ingradients": ["9 tbsp tomato ketchup",
+        "3 tbsp malt vinegar",
+        "4 tbsp dark muscovado sugar",
+        "2 garlic cloves,",
+        "4 skinless chicken breast",
+        "1 small onion",
+        "2 red peppers",
+        "227g 8oz can pineapple",
+        "100g sugar snap peas",
+        "nuts (optional)"],
+      "recipe": "In a large microwaveable dish, mix the ketchup, vinegar, sugar and garlic thoroughly with the chicken, onion and peppers. Microwave, uncovered, on High for 8-10 minutes until the chicken is starting to cook and the sauce is sizzling. Stir in the pineapple pieces and sugar snap peas and return to the microwave for another 3-5 minutes until the chicken is completely cooked. Leave to stand for a few minutes, then stir in the cashews, if using, and serve."
+    }
+  ]

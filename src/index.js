@@ -8,6 +8,7 @@ import { PlanDietContainer } from './Components/PlanDietView/PlanDietContainer'
 import { Footer } from './Components/Footer'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab, faFacebookSquare, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { MealsList } from './Components/meal/MealsList'
 
 library.add(fab, faFacebookSquare, faInstagram)
 
@@ -18,7 +19,7 @@ ReactDOM.render(
     </div>
 
     <App />
-
+    <MealsList />
     <div>
       <Footer />
     </div>
