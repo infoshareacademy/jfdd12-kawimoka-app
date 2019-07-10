@@ -29,9 +29,9 @@ clearMeal =() => {
   render() {
     console.log(meals)
     return (
-    <div className={styles.bothCardsVisible}>
+    <div className={styles.mealsList}>
 
-      <div className={styles.mealsList}>
+      <div className={styles.mealsTypes}>
 
         <div><h1 onClick={() => this.setMealFilter('breakfast')}> Breakfast</h1></div>
         <div><h1 onClick={() => this.setMealFilter('lunch')}> Lunch</h1></div>
@@ -41,7 +41,7 @@ clearMeal =() => {
       </div>
 
 
-      <div className={styles.mealsColumn}>
+      <div className={styles.mealsShortCardsList}>
         <div>
           {meals.filter(meal => meal.type === this.state.mealFilter).map(filteredMeal => (
           <div onClick={()=> {
