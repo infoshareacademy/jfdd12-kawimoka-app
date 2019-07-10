@@ -24,7 +24,7 @@ const Root = props => {
       <div>
         <Switch>
           <Route exact path='/' component={App} />
-          <Route exact path='/mealslist' component={MealsList} />
+          <Route path='/mealslist' component={MealsList} />
           <Redirect from='/home' to='/' />
           <Route component={NoMatch} />
         </Switch>
