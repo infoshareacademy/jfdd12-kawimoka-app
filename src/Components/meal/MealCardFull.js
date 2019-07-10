@@ -1,44 +1,57 @@
 
 import React from 'react';
-import {MealInfo} from './MealInfo';
+import {AddMealButton} from './AddMealButton';
 import {MealPhoto} from './MealPhoto';
 import styles from './Meal.module.css';
-import {AddMealButton} from './AddMealButton';
 
 export function MealCardFull(props) {
 const {meal, onAdd, selectedMealId} = props;
-const { name, type, time, image, kcal, nutritions, recipe } = meal;
+const { name, type, time, image, kcal, nutritions, recipe, ingradients } = meal;
 const {fat, carbs, protein} = nutritions;
 
 
   
   return (
-    <div className={styles.mealCardFull}>
-      <div className={styles.mealCardFullTop}>
-        <MealInfo name={name} time={time} kcal={kcal} type={type}/>        
-        <MealPhoto image={image} alt={"tu jest tekst"} />
+  <div className={styles.mealCardFull}>
+     
 
-      </div>
-      <div>
-        <div>
-        <h3>Nutritions</h3>  
-        <p>fat={fat}g</p>
-        <p>carbs={carbs}g </p>
-        <p>protein={protein}g </p> 
+    <div className={styles.mealCardTop}>
+          <div className={styles.mealCardFullInfo}>
+            <h1> {name} </h1>
+            <h2>Calories: {kcal} kcal</h2>
+            <h2>Prep Time: {time} min </h2> 
+          </div>
+
+          <MealPhoto image={image} alt={"tu jest tekst"} /> 
+    </div>  
+            
+    <div className={styles.mealCardMain}>  
+    <div className={styles.mealCardMainLeft}>
+        <div className={styles.nutritions}>
+          <h3>Nutritions</h3>  
+          <p>fat={fat}g</p>
+          <p> carbs={carbs}g </p>
+          <p>protein={protein}g </p> 
         </div>
-        <h3> Recipe</h3>
-        <p>{recipe}</p>
-      </div>
-     <div>
-       <AddMealButton onAdd={onAdd} meal={meal}/>
-       <button onClick={() => props.onMealClose()} className={styles.closeCardButton}> X </button>
-     </div>
-     
-       
-     
+        <div className={styles.ingradients}>
+          <h3>Ingradients:</h3>
+          <p>{ingradients}</p>
+        </div>
     </div>
-       
 
+        <div className={styles.recipe}>       
+          <h3> Recipe</h3>
+          <p>{recipe}</p>
+        </div>
+     </div>
+     <div className={styles.mealCardFooter}>
+
+    <button onClick={() => props.onMealClose()} className={styles.closeCardButton}> CLOSE </button>
+    <AddMealButton onAdd={onAdd} meal={meal} selectedMealId={selectedMealId} className={styles.addMealButton} />
+  
+      </div>
+    </div>
+      
   );
 }
   

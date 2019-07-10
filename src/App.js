@@ -6,10 +6,9 @@ import Calendar from "./Components/Calendar/Calendar"
 class App extends React.Component {
   state = {
     date: moment()
-  };
+  }
 
   render() {
-    console.log(this.state.date);
     return (
       <div>
         <PlanDietContainer date={this.state.date} />
@@ -23,4 +22,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default App

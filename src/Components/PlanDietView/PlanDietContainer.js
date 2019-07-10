@@ -10,7 +10,7 @@ export class PlanDietContainer extends React.Component{
     state = {
         breakfastId: undefined,
         lunchId: undefined,
-        snacksId: undefined,
+        snackId: undefined,
         dinnerId: undefined
     }
 
@@ -19,8 +19,8 @@ export class PlanDietContainer extends React.Component{
             this.setState({breakfastId: meal.id}) 
         } else if (meal.type === "lunch") {
             this.setState({lunchId: meal.id})
-        } else if (meal.type === 'snacks') {
-            this.setState({snacksId: meal.id})
+        } else if (meal.type === 'snack') {
+            this.setState({snackId: meal.id})
         } else if (meal.type === "dinner") {
             this.setState({dinnerId: meal.id})
         }
@@ -33,7 +33,7 @@ export class PlanDietContainer extends React.Component{
                 date = {this.props.date} 
                 breakfastId = {this.state.breakfastId} 
                 lunchId = {this.state.lunchId} 
-                snacksId = {this.state.snacksId} 
+                snackId = {this.state.snackId} 
                 dinnerId = {this.state.dinnerId} />
                 <MealsList onAdd = {this.onAdd}/>
             </div>

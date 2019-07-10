@@ -7,14 +7,14 @@ import meals from '../../meal/meals.json'
 
 
 function SingleDay (props) {
-   const { breakfastId, lunchId, snacksId, dinnerId } = props
+   const { breakfastId, lunchId, snackId, dinnerId } = props
     
     return (
         <div className={s.singleDayContainer}>
         <DayPicker date = {props.date} />
             <MealSpace mealTypeTitle="Breakfast" mealId={breakfastId}/>
             <MealSpace mealTypeTitle = {"Lunch"} mealId={lunchId} />
-            <MealSpace mealTypeTitle = {"Snacks"} mealId={snacksId} />
+            <MealSpace mealTypeTitle = {"Snacks"} mealId={snackId} />
             <MealSpace mealTypeTitle = {"Dinner"} mealId={dinnerId} />
             <SummaryDay sumCalories = {"1230"} kcalGoal = {"1800"} leftCalories />
         </div>
