@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import meals from "./meals.json";
 import { MealCardShort } from "./MealCardShort";
-import { MealCardFull } from "./MealCardFull";  // tutaj meal card short
+// import {Droppable, Draggable} from 'react-beautiful-dnd'
+import { MealCardFull } from "./MealCardFull";  
 import styles from './Meal.module.css';
 
 
@@ -29,31 +30,36 @@ clearMeal =() => {
   render() {
     console.log(meals)
     return (
-    <div className={styles.bothCardsVisible}>
-      <div className={styles.mealsList}>
+    <div className={styles.mealsList}>
 
-      <div><h1 onClick={() => this.setMealFilter('breakfast')}> Breakfast</h1></div>
-      <div><h1 onClick={() => this.setMealFilter('lunch')}> Lunch</h1></div>
-      <div><h1 onClick={() => this.setMealFilter('dinner')}> Dinner</h1></div>
-      <div><h1 onClick={() => this.setMealFilter('snack')}> Snacks</h1></div> 
+      <div className={styles.mealsTypes}>
+
+        <div><h1 onClick={() => this.setMealFilter('breakfast')}> Breakfast</h1></div>
+        <div><h1 onClick={() => this.setMealFilter('lunch')}> Lunch</h1></div>
+        <div><h1 onClick={() => this.setMealFilter('dinner')}> Dinner</h1></div>
+        <div><h1 onClick={() => this.setMealFilter('snack')}> Snacks</h1></div> 
         
+      </div>
+
+
+      <div className={styles.mealsShortCardsList}>
+        <div>
+          {meals.filter(meal => meal.type === this.state.mealFilter).map(filteredMeal => (
+          <div onClick={()=> {
+            this.setState({selectedMeal: filteredMeal})
+          }}> <MealCardShort key={filteredMeal.id} meal={filteredMeal} /> </div>
+          ))}
+        </div>
         
-      </div>
+        <div>
+        {this.state.selectedMeal.id && <MealCardFull selectedMealId={this.state.selectedMeal.id} onAdd ={this.props.onAdd} meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
+        </div>
 
-      <div>
-        {meals.filter(meal => meal.type === this.state.mealFilter).map(filteredMeal => (
-         <div onClick={()=> {
-           this.setState({selectedMeal: filteredMeal})
-         }}> <MealCardShort key={filteredMeal.id} meal={filteredMeal} /> </div>
-        ))}
       </div>
-
-      <div>
-        {this.state.selectedMeal.id && <MealCardFull meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
-      </div>
+   
 
     </div>
-    )
-  }
+  )
+}
 
 }

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import {MealPhoto} from './MealPhoto';
+// import {Draggable} from 'react-beautiful-dnd'
 import styles from './Meal.module.css';
 
 

@@ -9,6 +9,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "moment": "^2.24.0",
     "react": "^16.8.6",
+    "react-beautiful-dnd": "^11.0.4",
     "react-big-calendar": "^0.22.0",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",

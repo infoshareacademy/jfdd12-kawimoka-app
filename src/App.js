@@ -1,7 +1,7 @@
-import React from 'react'
-import { PlanDietContainer } from './Components/PlanDietView/PlanDietContainer'
-import moment from 'moment'
-import Calendar from './Components/Calendar/Calendar'
+import React from "react";
+import { PlanDietContainer } from "./Components/PlanDietView/PlanDietContainer";
+import moment from "moment";
+import Calendar from "./Components/Calendar/Calendar"
 
 class App extends React.Component {
   state = {
@@ -10,8 +10,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <Calendar selectedDate={this.state.date} setSelectedDate={date => this.setState({ date })} />
-    )
+      <div>
+        <PlanDietContainer date={this.state.date} />
+
+        <Calendar
+          selectedDate={this.state.date}
+          setSelectedDate={date => this.setState({ date })}
+        />
+      </div>
+    );
   }
 }
 
