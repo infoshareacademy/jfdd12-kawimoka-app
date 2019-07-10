@@ -7,17 +7,34 @@ import { MealsList } from '../meal/MealsList';
 
 export class PlanDietContainer extends React.Component{
 
-    selectedMealId;
+    state = {
+        breakfastId: undefined,
+        lunchId: undefined,
+        snacksId: undefined,
+        dinnerId: undefined
+    }
 
-    onAdd = (id) => {
-        console.log(id)
-        return this.selectedMealId = id
+    onAdd = (meal) => {
+        if (meal.type === "breakfast") {
+            this.setState({breakfastId: meal.id}) 
+        } else if (meal.type === "lunch") {
+            this.setState({lunchId: meal.id})
+        } else if (meal.type === 'snacks') {
+            this.setState({snacksId: meal.id})
+        } else if (meal.type === "dinner") {
+            this.setState({dinnerId: meal.id})
+        }
     }
 
     render(){
         return <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
                 
-                <SingleDay date = {this.props.date} selectedMealId = {this.selectedMealId} />
+                <SingleDay 
+                date = {this.props.date} 
+                breakfastId = {this.state.breakfastId} 
+                lunchId = {this.state.lunchId} 
+                snacksId = {this.state.snacksId} 
+                dinnerId = {this.state.dinnerId} />
                 <MealsList onAdd = {this.onAdd}/>
             </div>
         

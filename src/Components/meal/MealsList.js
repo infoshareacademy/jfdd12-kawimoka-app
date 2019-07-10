@@ -29,7 +29,6 @@ clearMeal =() => {
 
 
 render() {
-  console.log(meals)
   return (
     <div className={styles.bothCardsVisible}>
       <div className={styles.mealsList}>
@@ -61,7 +60,7 @@ render() {
           }
       </div>
       <div>
-        {this.state.selectedMeal.id && <MealCardFull selectedMealId={this.state.selectedMeal.id} onAdd ={this.props.onAdd} meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
+        {this.state.selectedMeal.id && <MealCardFull meal={this.state.selectedMeal} onAdd ={this.props.onAdd} meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
       </div>
 
     </div>

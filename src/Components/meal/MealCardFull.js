@@ -30,7 +30,7 @@ const {fat, carbs, protein} = nutritions;
         <p>{recipe}</p>
       </div>
      <div>
-       <AddMealButton onAdd={onAdd} selectedMealId={selectedMealId}/>
+       <AddMealButton onAdd={onAdd} meal={meal}/>
        <button onClick={() => props.onMealClose()} className={styles.closeCardButton}> X </button>
      </div>
      
