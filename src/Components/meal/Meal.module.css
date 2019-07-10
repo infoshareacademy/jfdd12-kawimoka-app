@@ -171,11 +171,20 @@
 
 .bothCardsVisible {
     display: flex;
+    flex-flow: column;
+}
+.mealsColumn {
+    display: flex;
+    flex-flow: row;
+
+}
+.mealsList{
+    display: flex;
     flex-flow: row;
 }
 
-
 .mealsList h1 {
+
     text-align: center;
     border: 1px black solid;
     border-radius: 5px; 
