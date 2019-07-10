@@ -26,6 +26,18 @@ export class PlanDietContainer extends React.Component{
         }
     }
 
+    onDelete = (meal) => {
+        if (meal.type === "breakfast") {
+            this.setState({breakfastId: undefined}) 
+        } else if (meal.type === "lunch") {
+            this.setState({lunchId: undefined})
+        } else if (meal.type === 'snack') {
+            this.setState({snackId: undefined})
+        } else if (meal.type === "dinner") {
+            this.setState({dinnerId: undefined})
+        }
+    }
+
     render(){
         return <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
                 
@@ -34,7 +46,8 @@ export class PlanDietContainer extends React.Component{
                 breakfastId = {this.state.breakfastId} 
                 lunchId = {this.state.lunchId} 
                 snackId = {this.state.snackId} 
-                dinnerId = {this.state.dinnerId} />
+                dinnerId = {this.state.dinnerId} 
+                onDelete = {this.onDelete}/>
                 <MealsList onAdd = {this.onAdd}/>
             </div>
         
