@@ -26,8 +26,6 @@ export function Navbar(props) {
           <NavLink exact className={'default-link'} activeClassName={'active-link'} to='/mealslist'>
             Meals list{' '}
           </NavLink>
-          <a href='#features'>Features</a>
-          <a href='#Meals List'>Team</a>
         </ul>
       </nav>
     </header>
