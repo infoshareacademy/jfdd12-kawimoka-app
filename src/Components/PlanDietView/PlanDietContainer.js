@@ -1,6 +1,6 @@
 import React from 'react'
 import SingleDay  from './SingleDay'
-import { MealsList } from './MealList/MealsList';
+import { MealsList } from '../meal/MealsList';
 // import {DragDropContext} from 'react-beautiful-dnd';
 // import meals from './MealList/meals.json'
 
@@ -10,6 +10,7 @@ export class PlanDietContainer extends React.Component{
     selectedMealId;
 
     onAdd = (id) => {
+        console.log(id)
         return this.selectedMealId = id
     }
 
