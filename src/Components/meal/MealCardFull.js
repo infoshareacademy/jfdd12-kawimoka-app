@@ -1,15 +1,11 @@
 
 import React from 'react';
-
+import {AddMealButton} from './AddMealButton';
 import {MealPhoto} from './MealPhoto';
 import styles from './Meal.module.css';
 
-
-
-
-
 export function MealCardFull(props) {
-const {meal} = props;
+const {meal, onAdd, selectedMealId} = props;
 const { name, type, time, image, kcal, nutritions, recipe, ingradients } = meal;
 const {fat, carbs, protein} = nutritions;
 
@@ -51,7 +47,8 @@ const {fat, carbs, protein} = nutritions;
   <div className={styles.mealCardFooter}>
 
     <button onClick={() => props.onMealClose()} className={styles.closeCardButton}> CLOSE </button>
-    <button onClick={() => alert("You've added this meal to the active day!!!!")} className={styles.addMealButton}> ADD + </button>
+    <AddMealButton onAdd={onAdd} selectedMealId={selectedMealId} className={styles.addMealButton}/>
+ 
       
   </div>
     </div>

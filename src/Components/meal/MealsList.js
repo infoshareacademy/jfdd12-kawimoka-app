@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import meals from "./meals.json";
 import { MealCardShort } from "./MealCardShort";
-import { MealCardFull } from "./MealCardFull";  // tutaj meal card short
+// import {Droppable, Draggable} from 'react-beautiful-dnd'
+import { MealCardFull } from "./MealCardFull";  
 import styles from './Meal.module.css';
 
 
@@ -51,14 +52,14 @@ clearMeal =() => {
         </div>
         
         <div>
-          {this.state.selectedMeal.id && <MealCardFull meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
+        {this.state.selectedMeal.id && <MealCardFull selectedMealId={this.state.selectedMeal.id} onAdd ={this.props.onAdd} meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
         </div>
 
       </div>
    
 
     </div>
-    )
-  }
+  )
+}
 
 }
