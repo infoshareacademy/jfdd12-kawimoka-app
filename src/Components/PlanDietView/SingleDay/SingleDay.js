@@ -7,8 +7,10 @@ import meals from '../../meal/meals.json'
 
 
 function SingleDay (props) {
-   const { breakfastId, lunchId, snackId, dinnerId, onDelete } = props
+   const { breakfastId, lunchId, snackId, dinnerId, sumCalories, onDelete } = props
     
+
+
     return (
         <div className={s.singleDayContainer}>
         <DayPicker date = {props.date} />
@@ -16,10 +18,10 @@ function SingleDay (props) {
             <MealSpace mealTypeTitle = {"Lunch"} mealId={lunchId} onDelete={onDelete} />
             <MealSpace mealTypeTitle = {"Snacks"} mealId={snackId} onDelete={onDelete} />
             <MealSpace mealTypeTitle = {"Dinner"} mealId={dinnerId} onDelete={onDelete} />
-            <SummaryDay sumCalories = {"1230"} kcalGoal = {"1800"} leftCalories />
+            <SummaryDay sumCalories = {sumCalories} kcalGoal = {"1800"} leftCalories />
         </div>
         )
+    
     }
-
 
 export default SingleDay
