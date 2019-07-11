@@ -12,7 +12,7 @@ export function MealSpace (props) {
     return <div className={s.mealSpaceContainer}>
         <h3 className={s.mealTypeTitle}>{mealTypeTitle}</h3>
         <div className={s.mealSpace}>
-            {mealId && <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around"}}>
+            {mealId && <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "10px", marginRight: "30px"}}>
                 <MealCardShort meal={addedMeal} />
                 <button style={{height: "50px"}} onClick={() => onDelete(addedMeal)}>DELETE MEAL</button>
                 </div>} 
