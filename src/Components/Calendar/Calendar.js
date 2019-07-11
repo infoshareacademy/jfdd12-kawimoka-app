@@ -19,16 +19,19 @@ class CalendarContainer extends Component {
     //   12312324: [2, 7]
     // };
 
-    const mealsListState = this.props.mealsState;
-   
+    const currentDay = new Date().toLocaleDateString();
+    const mealsListState = this.props.mealsState[currentDay];
 
+    // mealsList[currentDay] =
     let breakfastId = mealsListState.breakfastId || "pick breakfast";
     let dinnnerId = mealsListState.dinnerId || "pick dinner";
     let lunchId = mealsListState.lunchId || "pick lunch";
     let snackId = mealsListState.snackId || "pick snack";
     let listMeal = [breakfastId, dinnnerId, lunchId, snackId];
 
-
+    const mealsNames = listMeal
+      .map(mealId => meals.find(meal => meal.id === mealId))
+      .map(meal => meal.name);
     // breakfastId: 5, lunchId: 76, ...
 
     // const mealsForDay = meals[day].filter(meal => meal.id < 5);
