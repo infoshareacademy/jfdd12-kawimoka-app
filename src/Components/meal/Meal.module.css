@@ -188,6 +188,7 @@ max-width: 370px;
 .mealsList {
     display: flex;
     flex-flow: column;
+    margin-left: 10px;
 }
 .mealsShortCardsList{
     display: flex;
