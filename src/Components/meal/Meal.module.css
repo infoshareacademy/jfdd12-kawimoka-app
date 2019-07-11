@@ -1,4 +1,7 @@
 /* Meal Card - short version */
+* {
+    font-family: "Lato", sans-serif;
+}
 
 .mealCardShort {
     border: 1px solid rgb(43, 41, 41);
@@ -10,7 +13,7 @@
     flex-flow: row;
     justify-content: space-between;
     width: 350px;
-    height: 180px;
+    height: 115px;
 }
 
 .mealCardShortInfo {
@@ -22,7 +25,7 @@
 }
 
 .mealCardShortInfo h1 {
-    font-size: 18px;
+    font-size: 15px;
     text-transform: uppercase;
     text-decoration: underline;
     
@@ -34,10 +37,11 @@
 
 .mealPhoto{
     justify-content: center;
-    border-radius: 0px 5px 0px 0px;
+    border-radius: 0px 5px 5px 0px;
     margin: 0px;
     padding: 0px;
     width: 130px;
+    height: 115px;
 }
 
 

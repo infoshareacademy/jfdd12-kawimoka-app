@@ -4,6 +4,7 @@ import { MealCardShort } from "./MealCardShort";
 // import {Droppable, Draggable} from 'react-beautiful-dnd'
 import { MealCardFull } from "./MealCardFull";  
 import styles from './Meal.module.css';
+import { throwStatement } from "@babel/types";
 
 
 export class MealsList extends Component {
@@ -34,10 +35,10 @@ clearMeal =() => {
 
       <div className={styles.mealsTypes}>
 
-        <div><h1 onClick={() => this.setMealFilter('breakfast')}> Breakfast</h1></div>
-        <div><h1 onClick={() => this.setMealFilter('lunch')}> Lunch</h1></div>
-        <div><h1 onClick={() => this.setMealFilter('dinner')}> Dinner</h1></div>
-        <div><h1 onClick={() => this.setMealFilter('snack')}> Snacks</h1></div> 
+        <div><h1 onClick={() => {this.setMealFilter('breakfast'); this.clearMeal()}}> Breakfast</h1></div>
+        <div><h1 onClick={() => {this.setMealFilter('lunch'); this.clearMeal()}}> Lunch</h1></div>
+        <div><h1 onClick={() => {this.setMealFilter('dinner'); this.clearMeal()}}> Dinner</h1></div>
+        <div><h1 onClick={() => {this.setMealFilter('snack'); this.clearMeal()}}> Snacks</h1></div> 
         
       </div>
 
