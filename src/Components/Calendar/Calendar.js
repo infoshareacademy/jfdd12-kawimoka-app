@@ -15,11 +15,16 @@ class CalendarContainer extends Component {
     // selectedEvent: events[0]
   };
   componentDidMount() {
+    const selectedMeals = {
+      12312323: [1, 4, 5],
+      12312324: [2, 7]
+    };
+
     const mealsListState = {};
-    const mealsForDay = meals.filter(meal => meal.id < 5);
+    // const mealsForDay = meals[day].filter(meal => meal.id < 5);
     const date = new Date(2019, 6, 10);
     const dateString = Date.parse(date).toString();
-    mealsListState[dateString] = mealsForDay;
+    // mealsListState[dateString] = mealsForDay;
     this.setState({ mealsList: mealsListState });
   }
 
