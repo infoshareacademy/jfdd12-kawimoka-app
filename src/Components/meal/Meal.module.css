@@ -3,28 +3,39 @@
     font-family: "Lato", sans-serif;
 }
 
+.mealsListHeader{
+font-size: 20px;
+text-align: center;
+margin-left: 5px;
+padding: 5px;
+border: 1px solid black;
+border-bottom: none;
+font-style: italic;
+max-width: 370px;
+}
+
 .mealCardShort {
-    border: 1px solid rgb(43, 41, 41);
-    border-radius: 5px;
-    box-shadow: 5px 10px 8px #888888;
-    margin: 10px;
-    margin-left: 20px; 
+
+    margin: 0px;
+
     display: flex;
     flex-flow: row;
-    justify-content: space-between;
-    width: 350px;
+
+    width: 380px;
     height: 115px;
 }
 
 .mealCardShortInfo {
-    color: rgb(56, 56, 56);
+    color: black;
     margin: 5px;
+    margin-left: 30px;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
 }
 
 .mealCardShortInfo h1 {
+    text-align: left;
     font-size: 15px;
     text-transform: uppercase;
     text-decoration: underline;
@@ -37,11 +48,11 @@
 
 .mealPhoto{
     justify-content: center;
-    border-radius: 0px 5px 5px 0px;
+
     margin: 0px;
     padding: 0px;
     width: 130px;
-    height: 115px;
+    max-height: 115px;
 }
 
 
@@ -92,6 +103,7 @@
     width: 200px;
     margin: 0px;
     padding: 0px;
+    max-height: 200px;
 
 }
 .mealCardMain{
@@ -182,9 +194,19 @@
     flex-flow: row;
 
 }
+
+.mealsShortCardOne {
+    border: 1px solid rgb(43, 41, 41);
+    margin: 5px;
+
+}
+
 .mealsTypes{
     display: flex;
     flex-flow: row;
+    border: 1px solid rgb(41, 40, 40);
+    margin-left: 5px;
+    max-width: 380px;
 }
 
 .mealsTypes h1 {
@@ -193,8 +215,16 @@
     font-size: 20px;
     margin: 5px;
     padding: 5px;
-    border: 1px black solid;
-    border-radius: 5px; 
+
+}
+.mealsTypes p {
+
+   height: 30px;
+   margin: 5px;
+   padding-bottom: 3px;
+   border-left: 1px dotted black;
+
+
 }
 
 .addMealButton {
