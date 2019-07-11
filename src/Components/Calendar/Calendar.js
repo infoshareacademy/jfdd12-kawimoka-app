@@ -11,16 +11,26 @@ class CalendarContainer extends Component {
   state = {
     events: events,
     mealsList: {}
-
     // selectedEvent: events[0]
   };
   componentDidMount() {
-    const selectedMeals = {
-      12312323: [1, 4, 5],
-      12312324: [2, 7]
-    };
+    // const selectedMeals = {
+    //   12312323: [1, 4, 5],
+    //   12312324: [2, 7]
+    // };
 
-    const mealsListState = {};
+    const mealsListState = this.props.mealsState;
+   
+
+    let breakfastId = mealsListState.breakfastId || "pick breakfast";
+    let dinnnerId = mealsListState.dinnerId || "pick dinner";
+    let lunchId = mealsListState.lunchId || "pick lunch";
+    let snackId = mealsListState.snackId || "pick snack";
+    let listMeal = [breakfastId, dinnnerId, lunchId, snackId];
+
+
+    // breakfastId: 5, lunchId: 76, ...
+
     // const mealsForDay = meals[day].filter(meal => meal.id < 5);
     const date = new Date(2019, 6, 10);
     const dateString = Date.parse(date).toString();
@@ -38,7 +48,6 @@ class CalendarContainer extends Component {
   };
 
   render() {
-    
     const currentDay = Date.parse(new Date(2019, 6, 10)).toString();
     const eventsFromState = this.state.mealsList[currentDay];
     let events = [];
@@ -51,9 +60,8 @@ class CalendarContainer extends Component {
           end: new Date(Number(currentDay))
         };
       });
-      
     }
-    
+
     return (
       <div style={{ width: "70%", float: "left" }}>
         <Calendar

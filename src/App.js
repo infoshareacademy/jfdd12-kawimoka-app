@@ -21,6 +21,7 @@ class App extends React.Component {
   };
 
   render() {
+    
     return (
       <div>
         <PlanDietContainer
@@ -32,10 +33,13 @@ class App extends React.Component {
           selectedDate={this.state.date}
           setSelectedDate={date => this.setState({ date })}
           mealsState={this.state}
+          
         />
       </div>
+      
     );
   }
 }
+
 
 export default App;
