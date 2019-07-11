@@ -18,6 +18,15 @@ export class PlanDietContainer extends React.Component{
         dinnerKcal: 0
     }
 
+    componentDidUpdate= () => {
+        localStorage.meals = JSON.stringify(this.state)
+    }
+
+    componentDidMount = () => {
+        const newState = JSON.parse(localStorage.getItem('meals'))
+        this.setState(newState)
+    }
+
     onAdd = (meal) => {
         let mealKcalNumber = parseInt(meal.kcal)
         if (meal.type === "breakfast") {
@@ -33,6 +42,7 @@ export class PlanDietContainer extends React.Component{
             this.setState({dinnerId: meal.id,
             dinnerKcal: mealKcalNumber})
         }
+    
     }
 
     onDelete = (meal) => {
@@ -49,6 +59,7 @@ export class PlanDietContainer extends React.Component{
             this.setState({dinnerId: undefined,
             dinnerKcal: 0})
         }
+
     }
 
     sumCalories = () => {
