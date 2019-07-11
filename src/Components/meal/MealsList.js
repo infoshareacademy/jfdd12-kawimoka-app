@@ -47,12 +47,12 @@ clearMeal =() => {
           {meals.filter(meal => meal.type === this.state.mealFilter).map(filteredMeal => (
           <div onClick={()=> {
             this.setState({selectedMeal: filteredMeal})
-          }}> <MealCardShort key={filteredMeal.id} meal={filteredMeal} /> </div>
+          }}> <MealCardShort key={filteredMeal.id} meal={filteredMeal} onAdd={this.props.onAdd} /> </div>
           ))}
         </div>
         
         <div>
-        {this.state.selectedMeal.id && <MealCardFull selectedMealId={this.state.selectedMeal.id} onAdd ={this.props.onAdd} meal={this.state.selectedMeal} onMealClose={this.clearMeal}/> }
+        {this.state.selectedMeal.id && <MealCardFull meal={this.state.selectedMeal} onAdd ={this.props.onAdd} onMealClose={this.clearMeal}/> }
         </div>
 
       </div>

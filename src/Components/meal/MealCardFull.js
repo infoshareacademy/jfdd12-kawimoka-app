@@ -15,17 +15,17 @@ const {fat, carbs, protein} = nutritions;
   <div className={styles.mealCardFull}>
      
 
-  <div className={styles.mealCardTop}>
-        <div className={styles.mealCardFullInfo}>
-          <h1> {name} </h1>
-          <h2>Calories: {kcal} kcal</h2>
-          <h2>Prep Time: {time} min </h2> 
-        </div>
+    <div className={styles.mealCardTop}>
+          <div className={styles.mealCardFullInfo}>
+            <h1> {name} </h1>
+            <h2>Calories: {kcal} kcal</h2>
+            <h2>Prep Time: {time} min </h2> 
+          </div>
 
-        <MealPhoto image={image} alt={"tu jest tekst"} /> 
-  </div>  
+          <MealPhoto image={image} alt={"tu jest tekst"} /> 
+    </div>  
             
-  <div className={styles.mealCardMain}>  
+    <div className={styles.mealCardMain}>  
     <div className={styles.mealCardMainLeft}>
         <div className={styles.nutritions}>
           <h3>Nutritions</h3>  
@@ -43,14 +43,13 @@ const {fat, carbs, protein} = nutritions;
           <h3> Recipe</h3>
           <p>{recipe}</p>
         </div>
-  </div>
-  <div className={styles.mealCardFooter}>
+     </div>
+     <div className={styles.mealCardFooter}>
 
     <button onClick={() => props.onMealClose()} className={styles.closeCardButton}> CLOSE </button>
-    <AddMealButton onAdd={onAdd} selectedMealId={selectedMealId} className={styles.addMealButton}/>
- 
-      
-  </div>
+    <AddMealButton onAdd={onAdd} meal={meal} selectedMealId={selectedMealId} className={styles.addMealButton} />
+  
+      </div>
     </div>
       
   );
