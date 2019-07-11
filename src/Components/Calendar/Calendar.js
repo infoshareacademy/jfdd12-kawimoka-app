@@ -38,6 +38,7 @@ class CalendarContainer extends Component {
   };
 
   render() {
+    
     const currentDay = Date.parse(new Date(2019, 6, 10)).toString();
     const eventsFromState = this.state.mealsList[currentDay];
     let events = [];
@@ -50,9 +51,9 @@ class CalendarContainer extends Component {
           end: new Date(Number(currentDay))
         };
       });
-      console.log(events);
+      
     }
-    console.log(this.state.mealsList);
+    
     return (
       <div style={{ width: "70%", float: "left" }}>
         <Calendar
