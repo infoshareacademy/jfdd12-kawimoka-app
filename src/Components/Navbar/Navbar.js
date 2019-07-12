@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export function Navbar(props) {
   return (
-    <header className={s.header}>
+    <header className={s.header} style={{position: "fixed", height: "130px"}}>
       <nav>
         <div>
           <img src={require('../../img/logo.png')} alt='Logo' />

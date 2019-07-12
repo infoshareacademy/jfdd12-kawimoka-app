@@ -30,7 +30,7 @@ class Root extends React.Component {
         <div>
           <Navbar />
         </div>
-        <div>
+        <div  style={{marginTop: "140px",position: "absolute", marginLeft: "100px"}}>
           <Switch>
             <Route exact path='/' component={() => <Calendar selectedDate={this.state.date}
                      setSelectedDate={date => this.setState({ date })}/>} />
@@ -39,7 +39,7 @@ class Root extends React.Component {
             <Route component={NoMatch} />
           </Switch>
         </div>
-        <div>
+        <div style={{position: "fixed", bottom: "0", width: "100%", backgroundColor: "white"}}>
           <Footer />
         </div>
       </Router>
