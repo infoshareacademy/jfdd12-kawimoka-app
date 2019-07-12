@@ -1,6 +1,7 @@
 import React from 'react'
 import SingleDay  from './SingleDay'
 import { MealsList } from '../meal/MealsList';
+import { UiStateLocalStorageService } from '../../ui-state-ls.service';
 
 
 // import {DragDropContext} from 'react-beautiful-dnd';
@@ -14,46 +15,60 @@ export class PlanDietContainer extends React.Component{
     constructor(props) {
         super(props)
 
-     
+        // const date = new Date(this.props.date).toLocaleDateString()
+        // date.setHours(0);
+        // date.setMinutes(0);
+        // date.setSeconds(0);
+
         this.state = {
-            date: this.props.date,
-            breakfastId: undefined,
-            breakfastKcal: 0,
-            lunchId: undefined,
-            lunchKcal: 0,
-            snackId: undefined,
-            snackKcal: 0,
-            dinnerId: undefined,
-            dinnerKcal: 0
-        }    }
+            [this.getDayKey()]: {
+                breakfastId: undefined,
+                breakfastKcal: 0,
+                lunchId: undefined,
+                lunchKcal: 0,
+                snackId: undefined,
+                snackKcal: 0,
+                dinnerId: undefined,
+                dinnerKcal: 0
+            }
+        }   
+    }    
 
-
-    componentDidUpdate= () => {
-        localStorage[this.state.date] = JSON.stringify(this.state)
+    componentDidMount() {
+        const day = UiStateLocalStorageService.getState(this.getDayKey());
+        console.log('day', day);
+        this.setState(day);
     }
 
-    componentDidMount = () => {
-        const newState = JSON.parse(localStorage.getItem(`${this.state.date}`))
-        this.setState(newState)
+    saveMealInLocalStorage() {
+        UiStateLocalStorageService.updateState({
+            [this.getDayKey()]: this.state,
+        });
     }
 
-    onAdd = meal => {
-      let mealKcalNumber = parseInt(meal.kcal);
-      let stateChange = null;
-      if (meal.type === "breakfast") {
-        stateChange = { breakfastId: meal.id, breakfastKcal: mealKcalNumber };
-      } else if (meal.type === "lunch") {
-        stateChange = { lunchId: meal.id, lunchKcal: mealKcalNumber };
-      } else if (meal.type === "snack") {
-        stateChange = { snackId: meal.id, snackKcal: mealKcalNumber };
-      } else if (meal.type === "dinner") {
-        stateChange = { dinnerId: meal.id, dinnerKcal: mealKcalNumber };
-      }
-  
-      if (stateChange !== null) {
-        this.setState(stateChange);
-        this.props.onMealsStateChange(stateChange);
-      }}
+    getDayKey() {
+        return this.props.date.format('DD-MM-YYYY');
+    }
+
+    onAdd = (meal) => {
+        let mealKcalNumber = parseInt(meal.kcal)
+        if (meal.type === "breakfast") {
+            this.setState({breakfastId: meal.id, 
+            breakfastKcal: mealKcalNumber}) 
+        } else if (meal.type === "lunch") {
+            this.setState({lunchId: meal.id,
+            lunchKcal: mealKcalNumber})
+        } else if (meal.type === 'snack') {
+            this.setState({snackId: meal.id,
+            snackKcal: mealKcalNumber})
+        } else if (meal.type === "dinner") {
+            this.setState({dinnerId: meal.id,
+            dinnerKcal: mealKcalNumber})
+        }
+
+        this.saveMealInLocalStorage();
+    
+    }
 
     onDelete = (meal) => {
         if (meal.type === "breakfast") {
@@ -70,11 +85,9 @@ export class PlanDietContainer extends React.Component{
             dinnerKcal: 0})
         }
 
+        this.saveMealInLocalStorage();
 
     }
-  
-
-  
 
   sumCalories = () => {
     let countedCalories =
