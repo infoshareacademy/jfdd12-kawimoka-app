@@ -12,29 +12,31 @@ export class PlanDietContainer extends React.Component{
     constructor(props) {
         super(props)
 
-        const date = new Date(this.props.date).toLocaleDateString()
+        // const date = new Date(this.props.date).toLocaleDateString()
         // date.setHours(0);
         // date.setMinutes(0);
         // date.setSeconds(0);
+        
         this.state = {
-            date,
-            breakfastId: undefined,
-            breakfastKcal: 0,
-            lunchId: undefined,
-            lunchKcal: 0,
-            snackId: undefined,
-            snackKcal: 0,
-            dinnerId: undefined,
-            dinnerKcal: 0
+            [this.props.date]: {
+                breakfastId: undefined,
+                breakfastKcal: 0,
+                lunchId: undefined,
+                lunchKcal: 0,
+                snackId: undefined,
+                snackKcal: 0,
+                dinnerId: undefined,
+                dinnerKcal: 0}
+            
         }    }
 
 
     componentDidUpdate= () => {
-        localStorage.meals = JSON.stringify(this.state)
+        localStorage[this.props.date] = JSON.stringify(this.state)
     }
 
     componentDidMount = () => {
-        const newState = JSON.parse(localStorage.getItem('meals'))
+        const newState = JSON.parse(localStorage.getItem(`${this.state.date}`))
         this.setState(newState)
     }
 

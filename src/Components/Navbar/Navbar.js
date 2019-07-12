@@ -21,10 +21,10 @@ export function Navbar(props) {
 
         <ul>
           <NavLink exact className={'default-link'} activeClassName={'active-link'} to='/'>
-            Home
+            Calendar
           </NavLink>
-          <NavLink exact className={'default-link'} activeClassName={'active-link'} to='/mealslist'>
-            Meals list{' '}
+          <NavLink exact className={'default-link'} activeClassName={'active-link'} to='/plandiet'>
+            Plan Diet{' '}
           </NavLink>
           <a href='#features'>Features</a>
           <a href='#Meals List'>Team</a>
