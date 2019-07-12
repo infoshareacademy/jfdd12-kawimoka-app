@@ -20,7 +20,7 @@ class CalendarContainer extends Component {
     // };
 
     const currentDay = new Date().toLocaleDateString();
-    const mealsListState = this.props.mealsState[currentDay] || {};
+    const mealsListState = {};
 
     // mealsList[currentDay] =
     let breakfastId = mealsListState.breakfastId;
@@ -67,7 +67,7 @@ class CalendarContainer extends Component {
     }
 
     return (
-    <div style={{ width: "90vw"}}>
+      <div style={{ width: "90vw" }}>
         <Calendar
           selectable={true}
           onSelectSlot={this.onSelect}
