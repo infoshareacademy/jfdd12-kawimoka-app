@@ -30,11 +30,11 @@ export class PlanDietContainer extends React.Component{
 
 
     componentDidUpdate= () => {
-        localStorage.meals = JSON.stringify(this.state)
+        localStorage[this.state.date] = JSON.stringify(this.state)
     }
 
     componentDidMount = () => {
-        const newState = JSON.parse(localStorage.getItem('meals'))
+        const newState = JSON.parse(localStorage.getItem(`${this.state.date}`))
         this.setState(newState)
     }
 
