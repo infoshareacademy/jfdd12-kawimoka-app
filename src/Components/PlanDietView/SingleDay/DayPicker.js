@@ -1,5 +1,6 @@
 import React from 'react'
 import s from './SingleDay.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export class DayPicker extends React.Component {
 
