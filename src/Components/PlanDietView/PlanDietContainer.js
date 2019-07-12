@@ -1,6 +1,7 @@
 import React from 'react'
 import SingleDay  from './SingleDay'
 import { MealsList } from '../meal/MealsList';
+import { UiStateLocalStorageService } from '../../ui-state-ls.service';
 
 
 // import {DragDropContext} from 'react-beautiful-dnd';
@@ -16,9 +17,9 @@ export class PlanDietContainer extends React.Component{
         // date.setHours(0);
         // date.setMinutes(0);
         // date.setSeconds(0);
-        
+
         this.state = {
-            [this.props.date]: {
+            [this.getDayKey()]: {
                 breakfastId: undefined,
                 breakfastKcal: 0,
                 lunchId: undefined,
@@ -26,18 +27,25 @@ export class PlanDietContainer extends React.Component{
                 snackId: undefined,
                 snackKcal: 0,
                 dinnerId: undefined,
-                dinnerKcal: 0}
-            
-        }    }
+                dinnerKcal: 0
+            }
+        }   
+    }    
 
-
-    componentDidUpdate= () => {
-        localStorage[this.props.date] = JSON.stringify(this.state)
+    componentDidMount() {
+        const day = UiStateLocalStorageService.getState(this.getDayKey());
+        console.log('day', day);
+        this.setState(day);
     }
 
-    componentDidMount = () => {
-        const newState = JSON.parse(localStorage.getItem(`${this.state.date}`))
-        this.setState(newState)
+    saveMealInLocalStorage() {
+        UiStateLocalStorageService.updateState({
+            [this.getDayKey()]: this.state,
+        });
+    }
+
+    getDayKey() {
+        return this.props.date.format('DD-MM-YYYY');
     }
 
     onAdd = (meal) => {
@@ -55,6 +63,8 @@ export class PlanDietContainer extends React.Component{
             this.setState({dinnerId: meal.id,
             dinnerKcal: mealKcalNumber})
         }
+
+        this.saveMealInLocalStorage();
     
     }
 
@@ -72,6 +82,8 @@ export class PlanDietContainer extends React.Component{
             this.setState({dinnerId: undefined,
             dinnerKcal: 0})
         }
+
+        this.saveMealInLocalStorage();
 
     }
 
