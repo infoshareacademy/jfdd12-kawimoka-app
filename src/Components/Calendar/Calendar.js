@@ -54,7 +54,7 @@ class CalendarContainer extends Component {
     }
     console.log(this.state.mealsList);
     return (
-      <div style={{ width: "70%", float: "left" }}>
+    <div style={{ width: "90vw"}}>
         <Calendar
           selectable={true}
           onSelectSlot={this.onSelect}

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export function Navbar(props) {
   return (
-    <header className={s.header}>
+    <header className={s.header} style={{position: "fixed", height: "130px"}}>
       <nav>
         <div>
           <img src={require('../../img/logo.png')} alt='Logo' />
@@ -21,10 +21,10 @@ export function Navbar(props) {
 
         <ul>
           <NavLink exact className={'default-link'} activeClassName={'active-link'} to='/'>
-            Home
+            Calendar
           </NavLink>
-          <NavLink exact className={'default-link'} activeClassName={'active-link'} to='/mealslist'>
-            Meals list{' '}
+          <NavLink exact className={'default-link'} activeClassName={'active-link'} to='/plandiet'>
+            Plan Diet{' '}
           </NavLink>
         </ul>
       </nav>

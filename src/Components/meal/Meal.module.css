@@ -201,6 +201,10 @@ max-width: 370px;
     margin: 5px;
 
 }
+.mealsShortCardOne:hover {
+background-color: #c7c7c783;
+
+}
 
 .mealsTypes{
     display: flex;
@@ -214,19 +218,18 @@ max-width: 370px;
 
     text-align: center;
     font-size: 20px;
-    margin: 5px;
+    margin-left: 10px;
+    margin-right: 8.8px;
     padding: 5px;
-
 }
-.mealsTypes p {
 
-   height: 30px;
-   margin: 5px;
-   padding-bottom: 3px;
-   border-left: 1px dotted black;
+.mealsTypes div:hover {
 
-
+    background: #1dcebf62;
+    font-size: 25px;
 }
+
+
 
 .addMealButton {
     font-size: 18px;
