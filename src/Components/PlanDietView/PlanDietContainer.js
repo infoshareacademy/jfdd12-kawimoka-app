@@ -18,7 +18,7 @@ export class PlanDietContainer extends React.Component{
         // date.setSeconds(0);
         
         this.state = {
-            [this.props.date.format("D MMMM")]: {
+            [this.props.date]: {
                 breakfastId: undefined,
                 breakfastKcal: 0,
                 lunchId: undefined,
