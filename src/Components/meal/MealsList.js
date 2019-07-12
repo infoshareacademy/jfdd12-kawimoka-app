@@ -40,9 +40,10 @@ clearMeal =() => {
         <div><p> </p> </div>
         <div><h1 onClick={() => {this.setMealFilter('lunch'); this.clearMeal()}}> Lunch</h1></div>
         <div><p> </p> </div>
-        <div><h1 onClick={() => {this.setMealFilter('dinner'); this.clearMeal()}}> Dinner</h1></div>
-        <div><p> </p> </div>
         <div><h1 onClick={() => {this.setMealFilter('snack'); this.clearMeal()}}> Snacks</h1></div> 
+        <div><p> </p> </div>
+        <div><h1 onClick={() => {this.setMealFilter('dinner'); this.clearMeal()}}> Dinner</h1></div>
+      
         
       </div>
 
