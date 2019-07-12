@@ -5,13 +5,14 @@
 nav {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 50px;
+  padding-bottom: 5px;
+
 }
 
 nav img {
   max-height: 89px;
   max-width: 245px;
-  padding: 20px;
+  padding: 5px;
 }
 .slogan {
   color: #0d8b81;

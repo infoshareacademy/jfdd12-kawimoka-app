@@ -21,7 +21,7 @@ const Root = props => {
       <div>
         <Navbar />
       </div>
-      <div>
+      <div style={{marginTop: "140px"}}>
         <Switch>
           <Route exact path='/' component={App} />
           <Route exact path='/mealslist' component={MealsList} />
