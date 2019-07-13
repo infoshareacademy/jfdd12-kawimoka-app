@@ -1,5 +1,11 @@
 import React from 'react'
 import s from './SingleDay.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faAngleLeft)
+library.add(faAngleRight)
 
 export class DayPicker extends React.Component {
 
@@ -36,9 +42,19 @@ export class DayPicker extends React.Component {
     render () {
         return (
             <div className={s.dayPicker}>
-                <button onClick={this.decrementDate}>{"<"}</button>
+                <FontAwesomeIcon
+                    icon={["fas","angle-left"]}
+                    size='3x'
+                    style={{ color: '#08ada0'  }}
+                    onClick={this.decrementDate}
+                />
                 <h2>{this.state.dateInner.format("D MMMM")}</h2>
-                <button onClick={this.incrementDate}>{">"}</button>
+                <FontAwesomeIcon
+                    icon={["fas","angle-right"]}
+                    size='3x'
+                    style={{ color: '#08ada0' }}
+                    onClick={this.incrementDate}
+                />
             </div>)
     }
 }

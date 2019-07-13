@@ -11,15 +11,34 @@ class CalendarContainer extends Component {
   state = {
     events: events,
     mealsList: {}
-
     // selectedEvent: events[0]
   };
   componentDidMount() {
+    // const selectedMeals = {
+    //   12312323: [1, 4, 5],
+    //   12312324: [2, 7]
+    // };
+
+    const currentDay = new Date().toLocaleDateString();
     const mealsListState = {};
-    const mealsForDay = meals.filter(meal => meal.id < 5);
+
+    // mealsList[currentDay] =
+    let breakfastId = mealsListState.breakfastId;
+    let dinnnerId = mealsListState.dinnerId;
+    let lunchId = mealsListState.lunchId;
+    let snackId = mealsListState.snackId;
+    let listMeal = [breakfastId, dinnnerId, lunchId, snackId];
+
+    const mealsNames = listMeal
+      .filter(mealId => mealId)
+      .map(mealId => meals.find(meal => meal.id === mealId))
+      .map(meal => meal.name);
+    // breakfastId: 5, lunchId: 76, ...
+
+    // const mealsForDay = meals[day].filter(meal => meal.id < 5);
     const date = new Date(2019, 6, 10);
     const dateString = Date.parse(date).toString();
-    mealsListState[dateString] = mealsForDay;
+    // mealsListState[dateString] = mealsForDay;
     this.setState({ mealsList: mealsListState });
   }
 
@@ -45,11 +64,10 @@ class CalendarContainer extends Component {
           end: new Date(Number(currentDay))
         };
       });
-      console.log(events);
     }
-    console.log(this.state.mealsList);
+
     return (
-      <div style={{ width: "70%", float: "left" }}>
+      <div style={{ width: "90vw" }}>
         <Calendar
           selectable={true}
           onSelectSlot={this.onSelect}
