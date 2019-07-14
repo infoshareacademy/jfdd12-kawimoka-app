@@ -68,7 +68,7 @@ max-width: 370px;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 600px;
-    height: 600px;
+    height: auto;
  
 }
 
@@ -176,8 +176,10 @@ max-width: 370px;
 
 .mealCardFooter{
     display: flex;
-    flex-flow: row;
-    align-items: space-between;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 100%;
 }
 .mealCardFooter button{
 

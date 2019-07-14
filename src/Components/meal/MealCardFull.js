@@ -3,6 +3,11 @@ import React from 'react';
 import {AddMealButton} from './AddMealButton';
 import {MealPhoto} from './MealPhoto';
 import styles from './Meal.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faArrowLeft)
 
 export function MealCardFull(props) {
 const {meal, onAdd, selectedMealId} = props;
@@ -46,8 +51,13 @@ const {fat, carbs, protein} = nutritions;
      </div>
      <div className={styles.mealCardFooter}>
 
-    <button onClick={() => props.onMealClose()} className={styles.closeCardButton}> CLOSE </button>
-    <AddMealButton onAdd={onAdd} meal={meal} selectedMealId={selectedMealId} className={styles.addMealButton} />
+     <FontAwesomeIcon
+          icon={["fas","arrow-left"]}
+          size='3x'
+          style={{ color: '#c0cbcc', padding:"15px"}}
+          onClick={() => props.onMealClose()}
+      />
+    <AddMealButton onAdd={onAdd} meal={meal} selectedMealId={selectedMealId} />
   
       </div>
     </div>

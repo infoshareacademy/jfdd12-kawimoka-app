@@ -8,6 +8,10 @@ export function SummaryDay(props) {
     const sumCaloriesCount = sumCalories()
     leftCalories = kcalGoal - sumCaloriesCount
 
+    if (leftCalories < 0) {
+        leftCalories = 0
+    }
+
     return <div className={s.summaryContainer}>
         <div>
             <h3 className={s.summaryText}>calories / kcal goal:</h3>

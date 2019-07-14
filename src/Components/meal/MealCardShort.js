@@ -13,9 +13,9 @@ const { name, time, type, image, kcal} = meal;
   return (
     <div className={styles.mealCardShort} >
     
-      <MealPhoto  image={image} alt={"tu jest tekst"} />
+      <MealPhoto image={image} alt={"tu jest tekst"} />
 
-      <div  className={styles.mealCardShortInfo}>
+      <div className={styles.mealCardShortInfo}>
         <h1> {name} </h1>
         <h2>Calories: {kcal} kcal</h2>
         <h2>Prep Time: {time} min </h2> 

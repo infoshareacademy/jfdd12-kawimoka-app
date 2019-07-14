@@ -8,28 +8,24 @@ import { throwStatement } from "@babel/types";
 
 
 export class MealsList extends Component {
+  state = {
+    selectedMeal: {},
+    mealFilter: ""
+  };
 
-state={
-  selectedMeal: {},
-  mealFilter: "",
-}
-
-  setMealFilter = (filterName) => {
+  setMealFilter = filterName => {
     this.setState({
       mealFilter: filterName
-    })
-  }
+    });
+  };
 
-clearMeal =() => {
-  this.setState({
-    selectedMeal: {},
-  })
-}
-
-
+  clearMeal = () => {
+    this.setState({
+      selectedMeal: {}
+    });
+  };
 
   render() {
-    console.log(meals)
     return (
     <div className={styles.mealsList}>
       <div className={styles.mealsListHeader}> Choose and add meals from the list </div>
@@ -47,9 +43,29 @@ clearMeal =() => {
         
       </div>
 
+        <div className={styles.mealsShortCardsList}>
+          <div>
+            {meals
+              .filter(meal => meal.type === this.state.mealFilter)
+              .map(filteredMeal => (
+                <div
+                  onClick={() => {
+                    this.setState({ selectedMeal: filteredMeal });
+                  }}
+                >
+                  {" "}
+                  <MealCardShort
+                    key={filteredMeal.id}
+                    meal={filteredMeal}
+                    onAdd={this.props.onAdd}
+                  />{" "}
+                </div>
+              ))}
+          </div>
+        </div>
 
       <div className={styles.mealsShortCardsList}>
-        <div >
+        <div>
           {meals.filter(meal => meal.type === this.state.mealFilter).map(filteredMeal => (
           <div className={styles.mealsShortCardOne} onClick={()=> {
             this.setState({selectedMeal: filteredMeal})
@@ -60,12 +76,8 @@ clearMeal =() => {
         <div>
         {this.state.selectedMeal.id && <MealCardFull meal={this.state.selectedMeal} onAdd ={this.props.onAdd} onMealClose={this.clearMeal}/> }
         </div>
-
       </div>
-   
-
-    </div>
-  )
-}
-
+      </div>
+    );
+  }
 }
