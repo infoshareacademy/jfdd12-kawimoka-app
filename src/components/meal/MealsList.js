@@ -43,6 +43,27 @@ export class MealsList extends Component {
         
       </div>
 
+        <div className={styles.mealsShortCardsList}>
+          <div>
+            {meals
+              .filter(meal => meal.type === this.state.mealFilter)
+              .map(filteredMeal => (
+                <div
+                  onClick={() => {
+                    this.setState({ selectedMeal: filteredMeal });
+                  }}
+                >
+                  {" "}
+                  <MealCardShort
+                    key={filteredMeal.id}
+                    meal={filteredMeal}
+                    onAdd={this.props.onAdd}
+                  />{" "}
+                </div>
+              ))}
+          </div>
+        </div>
+
       <div className={styles.mealsShortCardsList}>
         <div>
           {meals.filter(meal => meal.type === this.state.mealFilter).map(filteredMeal => (
