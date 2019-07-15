@@ -1,7 +1,6 @@
 import React from 'react'
 import SingleDay from './SingleDay'
 import { MealsList } from '../meal/MealsList'
-import { NutritionsPieChart } from '../PieChart/NutritionsPieChart'
 // import { UiStateLocalStorageService } from '../../ui-state-ls.service'
 // import {DragDropContext} from 'react-beautiful-dnd';
 
@@ -152,11 +151,6 @@ export class PlanDietContainer extends React.Component {
           flexDirection: 'row',
           justifyContent: 'center'
         }}>
-        <NutritionsPieChart
-          sumFat={this.sumFat}
-          sumCarbs={this.sumCarbs}
-          sumProtein={this.sumProtein}
-        />
         <SingleDay
           date={this.props.date}
           breakfastId={this.state.breakfastId}
@@ -165,6 +159,9 @@ export class PlanDietContainer extends React.Component {
           dinnerId={this.state.dinnerId}
           sumCalories={this.sumCalories}
           onDelete={this.onDelete}
+          sumFat={this.sumFat}
+          sumCarbs={this.sumCarbs}
+          sumProtein={this.sumProtein}
         />
         <MealsList onAdd={this.onAdd} />
       </div>
