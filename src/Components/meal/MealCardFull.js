@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faArrowLeft)
+library.add(faArrowLeft);
 
 export function MealCardFull(props) {
-  const { meal, onAdd, selectedMealId } = props
-  const { name, type, time, image, kcal, nutritions, recipe, ingradients } = meal
-  const { fat, carbs, protein } = nutritions
+  const { meal, onAdd, selectedMealId } = props;
+  const { name, time, image, kcal, nutritions, recipe, ingradients } = meal;
+  const { fat, carbs, protein } = nutritions;
 
   return (
     <div className={styles.mealCardFull}>

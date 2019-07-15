@@ -1,14 +1,12 @@
 
 import React from 'react';
 import {MealPhoto} from './MealPhoto';
-// import {Draggable} from 'react-beautiful-dnd'
 import styles from './Meal.module.css';
-import { AddMealButton } from './AddMealButton';
 
 
 export function MealCardShort(props) {
-const {meal, onAdd} = props;
-const { name, time, type, image, kcal} = meal;
+const {meal} = props;
+const { name, time, image, kcal} = meal;
 
   return (
     <div className={styles.mealCardShort} >
@@ -21,8 +19,6 @@ const { name, time, type, image, kcal} = meal;
         <h2>Prep Time: {time} min </h2> 
         
       </div>
-      
-        
 
     </div>
   );

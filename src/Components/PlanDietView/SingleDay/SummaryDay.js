@@ -3,10 +3,10 @@ import s from './SingleDay.module.css'
 
 
 export function SummaryDay(props) {
-    let { sumCalories, kcalGoal, leftCalories } = props
+    let { sumNutrition: sumCalories, kcalGoal } = props;
 
-    const sumCaloriesCount = sumCalories()
-    leftCalories = kcalGoal - sumCaloriesCount
+    const sumCaloriesCount = sumCalories('kcal');
+    let leftCalories = kcalGoal - sumCaloriesCount;
 
     if (leftCalories < 0) {
         leftCalories = 0

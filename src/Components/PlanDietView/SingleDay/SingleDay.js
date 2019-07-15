@@ -11,28 +11,25 @@ function SingleDay(props) {
     lunchId,
     snackId,
     dinnerId,
-    sumCalories,
+    sumNutrition,
     onDelete,
-    sumFat,
-    sumCarbs,
-    sumProtein
-  } = props
+  } = props;
 
   return (
     <div className={s.singleDayContainer}>
       <DayPicker date={props.date} />
-      <MealSpace mealTypeTitle='Breakfast' mealId={breakfastId} onDelete={onDelete} />
+      <MealSpace mealTypeTitle={'Breakfast'} mealId={breakfastId} onDelete={onDelete} />
       <MealSpace mealTypeTitle={'Lunch'} mealId={lunchId} onDelete={onDelete} />
       <MealSpace mealTypeTitle={'Snacks'} mealId={snackId} onDelete={onDelete} />
       <MealSpace mealTypeTitle={'Dinner'} mealId={dinnerId} onDelete={onDelete} />
-      <SummaryDay sumCalories={sumCalories} kcalGoal={'1800'} />
+      <SummaryDay sumNutrition={sumNutrition} kcalGoal={'1800'} />
       <div>
         <span style={{ color: '#0088FE' }}> Fat </span>
         <span style={{ color: '#00C49F' }}> Carbs </span>
         <span style={{ color: '#FFBB28' }}> Protein </span>
       </div>
       <div>
-        <NutritionsPieChart sumFat={sumFat} sumCarbs={sumCarbs} sumProtein={sumProtein} />
+        <NutritionsPieChart sumNutrition={sumNutrition} />
       </div>
     </div>
   )
