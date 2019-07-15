@@ -1,7 +1,7 @@
 import React from 'react'
 import { PieChart, Pie, Cell } from 'recharts'
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28']
 
 export function NutritionsPieChart(props) {
   const { sumFat, sumCarbs, sumProtein } = props
@@ -13,11 +13,11 @@ export function NutritionsPieChart(props) {
   ]
 
   return (
-    <PieChart width={200} height={200}>
+    <PieChart width={250} height={250}>
       <Pie
         data={data}
-        cx={90}
-        cy={90}
+        cx={100}
+        cy={100}
         innerRadius={60}
         outerRadius={80}
         fill='#8884d8'

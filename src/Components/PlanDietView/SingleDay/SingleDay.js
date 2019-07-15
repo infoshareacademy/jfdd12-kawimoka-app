@@ -26,7 +26,14 @@ function SingleDay(props) {
       <MealSpace mealTypeTitle={'Snacks'} mealId={snackId} onDelete={onDelete} />
       <MealSpace mealTypeTitle={'Dinner'} mealId={dinnerId} onDelete={onDelete} />
       <SummaryDay sumCalories={sumCalories} kcalGoal={'1800'} />
-      <NutritionsPieChart sumFat={sumFat} sumCarbs={sumCarbs} sumProtein={sumProtein} />
+      <div>
+        <span style={{ color: '#0088FE' }}> Fat </span>
+        <span style={{ color: '#00C49F' }}> Carbs </span>
+        <span style={{ color: '#FFBB28' }}> Protein </span>
+      </div>
+      <div>
+        <NutritionsPieChart sumFat={sumFat} sumCarbs={sumCarbs} sumProtein={sumProtein} />
+      </div>
     </div>
   )
 }
