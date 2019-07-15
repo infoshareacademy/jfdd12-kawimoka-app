@@ -4,7 +4,7 @@ import { MealCardShort } from './MealCardShort'
 // import {Droppable, Draggable} from 'react-beautiful-dnd'
 import { MealCardFull } from './MealCardFull'
 import styles from './Meal.module.css'
-import { throwStatement } from '@babel/types'
+import { AddMealButton } from './AddMealButton.js'
 
 export class MealsList extends Component {
   state = {
@@ -75,8 +75,6 @@ export class MealsList extends Component {
           </div>
         </div>
 
-
-
         <div className={styles.mealsShortCardsList}>
           <div>
             {meals
@@ -93,6 +91,11 @@ export class MealsList extends Component {
                     meal={filteredMeal}
                     onAdd={this.props.onAdd}
                   />{' '}
+                  <AddMealButton
+                    onAdd={this.props.onAdd}
+                    meal={filteredMeal}
+                    selectedMealId={filteredMeal.id}
+                  />
                 </div>
               ))}
           </div>
