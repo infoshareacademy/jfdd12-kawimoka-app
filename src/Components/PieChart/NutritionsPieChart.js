@@ -7,9 +7,9 @@ export function NutritionsPieChart(props) {
   const { sumFat, sumCarbs, sumProtein } = props
 
   const data = [
-    { name: 'Fat', value: sumFat() },
-    { name: 'Carbs', value: sumCarbs() },
-    { name: 'Protein', value: sumProtein() }
+    { name: 'Fat', value: sumFat() || 1 },
+    { name: 'Carbs', value: sumCarbs() || 1 },
+    { name: 'Protein', value: sumProtein() || 1 }
   ]
 
   return (
