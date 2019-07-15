@@ -1,52 +1,51 @@
 .singleDayContainer {
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    width: 600px;
-    height: auto;
-    border: 1px solid black;
-    justify-content: space-between;
-
-    
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  max-height: 1050px;
+  border: 1px solid black;
+  justify-content: space-between;
 }
 
 .mealTypeTitle {
-    margin: 10px;
+  margin: 10px;
 }
 
 .summaryContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 10px;
 }
 
 .summaryText {
-    margin: 5px 5px;
-    text-align: center;
-    font-size: 12px;
+  margin: 5px 5px;
+  text-align: center;
+  font-size: 12px;
 }
 
 .mealSpaceContainer {
-    border-bottom: 1px dashed #08ada0;
-    display: flex;
-    flex-direction: column;
-    flex-basis: 25%;
+  border-bottom: 1px dashed #08ada0;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  max-height: 200px;
 }
 
 .mealSpace {
-    height: 150px;
+  height: 150px;
 }
 
 .dayPicker {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .dayPicker h2 {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 /* .icon:hover {

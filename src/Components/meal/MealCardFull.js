@@ -29,9 +29,9 @@ export function MealCardFull(props) {
         <div className={styles.mealCardMainLeft}>
           <div className={styles.nutritions}>
             <h3>Nutritions</h3>
-            <p>fat={fat}g</p>
-            <p> carbs={carbs}g </p>
-            <p>protein={protein}g </p>
+            <p>fat: {fat}g</p>
+            <p> carbs: {carbs}g </p>
+            <p>protein: {protein}g </p>
           </div>
           <div className={styles.ingradients}>
             <h3>Ingradients:</h3>
