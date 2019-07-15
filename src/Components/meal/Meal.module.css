@@ -208,6 +208,7 @@ background-color: #c7c7c783;
 
 }
 
+
 .mealsTypes{
     display: flex;
     flex-flow: row;
@@ -230,8 +231,6 @@ background-color: #c7c7c783;
     background: #1dcebf62;
     font-size: 25px;
 }
-
-
 
 .addMealButton {
     font-size: 18px;

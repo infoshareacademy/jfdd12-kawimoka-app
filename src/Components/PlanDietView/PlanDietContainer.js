@@ -150,7 +150,8 @@ export class PlanDietContainer extends React.Component {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          paddingBottom: '100px'
         }}>
         <NutritionsPieChart
           sumFat={this.sumFat}
