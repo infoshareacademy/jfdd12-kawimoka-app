@@ -149,7 +149,6 @@ export class PlanDietContainer extends React.Component {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'center',
           paddingBottom: '100px'
         }}>
         <SingleDay

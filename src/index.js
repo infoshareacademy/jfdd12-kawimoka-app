@@ -28,29 +28,36 @@ class Root extends React.Component {
         <div>
           <Navbar />
         </div>
-        <div style={{ marginTop: '140px', position: 'absolute', marginLeft: '100px' }}>
-          <Switch>
-            <Route
-              exact
-              path='/'
-              component={() => (
-                <Calendar
-                  selectedDate={this.state.date}
-                  setSelectedDate={date => this.setState({ date })}
-                />
-              )}
-            />
-            <Route
-              exact
-              path='/plandiet'
-              component={() => <PlanDietContainer date={this.state.date} />}
-            />
-            <Redirect from='/home' to='/' />
-            <Route component={NoMatch} />
-          </Switch>
-        </div>
-        <div style={{ position: 'fixed', bottom: '0', width: '100%', backgroundColor: 'white' }}>
-          <Footer />
+        <div
+          style={{
+            marginTop: '140px',
+            position: 'absolute',
+            paddingLeft: '100px'
+          }}>
+          <div>
+            <Switch>
+              <Route
+                exact
+                path='/'
+                component={() => (
+                  <Calendar
+                    selectedDate={this.state.date}
+                    setSelectedDate={date => this.setState({ date })}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path='/plandiet'
+                component={() => <PlanDietContainer date={this.state.date} />}
+              />
+              <Redirect from='/home' to='/' />
+              <Route component={NoMatch} />
+            </Switch>
+          </div>
+          <div style={{ width: 'calc(99vw - 100px)', backgroundColor: 'white' }}>
+            <Footer />
+          </div>
         </div>
       </Router>
     )
