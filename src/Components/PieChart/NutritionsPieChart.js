@@ -1,15 +1,15 @@
 import React from 'react'
 import { PieChart, Pie, Cell } from 'recharts'
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28']
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
 export function NutritionsPieChart(props) {
-  const { sumFat, sumCarbs, sumProtein } = props
+  const { sumNutrition } = props;
 
   const data = [
-    { name: 'Fat', value: sumFat() || 1 },
-    { name: 'Carbs', value: sumCarbs() || 1 },
-    { name: 'Protein', value: sumProtein() || 1 }
+    { name: 'Fat', value: sumNutrition('fat') || 1 },
+    { name: 'Carbs', value: sumNutrition('carbs') || 1 },
+    { name: 'Protein', value: sumNutrition('protein') || 1 }
   ]
 
   return (
