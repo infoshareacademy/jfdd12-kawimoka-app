@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { MealCardFull } from './MealCardFull';
-import styles from './Meal.module.css'
+import './Meal.css'
 
 const customStyles = {
   content : {
@@ -44,7 +44,7 @@ export class MealModal extends React.Component {
   render() {
     return (
       <div>
-        <button className={styles.moreInfoButton} onClick={this.openModal}>More Info</button>
+        <button className={"moreInfoButton"} onClick={this.openModal}>More Info</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
