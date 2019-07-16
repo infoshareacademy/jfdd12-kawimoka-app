@@ -1,7 +1,7 @@
 import React from 'react'
 import './SingleDay.css'
 import {MealCardShort} from '../../meal/MealCardShort.js'
-import meals from '../../meal/meals.json'
+import meals from '../../../meals.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
