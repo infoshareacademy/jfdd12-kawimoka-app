@@ -1,5 +1,7 @@
-{
-  "id": 1,
-  "name": "Johnix",
-  "planId": 2
-}
+[
+  {
+    "id": 1,
+    "name": "Johnix",
+    "planId": 2
+  }
+]
