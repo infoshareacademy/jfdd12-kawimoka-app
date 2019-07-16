@@ -7,9 +7,9 @@ export function Nutrition(props) {
     return (
         <Paper zDepth={3} className="nutritionContainer">
         <div>
-            <span style={{ color: '#0088FE' }}> Fat </span>
-            <span style={{ color: '#00C49F' }}> Carbs </span>
-            <span style={{ color: '#FFBB28' }}> Protein </span>
+            <span style={{ color: '#FFED66' }}> Fat </span>
+            <span style={{ color: '#FF5E5B' }}> Carbs </span>
+            <span style={{ color: '#00CECB' }}> Protein </span>
         </div>
         <div>
             <NutritionsPieChart sumNutrition={props.sumNutrition} />
