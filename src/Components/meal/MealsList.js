@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import meals from './meals.json'
+import meals from '../../meals.json'
 import { MealCardShort } from './MealCardShort'
 import { MealCardFull } from './MealCardFull'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
