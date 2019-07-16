@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import meals from '../../meals.json'
+import { MealsTypes } from './MealsTypes'
 import { MealCardShort } from './MealCardShort'
 import { MealCardFull } from './MealCardFull'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,6 +8,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import {MealModal} from "./MealModal"
 import './Meal.css'
+import Paper from 'material-ui/Paper';
+
 
 library.add(faPlus);
 
@@ -25,15 +28,10 @@ export class MealsList extends Component {
 
   render() {
     return (
-      <div className='mealsList'>
+      <Paper className='mealsList'zDepth={0}>
         <div className='mealsListHeader'> Choose and add meals from the list </div>
 
-        <div className='mealsTypes'>
-          <div className='mealFilterButton' onClick={() => this.setMealFilter('breakfast')}><h1 >Breakfast</h1></div>
-          <div className='mealFilterButton' onClick={() => this.setMealFilter('lunch')}><h1 >Lunch</h1></div>
-          <div className='mealFilterButton' onClick={() => this.setMealFilter('snack')}><h1 >Snacks</h1></div>
-          <div className='mealFilterButton' onClick={() => this.setMealFilter('dinner')}><h1 >Dinner</h1></div>
-        </div>
+        <MealsTypes setMealFilter={this.setMealFilter}/>
 
         <div className='mealsShortCardsList'>
           <div>
@@ -64,7 +62,7 @@ export class MealsList extends Component {
           </div>
 
         </div>
-      </div>
+      </Paper>
     )
   }
 }

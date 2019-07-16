@@ -186,7 +186,7 @@ max-width: 370px;
 .mealsList {
     display: flex;
     flex-flow: column;
-    margin-left: 10px;
+    margin: 20px;
 }
 .mealsShortCardsList{
     display: flex;
@@ -195,6 +195,7 @@ max-width: 370px;
 
 .mealFilterButton{
     cursor: pointer;
+    color: black;
 }
 
 .mealsShortCardOne {
@@ -209,7 +210,8 @@ max-width: 370px;
 .mealsTypes{
     display: flex;
     flex-flow: row;
-    border: 1px solid rgb(41, 40, 40);
+    color: black;
+    /* border: 1px solid rgb(41, 40, 40); */
     margin-left: 5px;
     max-width: 380px;
 }
