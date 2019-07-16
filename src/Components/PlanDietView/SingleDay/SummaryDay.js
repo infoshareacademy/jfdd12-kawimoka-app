@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './SingleDay.module.css'
+import './SingleDay.css'
 
 
 export function SummaryDay(props) {
@@ -12,14 +12,14 @@ export function SummaryDay(props) {
         leftCalories = 0
     }
 
-    return <div className={s.summaryContainer}>
+    return <div className="summaryContainer">
         <div>
-            <h3 className={s.summaryText}>calories / kcal goal:</h3>
-            <h3 className={s.summaryText}>{sumCaloriesCount} / {kcalGoal}</h3>
+            <h3 className="summaryText">calories / kcal goal:</h3>
+            <h3 className="summaryText">{sumCaloriesCount} / {kcalGoal}</h3>
         </div>
         <div>
-            <h3 className={s.summaryText}>calories left:</h3>
-            <h3 className={s.summaryText}>{leftCalories}</h3>
+            <h3 className="summaryText">calories left:</h3>
+            <h3 className="summaryText">{leftCalories}</h3>
         </div>
     </div>
 }

@@ -10,7 +10,7 @@ export function NutritionsPieChart(props) {
     { name: 'Fat', value: sumNutrition('fat') || 1 },
     { name: 'Carbs', value: sumNutrition('carbs') || 1 },
     { name: 'Protein', value: sumNutrition('protein') || 1 }
-  ]
+  ];
 
   return (
     <PieChart width={250} height={250}>

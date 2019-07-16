@@ -8,6 +8,25 @@
   justify-content: space-between;
 }
 
+.changeDayIcon{
+  cursor: pointer;
+  color: #08ada0;
+}
+
+.removeMealIcon{
+  color: #c0cbcc;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.mealSpaceFormatter{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 30px;
+}
+
 .mealTypeTitle {
   margin: 10px;
 }
