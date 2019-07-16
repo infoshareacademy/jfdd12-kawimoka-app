@@ -5,6 +5,7 @@ import { MealCardShort } from './MealCardShort'
 import { MealCardFull } from './MealCardFull'
 import styles from './Meal.module.css'
 import { AddMealButton } from './AddMealButton.js'
+import {MealModal} from "./MealModal"
 
 export class MealsList extends Component {
   state = {
@@ -36,7 +37,7 @@ export class MealsList extends Component {
                 this.setMealFilter('breakfast')
                 this.clearMeal()
               }}>
-              {' '}
+             
               Breakfast
             </h1>
           </div>
@@ -47,7 +48,7 @@ export class MealsList extends Component {
                 this.setMealFilter('lunch')
                 this.clearMeal()
               }}>
-              {' '}
+              
               Lunch
             </h1>
           </div>
@@ -58,7 +59,7 @@ export class MealsList extends Component {
                 this.setMealFilter('snack')
                 this.clearMeal()
               }}>
-              {' '}
+              
               Snacks
             </h1>
           </div>
@@ -69,7 +70,7 @@ export class MealsList extends Component {
                 this.setMealFilter('dinner')
                 this.clearMeal()
               }}>
-              {' '}
+          
               Dinner
             </h1>
           </div>
@@ -80,7 +81,7 @@ export class MealsList extends Component {
             {meals
               .filter(meal => meal.type === this.state.mealFilter)
               .map(filteredMeal => (
-                <div
+                <div style={{display: "flex", flexFlow: "row"}}
                   className={styles.mealsShortCardOne}
                   onClick={() => {
                     this.setState({ selectedMeal: filteredMeal })
@@ -91,24 +92,21 @@ export class MealsList extends Component {
                     meal={filteredMeal}
                     onAdd={this.props.onAdd}
                   />{' '}
+                  <div style={{justifyContent: "center"}}>
                   <AddMealButton
                     onAdd={this.props.onAdd}
                     meal={filteredMeal}
                     selectedMealId={filteredMeal.id}
                   />
+                  <MealModal    meal={this.state.selectedMeal}
+                onAdd={this.props.onAdd}
+                onMealClose={this.clearMeal} />
+                </div>
+            
                 </div>
               ))}
           </div>
 
-          <div>
-            {this.state.selectedMeal.id && (
-              <MealCardFull
-                meal={this.state.selectedMeal}
-                onAdd={this.props.onAdd}
-                onMealClose={this.clearMeal}
-              />
-            )}
-          </div>
         </div>
       </div>
     )
