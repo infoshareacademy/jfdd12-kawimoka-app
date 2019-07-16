@@ -2,6 +2,7 @@ import React from 'react'
 import SingleDay from './SingleDay'
 import { MealsList } from '../meal/MealsList'
 import './PlanDietContainer.css'
+import { Nutrition } from './Nutrition/Nutrition'
 
 export class PlanDietContainer extends React.Component{
 
@@ -49,6 +50,7 @@ export class PlanDietContainer extends React.Component{
   render() {
     return (
       <div className="planDietContainer">
+        <Nutrition sumNutrition={this.sumNutrition}/>
         <SingleDay
           date={this.props.date}
           breakfastId={this.state.breakfast.id}
