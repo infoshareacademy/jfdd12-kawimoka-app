@@ -5,8 +5,18 @@ import meals from '../../../meals.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 library.add(faTimesCircle);
+
+const addMealButtonStyle = {
+    width: '56px',
+    height: '56px', 
+    position: 'relative', 
+    left: 'calc(450px - 28px)', 
+    top: '20%'
+}
 
 export function MealSpace (props) {
     const { mealId, mealTypeTitle, onDelete } = props;
@@ -19,6 +29,9 @@ export function MealSpace (props) {
                 <MealCardShort meal={addedMeal} />
                 <FontAwesomeIcon icon={["fas","times-circle"]} size='3x' className='removeMealIcon' onClick={() => onDelete(addedMeal)}/>
             </div>}
+            <FloatingActionButton style={addMealButtonStyle} backgroundColor={'#08ada0'}>
+                <ContentAdd />
+            </FloatingActionButton>
         </div>
     </div>)
 }
