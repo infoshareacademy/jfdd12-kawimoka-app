@@ -13,17 +13,15 @@ export class DayPicker extends React.Component {
     this.state = {
       dateInner: props.date
     };
-    this.decrementDate = this.decrementDate.bind(this);
-    this.incrementDate = this.incrementDate.bind(this);
   }
 
-  decrementDate() {
+  decrementDate = () => {
     this.setState(prevState => ({
       dateInner: prevState.dateInner.subtract('days', 1)
     }))
   }
 
-  incrementDate() {
+  incrementDate = () => {
     this.setState(prevState => ({
       dateInner: prevState.dateInner.add('days', 1)
     }))

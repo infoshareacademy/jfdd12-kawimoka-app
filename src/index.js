@@ -28,10 +28,6 @@ library.add(fab, faFacebookSquare, faInstagram);
 const NoMatch = () => <h1>404</h1>;
 
 class Root extends React.Component {
-  state = {
-    date: moment()
-  };
-
   render() {
     return (
       <MuiThemeProvider>
@@ -51,17 +47,12 @@ class Root extends React.Component {
                 <Route
                   exact
                   path="/"
-                  component={() => (
-                    <Calendar
-                      selectedDate={this.state.date}
-                      setSelectedDate={date => this.setState({ date })}
-                    />
-                  )}
+                  component={Calendar}
                 />
                 <Route
                   exact
                   path="/plandiet"
-                  component={() => <PlanDietContainer date={this.state.date} />}
+                  component={PlanDietContainer}
                 />
                 <Redirect from="/home" to="/" />
                 <Route component={NoMatch} />

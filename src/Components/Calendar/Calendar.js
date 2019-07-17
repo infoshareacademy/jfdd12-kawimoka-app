@@ -39,13 +39,8 @@ class CalendarContainer extends Component {
     this.setState({ mealsList: mealsListState });
   }
 
-  onSelect = e => {
-    console.log({ e });
-    this.props.setSelectedDate(moment(e.start));
-    // this.props.selectedDate
-    // this.setState({
-    //   selectedDate: e.start
-    // });
+  onSelect = (e, setSelectedDate) => {
+    setSelectedDate(moment(e.start))
   };
 
   render() {
@@ -67,11 +62,10 @@ class CalendarContainer extends Component {
       <div style={{ width: "90vw", marginBottom: "225px" }}>
         <PlanConsumer>
           {value => {
-            console.log(value.events);
             return (
               <Calendar
                 selectable={true}
-                onSelectSlot={this.onSelect}
+                onSelectSlot={(e) => {this.onSelect(e, value.setSelectedDate)}}
                 style={{ height: 800 }}
                 localizer={localizer}
                 events={value.events}

@@ -1,11 +1,13 @@
 import React from "react";
 import moment from "moment";
 import meals from "../meals.json";
+import { findMeal } from "../utils.js";
 
 export const PlanContext = React.createContext();
 
 export class PlanProvider extends React.Component {
   state = {
+    activeDate: moment(),
     plan: {
       id: 2,
       days: [
@@ -45,16 +47,12 @@ export class PlanProvider extends React.Component {
   mapPlanToEvents = () => {
     return this.state.plan.days.map(day => {
       const date = day.date;
-      const { breakfastId, lunchId, snackId, dinnerId } = day.meals;
-      const breakfast = meals.find(meal => meal.id === breakfastId);
-      const lunch = meals.find(meal => meal.id === lunchId);
-      const snack = meals.find(meal => meal.id === snackId);
-      const dinner = meals.find(meal => meal.id === dinnerId);
-
+      const meals = this.getMeals(date);
+      
       return {
         id: 0,
-        title: `${breakfast.name}\n${lunch.name}\n${snack.name}\n${
-          dinner.name
+        title: `${meals.breakfast.name}\\n${meals.lunch.name}\n${meals.snack.name}\n${
+          meals.dinner.name
         }`,
         allDay: true,
         start: moment(date, "DD-MM-YYYY").toDate(),
@@ -63,6 +61,28 @@ export class PlanProvider extends React.Component {
     });
   };
 
+  getMeals = (date) =>{
+    const dayObject = this.state.plan.days.find(day => day.date === date);
+    if(!dayObject){
+      return;
+    } else {
+      return {
+        day: moment(date),
+        breakfast: findMeal(dayObject.meals.breakfastId),
+        lunch: findMeal(dayObject.meals.lunchId),
+        snack: findMeal(dayObject.meals.snackId),
+        dinner: findMeal(dayObject.meals.dinnerId),
+      }
+    }
+  }
+
+  setSelectedDate = (date) => {
+    this.setState({
+      activeDate: date
+    })
+    
+  }
+  
   // addMealToPlan = (meal) => {
   //   this.setState({
   //     [meal.type]: {
@@ -72,7 +92,7 @@ export class PlanProvider extends React.Component {
   //       carbs: parseInt(meal.nutritions.carbs),
   //       protein: parseInt(meal.nutritions.protein)
   //     }
-  // })
+  // })}
 
   // }
 
@@ -83,9 +103,9 @@ export class PlanProvider extends React.Component {
   filteredMeals = []; 
 
   setMealFilter = filterName => {
-    this.setState((prevState) => {
+    this.setState(() => {
       return {mealFilter: filterName}
-    }, () => {
+    },() => {
       this.filteredMeals = meals.filter(meal => meal.type === this.state.mealFilter)
     }) 
   };
@@ -101,7 +121,9 @@ export class PlanProvider extends React.Component {
       <PlanContext.Provider
         value={{
           ...this.state,
+          setSelectedDate: this.setSelectedDate,
           events: this.mapPlanToEvents(),
+          getMeals: this.getMeals,
           setMealFilter : this.setMealFilter,
           showMeal: this.showMeal,
           filteredMeals: this.filteredMeals
@@ -111,5 +133,5 @@ export class PlanProvider extends React.Component {
       </PlanContext.Provider>
     );
   }
-}
+  }
 export const PlanConsumer = PlanContext.Consumer;
