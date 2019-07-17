@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import meals from "../meals.json";
 
 export const PlanContext = React.createContext();
 
@@ -31,7 +32,7 @@ export class PlanProvider extends React.Component {
           meals: {
             breakfastId: 4,
             lunchId: 9,
-            snackId: 25,
+            snackId: 22,
             dinnerId: 16
           }
         }
@@ -40,12 +41,25 @@ export class PlanProvider extends React.Component {
   };
 
   mapPlanToEvents = () => {
+    console.log(meals);
     return this.state.plan.days.map(day => {
       const date = day.date;
-      // const mealsInDay = day.mealsd
+      const { breakfastId, lunchId, snackId, dinnerId } = day.meals;
+      const breakfast = meals.find(meal => meal.id === breakfastId);
+      const lunch = meals.find(meal => meal.id === lunchId);
+      const snack = meals.find(meal => meal.id === snackId);
+      const dinner = meals.find(meal => meal.id === dinnerId);
+
+      console.log(breakfast);
+      console.log(lunch);
+      console.log(snack);
+      console.log(snack);
+
       return {
         id: 0,
-        title: "Meal",
+        title: `${breakfast.name}\n${lunch.name}\n${snack.name}\n${
+          dinner.name
+        }`,
         allDay: true,
         start: moment(date, "DD-MM-YYYY").toDate(),
         end: moment(date, "DD-MM-YYYY").toDate()

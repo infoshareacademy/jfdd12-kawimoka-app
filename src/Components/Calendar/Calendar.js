@@ -3,6 +3,7 @@ import { PlanConsumer } from "../../contexts/PlanContext";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import "./custom-calendar.css";
 import events from "../../events";
 import meals from "../../meals.json";
 
@@ -71,7 +72,7 @@ class CalendarContainer extends Component {
               <Calendar
                 selectable={true}
                 onSelectSlot={this.onSelect}
-                style={{ height: 500 }}
+                style={{ height: 800 }}
                 localizer={localizer}
                 events={value.events}
                 startAccessor="start"
