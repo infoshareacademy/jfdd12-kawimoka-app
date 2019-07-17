@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import meals from '../../meals.json'
 import { MealsTypes } from './MealsTypes'
 import { MealCardShort } from './MealCardShort'
-import { MealCardFull } from './MealCardFull'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -29,7 +29,7 @@ export class MealsList extends Component {
   render() {
     return (
       <Paper className='mealsList'zDepth={0}>
-        <div className='mealsListHeader'> Choose and add meals from the list </div>
+ 
 
         <MealsTypes setMealFilter={this.setMealFilter}/>
 
@@ -42,12 +42,12 @@ export class MealsList extends Component {
                   onClick={() => {
                     this.setState({ selectedMeal: filteredMeal })
                   }}>
-                  {' '}
+                  
                   <MealCardShort
                     key={filteredMeal.id}
                     meal={filteredMeal}
                     onAdd={this.props.onAdd}
-                  />{' '}
+                  />
                   <div style={{justifyContent: "center"}}>
                   <FontAwesomeIcon icon={['fas', 'plus']} size='3x' className='addMealButton' onClick={() => this.props.onAdd(filteredMeal)}/>
                   <MealModal    meal={this.state.selectedMeal} onAdd={this.props.onAdd} onMealClose={this.clearMeal} />

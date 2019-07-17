@@ -18,9 +18,11 @@ const addMealButtonStyle = {
     top: '20%'
 }
 
+
 export function MealSpace (props) {
     const { mealId, mealTypeTitle, onDelete } = props;
     const addedMeal = meals.find(meal => meal.id === mealId);
+    const { setMealFilter } = props
     return (
     <div className="mealSpaceContainer">
         <h3 className="mealTypeTitle">{mealTypeTitle}</h3>
@@ -29,7 +31,7 @@ export function MealSpace (props) {
                 <MealCardShort meal={addedMeal} />
                 <FontAwesomeIcon icon={["fas","times-circle"]} size='3x' className='removeMealIcon' onClick={() => onDelete(addedMeal)}/>
             </div>}
-            <FloatingActionButton style={addMealButtonStyle} backgroundColor={'#08ada0'}>
+            <FloatingActionButton style={addMealButtonStyle} backgroundColor={'#08ada0'} onClick={() => setMealFilter('breakfast')}>
                 <ContentAdd />
             </FloatingActionButton>
         </div>
