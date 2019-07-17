@@ -66,14 +66,14 @@ class CalendarContainer extends Component {
       <div style={{ width: "90vw", marginBottom: "225px" }}>
         <PlanConsumer>
           {value => {
-            console.log(value);
+            console.log(value.events);
             return (
               <Calendar
                 selectable={true}
                 onSelectSlot={this.onSelect}
                 style={{ height: 500 }}
                 localizer={localizer}
-                events={events}
+                events={value.events}
                 startAccessor="start"
                 endAccessor="end"
               />

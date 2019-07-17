@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 export const PlanContext = React.createContext();
 
@@ -39,22 +40,27 @@ export class PlanProvider extends React.Component {
   };
 
   mapPlanToEvents = () => {
-    this.state.plan.days.map(day => {
+    return this.state.plan.days.map(day => {
       const date = day.date;
       // const mealsInDay = day.mealsd
       return {
         id: 0,
         title: "Meal",
         allDay: true,
-        start: new Date(date),
-        end: new Date(date)
+        start: moment(date, "DD-MM-YYYY").toDate(),
+        end: moment(date, "DD-MM-YYYY").toDate()
       };
     });
   };
 
   render() {
     return (
-      <PlanContext.Provider value={this.state}>
+      <PlanContext.Provider
+        value={{
+          ...this.state,
+          events: this.mapPlanToEvents()
+        }}
+      >
         {this.props.children}
       </PlanContext.Provider>
     );
