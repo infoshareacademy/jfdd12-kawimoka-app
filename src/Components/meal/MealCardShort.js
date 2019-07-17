@@ -15,7 +15,6 @@ const { name, time, image, kcal} = meal;
             <h2>Calories: {kcal} kcal</h2>
             <h2>Prep Time: {time} min </h2>
         </div>
-
     </div>
   );
 }
