@@ -21,7 +21,7 @@ import {
 import { MealsList } from "./Components/meal/MealsList";
 import Calendar from "./Components/Calendar/Calendar";
 import moment from "moment";
-import { MealProvider } from "./contexts/MealContext";
+import { PlanProvider } from "./contexts/PlanContext";
 
 library.add(fab, faFacebookSquare, faInstagram);
 
@@ -80,9 +80,9 @@ class Root extends React.Component {
 }
 
 ReactDOM.render(
-  <MealProvider>
+  <PlanProvider>
     <Root />
-  </MealProvider>,
+  </PlanProvider>,
   document.getElementById("root")
 );
 

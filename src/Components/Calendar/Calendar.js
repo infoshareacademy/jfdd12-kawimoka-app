@@ -1,5 +1,5 @@
 import React, { useContext, Component } from "react";
-import { MealConsumer } from "../../contexts/MealContext";
+import { PlanConsumer } from "../../contexts/PlanContext";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -64,7 +64,7 @@ class CalendarContainer extends Component {
 
     return (
       <div style={{ width: "90vw", marginBottom: "225px" }}>
-        <MealConsumer>
+        <PlanConsumer>
           {value => {
             console.log(value);
             return (
@@ -79,7 +79,7 @@ class CalendarContainer extends Component {
               />
             );
           }}
-        </MealConsumer>
+        </PlanConsumer>
       </div>
     );
   }
