@@ -37,7 +37,8 @@ export class PlanProvider extends React.Component {
           }
         }
       ]
-    }
+    },
+    mealFilter: '',
   };
 
   mapPlanToEvents = () => {
@@ -67,12 +68,32 @@ export class PlanProvider extends React.Component {
     });
   };
 
+  // addMealToPlan = (meal) => {
+  //   this.setState({
+  //     [meal.type]: {
+  //       id: meal.id,
+  //       kcal: parseInt(meal.kcal),
+  //       fat: parseInt(meal.nutritions.fat),
+  //       carbs: parseInt(meal.nutritions.carbs),
+  //       protein: parseInt(meal.nutritions.protein)
+  //     }
+  // })
+
+  // }
+
+  // removeMealFromPlan = () => {
+
+  // }
+
+
+
   render() {
     return (
       <PlanContext.Provider
         value={{
           ...this.state,
           events: this.mapPlanToEvents()
+          setMealFilter : this.setMealFilter
         }}
       >
         {this.props.children}
