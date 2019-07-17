@@ -42,29 +42,52 @@ export class PlanProvider extends React.Component {
 
   mapPlanToEvents = () => {
     console.log(meals);
-    return this.state.plan.days.map(day => {
-      const date = day.date;
-      const { breakfastId, lunchId, snackId, dinnerId } = day.meals;
-      const breakfast = meals.find(meal => meal.id === breakfastId);
-      const lunch = meals.find(meal => meal.id === lunchId);
-      const snack = meals.find(meal => meal.id === snackId);
-      const dinner = meals.find(meal => meal.id === dinnerId);
+    return this.state.plan.days
+      .map(day => {
+        const date = day.date;
+        const { breakfastId, lunchId, snackId, dinnerId } = day.meals;
+        const breakfast = meals.find(meal => meal.id === breakfastId);
+        const lunch = meals.find(meal => meal.id === lunchId);
+        const snack = meals.find(meal => meal.id === snackId);
+        const dinner = meals.find(meal => meal.id === dinnerId);
 
-      console.log(breakfast);
-      console.log(lunch);
-      console.log(snack);
-      console.log(snack);
+        console.log(breakfast);
+        console.log(lunch);
+        console.log(snack);
+        console.log(snack);
 
-      return {
-        id: 0,
-        title: `${breakfast.name}\n${lunch.name}\n${snack.name}\n${
-          dinner.name
-        }`,
-        allDay: true,
-        start: moment(date, "DD-MM-YYYY").toDate(),
-        end: moment(date, "DD-MM-YYYY").toDate()
-      };
-    });
+        return [
+          {
+            id: 0,
+            title: `${breakfast.name}`,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          },
+          {
+            id: 0,
+            title: `${lunch.name}`,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          },
+          {
+            id: 0,
+            title: `${snack.name}`,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          },
+          {
+            id: 0,
+            title: `${dinner.name}`,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          }
+        ];
+      })
+      .reduce((acc, val) => acc.concat(val), []);
   };
 
   render() {
