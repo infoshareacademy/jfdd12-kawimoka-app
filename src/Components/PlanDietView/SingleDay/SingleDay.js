@@ -18,10 +18,10 @@ function SingleDay(props) {
   return (
     <Paper zDepth={3} className="singleDayContainer">
       <DayPicker date={props.date} />
-      <MealSpace mealTypeTitle='Breakfast' mealId={breakfastId} onDelete={onDelete} />
-      <MealSpace mealTypeTitle={'Lunch'} mealId={lunchId} onDelete={onDelete} />
-      <MealSpace mealTypeTitle={'Snacks'} mealId={snackId} onDelete={onDelete} />
-      <MealSpace mealTypeTitle={'Dinner'} mealId={dinnerId} onDelete={onDelete} />
+      <MealSpace mealTypeTitle={'breakfast'} mealId={breakfastId} onDelete={onDelete} />
+      <MealSpace mealTypeTitle={'lunch'} mealId={lunchId} onDelete={onDelete} />
+      <MealSpace mealTypeTitle={'snacks'} mealId={snackId} onDelete={onDelete} />
+      <MealSpace mealTypeTitle={'dinner'} mealId={dinnerId} onDelete={onDelete} />
       <SummaryDay sumNutrition={sumNutrition} kcalGoal={'1800'} />
     </Paper>
   )

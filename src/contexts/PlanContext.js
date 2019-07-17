@@ -39,10 +39,10 @@ export class PlanProvider extends React.Component {
       ]
     },
     mealFilter: '',
+    showedMeal: {}
   };
 
   mapPlanToEvents = () => {
-    console.log(meals);
     return this.state.plan.days.map(day => {
       const date = day.date;
       const { breakfastId, lunchId, snackId, dinnerId } = day.meals;
@@ -50,11 +50,6 @@ export class PlanProvider extends React.Component {
       const lunch = meals.find(meal => meal.id === lunchId);
       const snack = meals.find(meal => meal.id === snackId);
       const dinner = meals.find(meal => meal.id === dinnerId);
-
-      console.log(breakfast);
-      console.log(lunch);
-      console.log(snack);
-      console.log(snack);
 
       return {
         id: 0,
@@ -85,6 +80,20 @@ export class PlanProvider extends React.Component {
 
   // }
 
+  filteredMeals = []; 
+
+  setMealFilter = filterName => {
+    this.setState((prevState) => {
+      return {mealFilter: filterName}
+    }, () => {
+      this.filteredMeals = meals.filter(meal => meal.type === this.state.mealFilter)
+    }) 
+  };
+
+  showMeal = meal => {
+    this.setState({ showedMeal: meal.id })
+  }
+
 
 
   render() {
@@ -92,8 +101,10 @@ export class PlanProvider extends React.Component {
       <PlanContext.Provider
         value={{
           ...this.state,
-          events: this.mapPlanToEvents()
-          setMealFilter : this.setMealFilter
+          events: this.mapPlanToEvents(),
+          setMealFilter : this.setMealFilter,
+          showMeal: this.showMeal,
+          filteredMeals: this.filteredMeals
         }}
       >
         {this.props.children}
