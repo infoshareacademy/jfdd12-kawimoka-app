@@ -4,7 +4,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import events from "../../events";
-import meals from "../meal/meals.json";
+import meals from "../../meals.json";
 
 const localizer = momentLocalizer(moment);
 

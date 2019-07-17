@@ -1,11 +1,30 @@
 .singleDayContainer {
   padding: 5px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   width: 450px;
   max-height: 1075px;
-  border: 1px solid black;
   justify-content: space-between;
+}
+
+.changeDayIcon{
+  cursor: pointer;
+  color: #08ada0;
+}
+
+.removeMealIcon{
+  color: #c0cbcc;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.mealSpaceFormatter{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 30px;
 }
 
 .mealTypeTitle {

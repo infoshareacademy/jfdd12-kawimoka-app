@@ -2,8 +2,8 @@ import React from 'react'
 import { MealSpace } from './MealSpace'
 import { SummaryDay } from './SummaryDay'
 import { DayPicker } from './DayPicker'
-import s from './SingleDay.module.css'
-import { NutritionsPieChart } from '../../PieChart/NutritionsPieChart'
+import './SingleDay.css'
+import Paper from 'material-ui/Paper';
 
 function SingleDay(props) {
   const {
@@ -16,22 +16,14 @@ function SingleDay(props) {
   } = props;
 
   return (
-    <div className={s.singleDayContainer}>
+    <Paper zDepth={3} className="singleDayContainer">
       <DayPicker date={props.date} />
-      <MealSpace mealTypeTitle={'Breakfast'} mealId={breakfastId} onDelete={onDelete} />
+      <MealSpace mealTypeTitle='Breakfast' mealId={breakfastId} onDelete={onDelete} />
       <MealSpace mealTypeTitle={'Lunch'} mealId={lunchId} onDelete={onDelete} />
       <MealSpace mealTypeTitle={'Snacks'} mealId={snackId} onDelete={onDelete} />
       <MealSpace mealTypeTitle={'Dinner'} mealId={dinnerId} onDelete={onDelete} />
       <SummaryDay sumNutrition={sumNutrition} kcalGoal={'1800'} />
-      <div>
-        <span style={{ color: '#0088FE' }}> Fat </span>
-        <span style={{ color: '#00C49F' }}> Carbs </span>
-        <span style={{ color: '#FFBB28' }}> Protein </span>
-      </div>
-      <div>
-        <NutritionsPieChart sumNutrition={sumNutrition} />
-      </div>
-    </div>
+    </Paper>
   )
 }
 

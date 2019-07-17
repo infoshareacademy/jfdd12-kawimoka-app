@@ -1,16 +1,16 @@
 import React from 'react'
 import SingleDay from './SingleDay'
 import { MealsList } from '../meal/MealsList'
-// import { UiStateLocalStorageService } from '../../ui-state-ls.service'
-// import {DragDropContext} from 'react-beautiful-dnd';
+import './PlanDietContainer.css'
+import { Nutrition } from './Nutrition/Nutrition'
 
 export class PlanDietContainer extends React.Component{
 
   state = {
-    breakfast: new Meal(),
-    lunch: new Meal(),
-    snack: new Meal(),
-    dinner: new Meal()
+      breakfast: new Meal(),
+      lunch: new Meal(),
+      snack: new Meal(),
+      dinner: new Meal()
   };
 
   componentDidUpdate = () => {
@@ -19,39 +19,38 @@ export class PlanDietContainer extends React.Component{
 
   componentDidMount = () => {
     const newState = JSON.parse(localStorage.getItem('meals'));
-    this.setState(newState)
+    this.setState(newState);
   };
 
   onAdd = meal => {
     this.setState({
-      [meal.type]: {
-        id: meal.id,
-        kcal: parseInt(meal.kcal),
-        fat: parseInt(meal.nutritions.fat),
-        carbs: parseInt(meal.nutritions.carbs),
-        protein: parseInt(meal.nutritions.protein)
-      }
+        [meal.type]: {
+          id: meal.id,
+          kcal: parseInt(meal.kcal),
+          fat: parseInt(meal.nutritions.fat),
+          carbs: parseInt(meal.nutritions.carbs),
+          protein: parseInt(meal.nutritions.protein)
+        }
     })
   };
 
   onDelete = meal => {
     this.setState({
-      [meal.type]: new Meal()
+        [meal.type]: new Meal()
     })
   };
 
   sumNutrition = (field) => {
-    return this.state.breakfast[field] + this.state.lunch[field] + this.state.snack[field] + this.state.dinner[field];
+    return this.state.breakfast[field] +
+        this.state.lunch[field] +
+        this.state.snack[field] +
+        this.state.dinner[field];
   };
 
   render() {
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          paddingBottom: '100px'
-        }}>
+      <div className="planDietContainer">
+        <Nutrition sumNutrition={this.sumNutrition}/>
         <SingleDay
           date={this.props.date}
           breakfastId={this.state.breakfast.id}
