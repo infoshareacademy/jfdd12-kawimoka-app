@@ -144,10 +144,6 @@ export class PlanProvider extends React.Component {
     });
   };
 
-  showMeal = meal => {
-    this.setState({ showedMeal: meal.id });
-  };
-
   render() {
     return (
       <PlanContext.Provider

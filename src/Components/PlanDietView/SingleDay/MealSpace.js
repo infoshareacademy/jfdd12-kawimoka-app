@@ -24,19 +24,25 @@ export function MealSpace (props) {
     const addedMeal = meals.find(meal => meal.id === mealId);
     return (
 			<PlanConsumer>
-				{value => (<div className="mealSpaceContainer">
-					<h3 className="mealTypeTitle">{mealTypeTitle}</h3>
-					<div className="mealSpace">
+				{value => (
+					<div className="mealSpaceContainer">
+						<h3 className="mealTypeTitle">{mealTypeTitle}</h3>
+						<div className="mealSpace">
 							{mealId && <div className="mealSpaceFormatter">
-									<MealCardShort meal={addedMeal} />
-									<FontAwesomeIcon icon={["fas","times-circle"]} size='3x' className='removeMealIcon' onClick={() => value.addOrRemoveMeal(addedMeal, false)}/>
-							</div>}
-							<FloatingActionButton style={addMealButtonStyle} backgroundColor={'#08ada0'} onClick={() => value.setMealFilter(mealTypeTitle)}>
+								<MealCardShort meal={addedMeal} />
+								<FontAwesomeIcon icon={["fas","times-circle"]} 
+								size='3x' 
+								className='removeMealIcon' 
+								onClick={() => value.addOrRemoveMeal(addedMeal, false)}/></div>}
+							<FloatingActionButton 
+								style={addMealButtonStyle} 
+								backgroundColor={'#08ada0'} 
+								onClick={() => value.setMealFilter(mealTypeTitle)}>
 									<ContentAdd />
 							</FloatingActionButton>
-					</div>
-				</div>)}
-    	</PlanConsumer>
-    )
+						</div>
+					</div>)}
+			</PlanConsumer>
+  	)
 }
 
