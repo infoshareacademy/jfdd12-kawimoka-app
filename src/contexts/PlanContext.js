@@ -114,31 +114,27 @@ export class PlanProvider extends React.Component {
     }));
   };
 
-  addMealToPlan = meal => {
+  addOrRemoveMeal = (meal, isAdd) => {
     let currentDate = this.state.activeDate.format("DD-MM-YYYY")
     let mealsOfTheDay = this.getMealsByDay();
-    mealsOfTheDay[meal.type + 'Id'] = meal.id;
+    let mealId = isAdd ? meal.id : null
+    mealsOfTheDay[meal.type + 'Id'] = mealId;
     let dayMealIndex = this.state.plan.days.findIndex(day => day.date === currentDate)
+
     if(dayMealIndex !== -1){
       this.setState((prevState) => {
         prevState.plan.days.splice(dayMealIndex, 1);
         return prevState;
       })
     }
-      this.setState(prevState => ({
-        [prevState.plan.days]: prevState.plan.days.push({
-          date: currentDate,
-          meals: mealsOfTheDay
-          })
+    this.setState(prevState => ({
+      [prevState.plan.days]: prevState.plan.days.push({
+        date: currentDate,
+        meals: mealsOfTheDay
         })
-      )
+      })
+    )
   };
-
-  // }
-
-  // removeMealFromPlan = () => {
-
-  // }
 
   setMealFilter = filterName => {
     this.setState({
@@ -166,7 +162,7 @@ export class PlanProvider extends React.Component {
           getMealsByDay: this.getMealsByDay,
           decrementActiveDate: this.decrementActiveDate,
           incrementActiveDate: this.incrementActiveDate,
-          addMealToPlan: this.addMealToPlan
+          addOrRemoveMeal: this.addOrRemoveMeal,
         }}
       >
         {this.props.children}

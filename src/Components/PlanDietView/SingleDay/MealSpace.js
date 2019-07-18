@@ -20,7 +20,7 @@ const addMealButtonStyle = {
 }
 
 export function MealSpace (props) {
-    const { mealId, mealTypeTitle, onDelete } = props;
+    const { mealId, mealTypeTitle} = props;
     const addedMeal = meals.find(meal => meal.id === mealId);
     return (
 			<PlanConsumer>
@@ -29,7 +29,7 @@ export function MealSpace (props) {
 					<div className="mealSpace">
 							{mealId && <div className="mealSpaceFormatter">
 									<MealCardShort meal={addedMeal} />
-									{/* <FontAwesomeIcon icon={["fas","times-circle"]} size='3x' className='removeMealIcon' onClick={() => onDelete(addedMeal)}/> */}
+									<FontAwesomeIcon icon={["fas","times-circle"]} size='3x' className='removeMealIcon' onClick={() => value.addOrRemoveMeal(addedMeal, false)}/>
 							</div>}
 							<FloatingActionButton style={addMealButtonStyle} backgroundColor={'#08ada0'} onClick={() => value.setMealFilter(mealTypeTitle)}>
 									<ContentAdd />

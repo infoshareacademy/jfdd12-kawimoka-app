@@ -30,7 +30,7 @@ export function MealsList() {
                   key={filteredMeal.id}
                   meal={filteredMeal}
               />
-              <button onClick={() => value.addMealToPlan(filteredMeal)}>ADD</button>
+              <button onClick={() => value.addOrRemoveMeal(filteredMeal, true)}>ADD</button>
               </>)} 
           </Paper>)
         }
