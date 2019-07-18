@@ -40,7 +40,7 @@ export class PlanProvider extends React.Component {
         }
       ]
     },
-    mealFilter: '',
+    mealFilter: "",
     filteredMeals: [],
     showedMeal: {}
   };
@@ -49,12 +49,12 @@ export class PlanProvider extends React.Component {
     return this.state.plan.days.map(day => {
       const date = day.date;
       const meals = this.getMeals(date);
-      
+
       return {
         id: 0,
-        title: `${meals.breakfast.name}\\n${meals.lunch.name}\n${meals.snack.name}\n${
-          meals.dinner.name
-        }`,
+        title: `${meals.breakfast.name}\\n${meals.lunch.name}\n${
+          meals.snack.name
+        }\n${meals.dinner.name}`,
         allDay: true,
         start: moment(date, "DD-MM-YYYY").toDate(),
         end: moment(date, "DD-MM-YYYY").toDate()
@@ -62,9 +62,12 @@ export class PlanProvider extends React.Component {
     });
   };
 
-  getMeals = (date) =>{
-    const dayObject = this.state.plan.days.find(day => day.date === date);
-    if(!dayObject){
+  getMeals = date => {
+    const dayObject = this.state.plan.days.find(day => {
+      return day.date === date;
+    });
+    console.log(dayObject);
+    if (!dayObject) {
       return;
     } else {
       return {
@@ -72,18 +75,33 @@ export class PlanProvider extends React.Component {
         breakfast: findMeal(dayObject.meals.breakfastId),
         lunch: findMeal(dayObject.meals.lunchId),
         snack: findMeal(dayObject.meals.snackId),
-        dinner: findMeal(dayObject.meals.dinnerId),
-      }
+        dinner: findMeal(dayObject.meals.dinnerId)
+      };
     }
-  }
+  };
 
-  setSelectedDate = (date) => {
+  getMealsByDay = () => {
+    const foundDay = this.state.plan.days.find(day => {
+      if (day.date === this.state.activeDate.format("DD-MM-YYYY")) {
+        return true;
+      }
+    });
+    return (
+      (foundDay && foundDay.meals) || {
+        breakfastId: null,
+        snackId: null,
+        lunchId: null,
+        dinnerId: null
+      }
+    );
+  };
+
+  setSelectedDate = date => {
     this.setState({
       activeDate: date
-    })
-    
-  }
-  
+    });
+  };
+
   // addMealToPlan = (meal) => {
   //   this.setState({
   //     [meal.type]: {
@@ -101,24 +119,17 @@ export class PlanProvider extends React.Component {
 
   // }
 
-  ; 
-
   setMealFilter = filterName => {
-    this.setState(
-      {
-        ...this.state,
-        mealFilter: filterName,
-        filteredMeals: meals.filter(meal => meal.type === filterName)
-      }
-    )
-    
+    this.setState({
+      ...this.state,
+      mealFilter: filterName,
+      filteredMeals: meals.filter(meal => meal.type === filterName)
+    });
   };
 
   showMeal = meal => {
-    this.setState({ showedMeal: meal.id })
-  }
-
-
+    this.setState({ showedMeal: meal.id });
+  };
 
   render() {
     return (
@@ -128,14 +139,15 @@ export class PlanProvider extends React.Component {
           setSelectedDate: this.setSelectedDate,
           events: this.mapPlanToEvents(),
           getMeals: this.getMeals,
-          setMealFilter : this.setMealFilter,
+          setMealFilter: this.setMealFilter,
           showMeal: this.showMeal,
-          filteredMeals: this.state.filteredMeals
+          filteredMeals: this.state.filteredMeals,
+          getMealsByDay: this.getMealsByDay
         }}
       >
         {this.props.children}
       </PlanContext.Provider>
     );
   }
-  }
+}
 export const PlanConsumer = PlanContext.Consumer;
