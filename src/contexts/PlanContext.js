@@ -49,12 +49,13 @@ export class PlanProvider extends React.Component {
     return this.state.plan.days.map(day => {
       const date = day.date;
       const meals = this.getMeals(date);
-
+      
       return {
         id: 0,
-        title: `${meals.breakfast.name}\\n${meals.lunch.name}\n${
-          meals.snack.name
-        }\n${meals.dinner.name}`,
+        title: `${meals.breakfast ? meals.breakfast.name : ''}\\n
+                ${meals.lunch ? meals.lunch.name : ''}\n
+                ${meals.snack ? meals.snack.name : ''}\n
+                ${meals.dinner ? meals.snack.name : ''}`,
         allDay: true,
         start: moment(date, "DD-MM-YYYY").toDate(),
         end: moment(date, "DD-MM-YYYY").toDate()
@@ -115,17 +116,16 @@ export class PlanProvider extends React.Component {
   };
 
   addMealToPlan = meal => {
-    this.setState(prevState => ({
-      [prevState.plan.days]: prevState.plan.days.push({
-        date: this.state.activeDate.format("DD-MM-YYYY"),
-        meals: {
-          breakfastId: meal.id,
-          lunchId: meal.id,
-          snackId: meal.id,
-          dinnerId: meal.id
-        }
-      })
-    }));
+    let currentDate = this.state.activeDate.format("DD-MM-YYYY")
+    let mealsOfTheDay = this.getMealsByDay();
+    mealsOfTheDay[meal.type + 'Id'] = meal.id;
+      this.setState(prevState => ({
+        [prevState.plan.days]: prevState.plan.days.push({
+          date: currentDate,
+          meals: mealsOfTheDay
+          })
+        })
+      )
   };
 
   // }
