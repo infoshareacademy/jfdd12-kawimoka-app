@@ -114,16 +114,19 @@ export class PlanProvider extends React.Component {
     }));
   };
 
-  // addMealToPlan = (meal) => {
-  //   this.setState({
-  //     [meal.type]: {
-  //       id: meal.id,
-  //       kcal: parseInt(meal.kcal),
-  //       fat: parseInt(meal.nutritions.fat),
-  //       carbs: parseInt(meal.nutritions.carbs),
-  //       protein: parseInt(meal.nutritions.protein)
-  //     }
-  // })}
+  addMealToPlan = meal => {
+    this.setState(prevState => ({
+      [prevState.plan.days]: prevState.plan.days.push({
+        date: this.state.activeDate.format("DD-MM-YYYY"),
+        meals: {
+          breakfastId: meal.id,
+          lunchId: meal.id,
+          snackId: meal.id,
+          dinnerId: meal.id
+        }
+      })
+    }));
+  };
 
   // }
 
@@ -156,7 +159,8 @@ export class PlanProvider extends React.Component {
           filteredMeals: this.state.filteredMeals,
           getMealsByDay: this.getMealsByDay,
           decrementActiveDate: this.decrementActiveDate,
-          incrementActiveDate: this.incrementActiveDate
+          incrementActiveDate: this.incrementActiveDate,
+          addMealToPlan: this.addMealToPlan
         }}
       >
         {this.props.children}

@@ -9,19 +9,6 @@ library.add(faAngleLeft);
 library.add(faAngleRight);
 
 export class DayPicker extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     dateInner: props.date
-  //   };
-  // }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.date !== this.state.dateInner) {
-  //     this.setState({ dateInner: nextProps.date });
-  //   }
-  // }
-
   render() {
     return (
       <PlanConsumer>
