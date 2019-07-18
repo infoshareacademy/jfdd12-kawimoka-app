@@ -1,11 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import './index.css'
-import App from './App'
 import * as serviceWorker from './serviceWorker'
-import { Navbar } from './Components/Navbar'
+import Navbar from './Components/Navbar'
+import 'semantic-ui-css/semantic.min.css'
 import { PlanDietContainer } from './Components/PlanDietView/PlanDietContainer'
 import { Footer } from './Components/Footer'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -15,7 +14,6 @@ import Calendar from './Components/Calendar/Calendar'
 import moment from 'moment'
 
 library.add(fab, faFacebookSquare, faInstagram)
-
 
 const NoMatch = () => <h1>404</h1>
 
@@ -28,9 +26,7 @@ class Root extends React.Component {
     return (
       <MuiThemeProvider>
         <Router>
-          <div>
-            <Navbar />
-          </div>
+          <Navbar />
           <div
             style={{
               marginTop: '140px',
