@@ -25,7 +25,7 @@ function SingleDay(props) {
           <DayPicker date={value.activeDate} />
           <MealSpace mealTypeTitle={'breakfast'} mealId={breakfastId} onDelete={onDelete} />
           <MealSpace mealTypeTitle={'lunch'} mealId={lunchId} onDelete={onDelete} />
-          <MealSpace mealTypeTitle={'snacks'} mealId={snackId} onDelete={onDelete} />
+          <MealSpace mealTypeTitle={'snack'} mealId={snackId} onDelete={onDelete} />
           <MealSpace mealTypeTitle={'dinner'} mealId={dinnerId} onDelete={onDelete} />
           <SummaryDay sumNutrition={sumNutrition} kcalGoal={'1800'} />
         </Paper>

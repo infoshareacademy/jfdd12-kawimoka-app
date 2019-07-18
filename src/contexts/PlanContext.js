@@ -41,6 +41,7 @@ export class PlanProvider extends React.Component {
       ]
     },
     mealFilter: '',
+    filteredMeals: [],
     showedMeal: {}
   };
 
@@ -100,14 +101,17 @@ export class PlanProvider extends React.Component {
 
   // }
 
-  filteredMeals = []; 
+  ; 
 
   setMealFilter = filterName => {
-    this.setState(() => {
-      return {mealFilter: filterName}
-    },() => {
-      this.filteredMeals = meals.filter(meal => meal.type === this.state.mealFilter)
-    }) 
+    this.setState(
+      {
+        ...this.state,
+        mealFilter: filterName,
+        filteredMeals: meals.filter(meal => meal.type === filterName)
+      }
+    )
+    
   };
 
   showMeal = meal => {
@@ -126,7 +130,7 @@ export class PlanProvider extends React.Component {
           getMeals: this.getMeals,
           setMealFilter : this.setMealFilter,
           showMeal: this.showMeal,
-          filteredMeals: this.filteredMeals
+          filteredMeals: this.state.filteredMeals
         }}
       >
         {this.props.children}
