@@ -67,7 +67,7 @@ class CalendarContainer extends Component {
     }
 
     return (
-      <div style={{ width: '90vw', marginBottom: '225px' }}>
+      <div>
         <Calendar
           selectable={true}
           onSelectSlot={this.onSelect}

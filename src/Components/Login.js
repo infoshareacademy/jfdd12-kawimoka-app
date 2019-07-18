@@ -59,7 +59,7 @@ const LoginForm = props => {
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='/'>Sign Up</a>
+          New to us? <a href='/sign-up'>Sign Up</a>
         </Message>
       </Grid.Column>
     </Grid>

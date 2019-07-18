@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { useForm } from '../hooks/useForm'
 import { signUp } from '../services/AuthService'
 
@@ -65,9 +65,6 @@ const SignUpForm = () => {
             </Button>
           </Segment>
         </Form>
-        <Message>
-          New to us? <a href='/'>Sign Up</a>
-        </Message>
       </Grid.Column>
     </Grid>
   )
