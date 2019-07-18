@@ -1,65 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Modal from 'react-modal';
-import { MealCardFull } from './MealCardFull';
-import './Meal.css'
+import _ from 'lodash'
+import React from 'react'
+import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)',
-    border: "none",
-    borderRadius: "10px",
-    backgroundColor: "rgb(128, 238, 210)"
-  }
-};
+export const MealModal = props => (
+  <Modal trigger={<Button>Scrolling Content Modal</Button>}>
+    <Modal.Header>{props.meal.name}</Modal.Header>
+    <Modal.Content image scrolling>
+      <Image size='medium' src='/images/wireframe/image.png' wrapped />
 
-// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement(document.getElementById('root'))
+      <Modal.Description>
+        <Header>Modal Header</Header>
+        <p>This is an example of expanded content that will cause the modal's dimmer to scroll</p>
 
-export class MealModal extends React.Component {
-  constructor() {
-    super();
+        {_.times(8, i => (
+          <Image key={i} src='/images/wireframe/paragraph.png' style={{ paddingBottom: 5 }} />
+        ))}
+      </Modal.Description>
+    </Modal.Content>
+    <Modal.Actions>
+      <Button primary>
+        Proceed <Icon name='chevron right' />
+      </Button>
+    </Modal.Actions>
+  </Modal>
+)
 
-    this.state = {
-      modalIsOpen: false
-    };
-
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-  }
-
-  openModal() {
-    this.setState({modalIsOpen: true});
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-
-  render() {
-    return (
-      <div>
-        <button className={"moreInfoButton"} onClick={this.openModal}>More Info</button>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-        <MealCardFull                
-            meal={this.props.meal}
-            onAdd={this.props.onAdd}
-            onMealClose={this.closeModal}/>
-
-        </Modal>
-      </div>
-    );
-  }
-}
 
