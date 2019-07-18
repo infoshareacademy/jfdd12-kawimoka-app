@@ -102,6 +102,18 @@ export class PlanProvider extends React.Component {
     });
   };
 
+  decrementActiveDate = () => {
+    this.setState(prevState => ({
+      activeDate: prevState.activeDate.subtract("days", 1)
+    }));
+  };
+
+  incrementActiveDate = () => {
+    this.setState(prevState => ({
+      activeDate: prevState.activeDate.add("days", 1)
+    }));
+  };
+
   // addMealToPlan = (meal) => {
   //   this.setState({
   //     [meal.type]: {
@@ -142,7 +154,9 @@ export class PlanProvider extends React.Component {
           setMealFilter: this.setMealFilter,
           showMeal: this.showMeal,
           filteredMeals: this.state.filteredMeals,
-          getMealsByDay: this.getMealsByDay
+          getMealsByDay: this.getMealsByDay,
+          decrementActiveDate: this.decrementActiveDate,
+          incrementActiveDate: this.incrementActiveDate
         }}
       >
         {this.props.children}

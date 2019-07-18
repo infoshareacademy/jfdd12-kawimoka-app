@@ -9,8 +9,6 @@ import { PlanConsumer } from "../../../contexts/PlanContext";
 function SingleDay(props) {
   const { sumNutrition, onDelete } = props;
 
-  // value.getMeals(value.activeDate.format('DD-MM-YYYY'))
-
   return (
     <PlanConsumer>
       {value => {
