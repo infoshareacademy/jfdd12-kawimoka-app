@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fefdfd;
@@ -8,6 +8,15 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.default-link {
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+}
+
+.active-link {
+  color: #08ada0;
 }
