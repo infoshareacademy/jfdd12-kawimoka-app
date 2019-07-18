@@ -13,9 +13,11 @@
     "react-beautiful-dnd": "^11.0.4",
     "react-big-calendar": "^0.22.0",
     "react-dom": "^16.8.6",
+    "react-items-carousel": "^2.3.7",
     "react-modal": "^3.9.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-whirligig": "^6.5.13",
     "recharts": "^1.6.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.3"
