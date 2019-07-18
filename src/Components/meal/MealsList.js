@@ -25,10 +25,13 @@ export function MealsList() {
           <Paper className='mealsList' zDepth={0}>
             {value.filteredMeals
               .map(filteredMeal => 
+                <>
                 <MealCardShort
                   key={filteredMeal.id}
                   meal={filteredMeal}
-              />)} 
+              />
+              <button onClick={() => value.addMealToPlan(filteredMeal)}>ADD</button>
+              </>)} 
           </Paper>)
         }
       }

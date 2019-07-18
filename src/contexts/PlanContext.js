@@ -67,7 +67,6 @@ export class PlanProvider extends React.Component {
     const dayObject = this.state.plan.days.find(day => {
       return day.date === date;
     });
-    console.log(dayObject);
     if (!dayObject) {
       return;
     } else {
@@ -119,6 +118,13 @@ export class PlanProvider extends React.Component {
     let currentDate = this.state.activeDate.format("DD-MM-YYYY")
     let mealsOfTheDay = this.getMealsByDay();
     mealsOfTheDay[meal.type + 'Id'] = meal.id;
+    let dayMealIndex = this.state.plan.days.findIndex(day => day.date === currentDate)
+    if(dayMealIndex !== -1){
+      this.setState((prevState) => {
+        prevState.plan.days.splice(dayMealIndex, 1);
+        return prevState;
+      })
+    }
       this.setState(prevState => ({
         [prevState.plan.days]: prevState.plan.days.push({
           date: currentDate,

@@ -29,7 +29,7 @@ export function MealSpace (props) {
 					<div className="mealSpace">
 							{mealId && <div className="mealSpaceFormatter">
 									<MealCardShort meal={addedMeal} />
-									<FontAwesomeIcon icon={["fas","times-circle"]} size='3x' className='removeMealIcon' onClick={() => onDelete(addedMeal)}/>
+									{/* <FontAwesomeIcon icon={["fas","times-circle"]} size='3x' className='removeMealIcon' onClick={() => onDelete(addedMeal)}/> */}
 							</div>}
 							<FloatingActionButton style={addMealButtonStyle} backgroundColor={'#08ada0'} onClick={() => value.setMealFilter(mealTypeTitle)}>
 									<ContentAdd />
