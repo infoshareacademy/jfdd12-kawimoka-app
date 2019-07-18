@@ -32,7 +32,7 @@ body {
   flex-direction: column;
 }
 
-.header {
+.header-navbar {
   position: fixed;
   height: 130px;
   z-index: 10;
@@ -90,7 +90,7 @@ main {
 }
 
 @media (min-width: 600px) {
-  .header {
+  .header-navbar {
     width: 100%;
     position: fixed;
     height: 130px;

@@ -13,6 +13,7 @@ import { fab, faFacebookSquare, faInstagram } from '@fortawesome/free-brands-svg
 import { MealsList } from './Components/meal/MealsList'
 import Calendar from './Components/Calendar/Calendar'
 import moment from 'moment'
+import 'semantic-ui-css/semantic.min.css'
 
 library.add(fab, faFacebookSquare, faInstagram)
 

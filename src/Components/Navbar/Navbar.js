@@ -4,7 +4,7 @@ import './Navbar.css'
 
 export function Navbar(props) {
   return (
-    <header className='header' style={{ position: 'fixed', height: '130px' }}>
+    <header className='header-navbar' style={{ position: 'fixed', height: '130px' }}>
       <nav>
         <div>
           <img src={require('../../img/logo.png')} alt='Logo' />

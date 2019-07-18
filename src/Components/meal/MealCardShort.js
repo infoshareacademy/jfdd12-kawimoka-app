@@ -1,9 +1,10 @@
 
 import React from 'react';
 import './Meal.css';
+import { Card, Icon, Image } from 'semantic-ui-react'
 
 
-export function MealCardShort(props) {
+export function MealCardShort2(props) {
 const {meal} = props;
 const { name, time, image, kcal} = meal;
 
@@ -20,3 +21,28 @@ const { name, time, image, kcal} = meal;
   );
 }
   
+
+
+
+
+export const MealCardShort = props => (
+  <Card>
+    <Image src={props.meal.image} wrapped ui={false} />
+    <Card.Content>
+      <Card.Header>{props.meal.name}</Card.Header>
+      <Card.Meta>
+        <span className='date'>Joined in 2015</span>
+      </Card.Meta>
+      <Card.Description>
+        Calories: {props.meal.kcal} kcal      
+        </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <a>
+        <Icon name='user' />
+        22 Friends
+      </a>
+    </Card.Content>
+  </Card>
+)
+

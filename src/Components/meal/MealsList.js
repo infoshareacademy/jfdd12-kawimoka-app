@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import {MealModal} from "./MealModal"
-import './Meal.css'
+//import './Meal.css'
 import Paper from 'material-ui/Paper';
 
 
@@ -38,7 +38,7 @@ export class MealsList extends Component {
             {meals.filter(meal => meal.type === this.state.mealFilter)
               .map(filteredMeal => (
                 <div style={{display: "flex", flexFlow: "row"}}
-                  className={"mealsShortCardOne"}
+
                   onClick={() => {
                     this.setState({ selectedMeal: filteredMeal })
                   }}>
@@ -49,9 +49,7 @@ export class MealsList extends Component {
                     onAdd={this.props.onAdd}
                   />{' '}
                   <div style={{justifyContent: "center"}}>
-                  <FontAwesomeIcon icon={['fas', 'plus']} size='3x' className='addMealButton' onClick={() => this.props.onAdd(filteredMeal)}/>
-                  <MealModal    meal={this.state.selectedMeal} onAdd={this.props.onAdd} onMealClose={this.clearMeal} />
-                </div>
+                  </div>
                 </div>
             
                 
