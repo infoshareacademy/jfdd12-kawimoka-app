@@ -7,7 +7,7 @@ import Paper from "material-ui/Paper";
 import { PlanConsumer } from "../../../contexts/PlanContext";
 
 function SingleDay(props) {
-  const { sumNutrition, onDelete } = props;
+  const { sumNutrition } = props;
 
   return (
     <PlanConsumer>
@@ -20,22 +20,18 @@ function SingleDay(props) {
             <MealSpace
               mealTypeTitle={"breakfast"}
               mealId={breakfastId}
-              onDelete={onDelete}
             />
             <MealSpace
               mealTypeTitle={"lunch"}
               mealId={lunchId}
-              onDelete={onDelete}
             />
             <MealSpace
               mealTypeTitle={"snack"}
               mealId={snackId}
-              onDelete={onDelete}
             />
             <MealSpace
               mealTypeTitle={"dinner"}
               mealId={dinnerId}
-              onDelete={onDelete}
             />
             <SummaryDay sumNutrition={sumNutrition} kcalGoal={"1800"} />
           </Paper>
