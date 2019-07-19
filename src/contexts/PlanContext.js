@@ -58,28 +58,28 @@ export class PlanProvider extends React.Component {
 
         return [
           {
-            id: 0,
+            id: breakfastId,
             title: `${breakfast.name}`,
             allDay: false,
             start: moment(date, "DD-MM-YYYY").toDate(),
             end: moment(date, "DD-MM-YYYY").toDate()
           },
           {
-            id: 0,
+            id: lunchId,
             title: `${lunch.name}`,
             allDay: false,
             start: moment(date, "DD-MM-YYYY").toDate(),
             end: moment(date, "DD-MM-YYYY").toDate()
           },
           {
-            id: 0,
+            id: snackId,
             title: `${snack.name}`,
             allDay: false,
             start: moment(date, "DD-MM-YYYY").toDate(),
             end: moment(date, "DD-MM-YYYY").toDate()
           },
           {
-            id: 0,
+            id: dinnerId,
             title: `${dinner.name}`,
             allDay: false,
             start: moment(date, "DD-MM-YYYY").toDate(),

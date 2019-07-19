@@ -13,6 +13,23 @@ import "../meal/Meal.css";
 
 const localizer = momentLocalizer(moment);
 
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    border: "none",
+    borderRadius: "10px",
+    backgroundColor: "rgb(128, 238, 210)"
+  },
+  overlay: {
+    zIndex: 999,
+  }
+};
+
 class CalendarContainer extends Component {
   state = {
     events: events,
@@ -23,7 +40,6 @@ class CalendarContainer extends Component {
   };
   componentDidMount() {
     const mealsListState = {};
-    // mealsList[currentDay] =
     let breakfastId = mealsListState.breakfastId;
     let dinnnerId = mealsListState.dinnerId;
     let lunchId = mealsListState.lunchId;
@@ -33,52 +49,33 @@ class CalendarContainer extends Component {
       .filter(mealId => mealId)
       .map(mealId => meals.find(meal => meal.id === mealId))
       .map(meal => meal.name);
-    // const mealsForDay = meals[day].filter(meal => meal.id < 5);
+    
     const date = new Date(2019, 6, 10);
     const dateString = Date.parse(date).toString();
-    // mealsListState[dateString] = mealsForDay;
+
     this.setState({ mealsList: mealsListState });
   }
 
   onSelect = e => {
     console.log({ e });
     this.props.setSelectedDate(moment(e.start));
-    // this.props.selectedDate
-    // this.setState({
-    //   selectedDate: e.start
-    // });
   };
 
   toggleModal = event => {
-    console.log(event);
+    
     this.setState({
       ...this.state,
-      modalIsOpen: !this.state.modalIsOpen,
+      modalIsOpen: true,
       currentMealId: event.id
+
     });
   };
 
   render() {
-    const currentDay = Date.parse(new Date(2019, 6, 10)).toString();
-    const eventsFromState = this.state.mealsList[currentDay];
-    let events = [];
-    if (eventsFromState !== undefined) {
-      events = eventsFromState.map(meal => {
-        return {
-          id: meal.id,
-          title: meal.name,
-          start: new Date(Number(currentDay)),
-          end: new Date(Number(currentDay))
-        };
-      });
-    }
-
     return (
       <div style={{ width: "90vw", marginBottom: "225px" }}>
         <PlanConsumer>
           {value => {
-            console.log(value.events);
-            console.log(this.state.currentMealId, "MEALS");
             return (
               <Fragment>
                 <Calendar
@@ -92,7 +89,10 @@ class CalendarContainer extends Component {
                   endAccessor="end"
                 />
 
-                <Modal isOpen={this.state.modalIsOpen}>
+                <Modal
+                  isOpen={this.state.modalIsOpen}
+                  style={customStyles}
+                >
                   <MealCardFull
                     meal={meals.find(
                       meal => meal.id === this.state.currentMealId
