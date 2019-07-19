@@ -154,7 +154,11 @@ export class PlanProvider extends React.Component {
     const foundMealsObjects = meals.filter(meal => mealsIds.includes(meal.id));
 
     return foundMealsObjects.reduce((acc, meal) => {
-      return acc + parseInt(meal[field]);
+      if (field !== "kcal") {
+        return acc + meal.nutritions[field];
+      } else {
+        return acc + parseInt(meal[field]);
+      }
     }, 0);
   };
 
