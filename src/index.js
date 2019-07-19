@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { MuiThemeProvider } from 'material-ui'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import './index.css'
-import App from './App'
 import * as serviceWorker from './serviceWorker'
-import { Navbar } from './Components/Navbar'
+import 'semantic-ui-css/semantic.min.css'
+import Navbar from './Components/Navbar'
 import { PlanDietContainer } from './Components/PlanDietView/PlanDietContainer'
 import { Footer } from './Components/Footer'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -13,24 +13,18 @@ import { fab, faFacebookSquare, faInstagram } from '@fortawesome/free-brands-svg
 import { MealsList } from './Components/meal/MealsList'
 import Calendar from './Components/Calendar/Calendar'
 import moment from 'moment'
+import { PlanProvider } from './contexts/PlanContext'
 
 library.add(fab, faFacebookSquare, faInstagram)
-
 
 const NoMatch = () => <h1>404</h1>
 
 class Root extends React.Component {
-  state = {
-    date: moment()
-  }
-
   render() {
     return (
       <MuiThemeProvider>
         <Router>
-          <div>
-            <Navbar />
-          </div>
+          <Navbar />
           <div
             style={{
               marginTop: '140px',
@@ -39,21 +33,8 @@ class Root extends React.Component {
             }}>
             <div>
               <Switch>
-                <Route
-                  exact
-                  path='/'
-                  component={() => (
-                    <Calendar
-                      selectedDate={this.state.date}
-                      setSelectedDate={date => this.setState({ date })}
-                    />
-                  )}
-                />
-                <Route
-                  exact
-                  path='/plandiet'
-                  component={() => <PlanDietContainer date={this.state.date} />}
-                />
+                <Route exact path='/' component={Calendar} />
+                <Route exact path='/plandiet' component={PlanDietContainer} />
                 <Redirect from='/home' to='/' />
                 <Route component={NoMatch} />
               </Switch>
@@ -68,7 +49,12 @@ class Root extends React.Component {
   }
 }
 
-ReactDOM.render(<Root />, document.getElementById('root'))
+ReactDOM.render(
+  <PlanProvider>
+    <Root />
+  </PlanProvider>,
+  document.getElementById('root')
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

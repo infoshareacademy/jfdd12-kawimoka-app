@@ -1,0 +1,13 @@
+.rbc-event {
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 2px 5px;
+  background-color: red;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  height: 100px;
+  text-align: left;
+}

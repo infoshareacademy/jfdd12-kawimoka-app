@@ -9,60 +9,33 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import {MealModal} from "./MealModal"
 import './Meal.css'
 import Paper from 'material-ui/Paper';
+import { PlanConsumer } from '../../contexts/PlanContext.js';
 
 
 library.add(faPlus);
 
-export class MealsList extends Component {
-  state = {
-      mealFilter: '',
-      selectedMeal: {}
-  };
+export function MealsList() {
 
-  setMealFilter = filterName => {
-    this.setState({
-        mealFilter: filterName,
-        selectedMeal: {}
-    })
-  };
-
-  render() {
-    return (
-      <Paper className='mealsList'zDepth={0}>
-        <div className='mealsListHeader'> Choose and add meals from the list </div>
-
-        <MealsTypes setMealFilter={this.setMealFilter}/>
-
-        <div className='mealsShortCardsList'>
-          <div>
-            {meals.filter(meal => meal.type === this.state.mealFilter)
-              .map(filteredMeal => (
-                <div style={{display: "flex", flexFlow: "row"}}
-                  className={"mealsShortCardOne"}
-                  onClick={() => {
-                    this.setState({ selectedMeal: filteredMeal })
-                  }}>
-                  {' '}
+  return (
+    <PlanConsumer>
+      {value => {
+        if (value.filteredMeals.length === 0) {
+          return null
+          } else {
+            return (
+            <Paper className='mealsList' zDepth={0}>
+              {value.filteredMeals
+                .map(filteredMeal => 
+                  <>
                   <MealCardShort
                     key={filteredMeal.id}
                     meal={filteredMeal}
-                    onAdd={this.props.onAdd}
-                  />{' '}
-                  <div style={{justifyContent: "center"}}>
-                  <FontAwesomeIcon icon={['fas', 'plus']} size='3x' className='addMealButton' onClick={() => this.props.onAdd(filteredMeal)}/>
-                  <MealModal    meal={this.state.selectedMeal} onAdd={this.props.onAdd} onMealClose={this.clearMeal} />
-                </div>
-                </div>
-            
-                
-                  
-                
-              ))
-            }
-          </div>
-
-        </div>
-      </Paper>
-    )
-  }
+                />
+                <button onClick={() => value.addOrRemoveMeal(filteredMeal, true)}>ADD</button>
+                </>)} 
+            </Paper>)
+          }
+        }
+      }
+    </PlanConsumer>)
 }

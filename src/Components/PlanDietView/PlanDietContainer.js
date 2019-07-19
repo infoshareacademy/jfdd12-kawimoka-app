@@ -13,33 +13,6 @@ export class PlanDietContainer extends React.Component{
       dinner: new Meal()
   };
 
-  componentDidUpdate = () => {
-    localStorage.meals = JSON.stringify(this.state)
-  };
-
-  componentDidMount = () => {
-    const newState = JSON.parse(localStorage.getItem('meals'));
-    this.setState(newState);
-  };
-
-  onAdd = meal => {
-    this.setState({
-        [meal.type]: {
-          id: meal.id,
-          kcal: parseInt(meal.kcal),
-          fat: parseInt(meal.nutritions.fat),
-          carbs: parseInt(meal.nutritions.carbs),
-          protein: parseInt(meal.nutritions.protein)
-        }
-    })
-  };
-
-  onDelete = meal => {
-    this.setState({
-        [meal.type]: new Meal()
-    })
-  };
-
   sumNutrition = (field) => {
     return this.state.breakfast[field] +
         this.state.lunch[field] +
@@ -51,16 +24,8 @@ export class PlanDietContainer extends React.Component{
     return (
       <div className="planDietContainer">
         <Nutrition sumNutrition={this.sumNutrition}/>
-        <SingleDay
-          date={this.props.date}
-          breakfastId={this.state.breakfast.id}
-          lunchId={this.state.lunch.id}
-          snackId={this.state.snack.id}
-          dinnerId={this.state.dinner.id}
-          sumNutrition={this.sumNutrition}
-          onDelete={this.onDelete}
-        />
-        <MealsList onAdd={this.onAdd} />
+        <SingleDay sumNutrition={this.sumNutrition}/>
+        <MealsList/>
       </div>
     )
   }
