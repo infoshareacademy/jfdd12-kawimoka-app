@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
+import React, { useContext, Component } from 'react'
+import { PlanConsumer } from '../../contexts/PlanContext'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
+import './custom-calendar.css'
 import events from '../../events'
 import meals from '../../meals.json'
 
@@ -10,31 +12,26 @@ const localizer = momentLocalizer(moment)
 class CalendarContainer extends Component {
   state = {
     events: events,
-    mealsList: {}
-    // selectedEvent: events[0]
+    mealsList: {},
+    selectedEvent: events[0]
   }
   componentDidMount() {
-    // const selectedMeals = {
-    //   12312323: [1, 4, 5],
-    //   12312324: [2, 7]
-    // };
-
-    const currentDay = new Date().toLocaleDateString()
+    const selectedMeals = {
+      12312323: [1, 4, 5],
+      12312324: [2, 7]
+    }
+    // const currentDay = new Date().toLocaleDateString()
     const mealsListState = {}
-
     // mealsList[currentDay] =
     let breakfastId = mealsListState.breakfastId
     let dinnnerId = mealsListState.dinnerId
     let lunchId = mealsListState.lunchId
     let snackId = mealsListState.snackId
     let listMeal = [breakfastId, dinnnerId, lunchId, snackId]
-
     const mealsNames = listMeal
       .filter(mealId => mealId)
       .map(mealId => meals.find(meal => meal.id === mealId))
       .map(meal => meal.name)
-    // breakfastId: 5, lunchId: 76, ...
-
     // const mealsForDay = meals[day].filter(meal => meal.id < 5);
     const date = new Date(2019, 6, 10)
     const dateString = Date.parse(date).toString()
@@ -42,13 +39,8 @@ class CalendarContainer extends Component {
     this.setState({ mealsList: mealsListState })
   }
 
-  onSelect = e => {
-    console.log({ e })
-    this.props.setSelectedDate(moment(e.start))
-    // this.props.selectedDate
-    // this.setState({
-    //   selectedDate: e.start
-    // });
+  onSelect = (e, setSelectedDate) => {
+    setSelectedDate(moment(e.start))
   }
 
   render() {
@@ -67,16 +59,24 @@ class CalendarContainer extends Component {
     }
 
     return (
-      <div>
-        <Calendar
-          selectable={true}
-          onSelectSlot={this.onSelect}
-          style={{ height: 500 }}
-          localizer={localizer}
-          events={events}
-          startAccessor='start'
-          endAccessor='end'
-        />
+      <div style={{ width: '90vw', marginBottom: '225px' }}>
+        <PlanConsumer>
+          {value => {
+            return (
+              <Calendar
+                selectable={true}
+                onSelectSlot={e => {
+                  this.onSelect(e, value.setSelectedDate)
+                }}
+                style={{ height: 800 }}
+                localizer={localizer}
+                events={value.events}
+                startAccessor='start'
+                endAccessor='end'
+              />
+            )
+          }}
+        </PlanConsumer>
       </div>
     )
   }
