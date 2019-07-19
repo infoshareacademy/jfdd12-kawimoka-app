@@ -3,6 +3,7 @@ import SingleDay from './SingleDay'
 import { MealsList } from '../meal/MealsList'
 import './PlanDietContainer.css'
 import { Nutrition } from './Nutrition/Nutrition'
+import {CenterMode} from '../meal/mealsCarousel'
 
 export class PlanDietContainer extends React.Component{
 
@@ -26,6 +27,7 @@ export class PlanDietContainer extends React.Component{
         <Nutrition sumNutrition={this.sumNutrition}/>
         <SingleDay sumNutrition={this.sumNutrition}/>
         <MealsList/>
+        {/* <CenterMode /> */}
       </div>
     )
   }

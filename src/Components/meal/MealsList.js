@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import {MealModal} from "./MealModal"
+import Slider from "react-slick";
 
 import Paper from 'material-ui/Paper';
 import { PlanConsumer } from '../../contexts/PlanContext.js';
@@ -14,6 +15,15 @@ import {MealCardShort2} from './MealCardShort';
 
 
 library.add(faPlus);
+
+const settings = {
+className: "carousel-container",
+centerMode: true,
+infinite: true,
+centerPadding: "40px",
+slidesToShow: 2,
+speed: 500
+};
 
 export function MealsList() {
 
@@ -24,7 +34,9 @@ export function MealsList() {
           return null
           } else {
             return (
+            
             <Paper className='mealsList' zDepth={0}>
+              <Slider {...settings}>
               {value.filteredMeals
                 .map(filteredMeal => 
                   <>
@@ -35,6 +47,7 @@ export function MealsList() {
                 />
                 <button onClick={() => value.addOrRemoveMeal(filteredMeal, true)}>ADD</button>
                 </>)} 
+                </Slider>
             </Paper>)
           }
         }
