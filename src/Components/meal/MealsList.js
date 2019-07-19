@@ -12,6 +12,7 @@ import Slider from "react-slick";
 import Paper from 'material-ui/Paper';
 import { PlanConsumer } from '../../contexts/PlanContext.js';
 import {MealCardShort2} from './MealCardShort';
+import { defaultProps } from 'recompose';
 
 
 library.add(faPlus);
@@ -36,6 +37,7 @@ export function MealsList() {
             return (
             
             <Paper className='mealsList' zDepth={0}>
+            <h2 style={{textAlign: "center", textTransform: "uppercase"}}>{value.mealFilter}</h2>
               <Slider {...settings}>
               {value.filteredMeals
                 .map(filteredMeal => 
