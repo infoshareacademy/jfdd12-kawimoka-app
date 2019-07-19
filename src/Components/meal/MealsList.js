@@ -7,9 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import {MealModal} from "./MealModal"
-import './Meal.css'
+
 import Paper from 'material-ui/Paper';
 import { PlanConsumer } from '../../contexts/PlanContext.js';
+import {MealCardShort2} from './MealCardShort';
 
 
 library.add(faPlus);
@@ -27,9 +28,10 @@ export function MealsList() {
               {value.filteredMeals
                 .map(filteredMeal => 
                   <>
-                  <MealCardShort
-                    key={filteredMeal.id}
-                    meal={filteredMeal}
+                  <MealCardShort2
+                                    key={filteredMeal.id}
+                                    meal={filteredMeal}
+
                 />
                 <button onClick={() => value.addOrRemoveMeal(filteredMeal, true)}>ADD</button>
                 </>)} 

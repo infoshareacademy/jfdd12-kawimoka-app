@@ -5,6 +5,7 @@ import { AuthProvider } from './contexts/AuthContext'
 import './firebase'
 import App from './App'
 import { PlanProvider } from './contexts/PlanContext'
+import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
   <AuthProvider>
