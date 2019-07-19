@@ -14,19 +14,19 @@ import "../meal/Meal.css";
 const localizer = momentLocalizer(moment);
 
 const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)',
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
     border: "none",
     borderRadius: "10px",
     backgroundColor: "rgb(128, 238, 210)"
   },
   overlay: {
-    zIndex: 999,
+    zIndex: 999
   }
 };
 
@@ -49,7 +49,7 @@ class CalendarContainer extends Component {
       .filter(mealId => mealId)
       .map(mealId => meals.find(meal => meal.id === mealId))
       .map(meal => meal.name);
-    
+
     const date = new Date(2019, 6, 10);
     const dateString = Date.parse(date).toString();
 
@@ -62,12 +62,17 @@ class CalendarContainer extends Component {
   };
 
   toggleModal = event => {
-    
     this.setState({
       ...this.state,
       modalIsOpen: true,
       currentMealId: event.id
+    });
+  };
 
+  closeModal = () => {
+    this.setState({
+      ...this.state,
+      modalIsOpen: false
     });
   };
 
@@ -92,13 +97,14 @@ class CalendarContainer extends Component {
                 <Modal
                   isOpen={this.state.modalIsOpen}
                   style={customStyles}
+                  
                 >
                   <MealCardFull
                     meal={meals.find(
                       meal => meal.id === this.state.currentMealId
+                      
                     )}
-                    onAdd={this.props.onAdd}
-                    onMealClose={this.closeModal}
+                    onClick={this.closeModal}
                   />
                 </Modal>
               </Fragment>
