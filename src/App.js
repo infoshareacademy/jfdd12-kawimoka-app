@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar'
 import SignUp from './Components/SignUp'
 import Login from './Components/Login'
 import 'semantic-ui-css/semantic.min.css'
+import { MuiThemeProvider } from 'material-ui'
 import { PlanDietContainer } from './Components/PlanDietView/PlanDietContainer'
 import { Footer } from './Components/Footer'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -30,29 +31,22 @@ const App = props => {
   }
 
   return (
-    <Router>
-      <Navbar />
-      <Container>
-        <Switch>
-          <PrivateRoute
-            exact
-            path='/'
-            component={() => (
-              <Calendar
-                selectedDate={props.date}
-                setSelectedDate={date => this.setState({ date })}
-              />
-            )}
-          />
-          <PrivateRoute exact path='/plandiet' component={Calendar} />
-          <Route exact path='/sign-in' component={Login} />
-          <Route exact path='/sign-up' component={SignUp} />
-          <Redirect from='/home' to='/' />
-          <Route component={NoMatch} />
-        </Switch>
-        <Footer />
-      </Container>
-    </Router>
+    <MuiThemeProvider>
+      <Router>
+        <Navbar />
+        <Container>
+          <Switch>
+            <PrivateRoute exact path='/' component={Calendar} />
+            <PrivateRoute exact path='/plandiet' component={PlanDietContainer} />
+            <Route exact path='/sign-in' component={Login} />
+            <Route exact path='/sign-up' component={SignUp} />
+            <Redirect from='/home' to='/' />
+            <Route component={NoMatch} />
+          </Switch>
+          <Footer />
+        </Container>
+      </Router>
+    </MuiThemeProvider>
   )
 }
 
