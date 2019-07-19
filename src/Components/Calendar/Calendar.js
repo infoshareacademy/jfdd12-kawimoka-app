@@ -1,4 +1,4 @@
-import React, { useContext, Component } from "react";
+import React, { Fragment, Component } from "react";
 import { PlanConsumer } from "../../contexts/PlanContext";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
@@ -6,6 +6,10 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./custom-calendar.css";
 import events from "../../events";
 import meals from "../../meals.json";
+import Modal from "react-modal";
+import { MealCardFull } from "../meal/MealCardFull";
+import { MealModal } from "../meal/MealModal";
+import "../meal/Meal.css";
 
 const localizer = momentLocalizer(moment);
 
@@ -13,14 +17,11 @@ class CalendarContainer extends Component {
   state = {
     events: events,
     mealsList: {},
-    selectedEvent: events[0]
+    selectedEvent: events[0],
+    modalIsOpen: false,
+    currentMealId: 1
   };
   componentDidMount() {
-    const selectedMeals = {
-      12312323: [1, 4, 5],
-      12312324: [2, 7]
-    };
-    // const currentDay = new Date().toLocaleDateString()
     const mealsListState = {};
     // mealsList[currentDay] =
     let breakfastId = mealsListState.breakfastId;
@@ -48,6 +49,15 @@ class CalendarContainer extends Component {
     // });
   };
 
+  toggleModal = event => {
+    console.log(event);
+    this.setState({
+      ...this.state,
+      modalIsOpen: !this.state.modalIsOpen,
+      currentMealId: event.id
+    });
+  };
+
   render() {
     const currentDay = Date.parse(new Date(2019, 6, 10)).toString();
     const eventsFromState = this.state.mealsList[currentDay];
@@ -68,16 +78,30 @@ class CalendarContainer extends Component {
         <PlanConsumer>
           {value => {
             console.log(value.events);
+            console.log(this.state.currentMealId, "MEALS");
             return (
-              <Calendar
-                selectable={true}
-                onSelectSlot={this.onSelect}
-                style={{ height: 800 }}
-                localizer={localizer}
-                events={value.events}
-                startAccessor="start"
-                endAccessor="end"
-              />
+              <Fragment>
+                <Calendar
+                  selectable={true}
+                  onSelectSlot={this.onSelect}
+                  onSelectEvent={this.toggleModal}
+                  style={{ height: 800 }}
+                  localizer={localizer}
+                  events={value.events}
+                  startAccessor="start"
+                  endAccessor="end"
+                />
+
+                <Modal isOpen={this.state.modalIsOpen}>
+                  <MealCardFull
+                    meal={meals.find(
+                      meal => meal.id === this.state.currentMealId
+                    )}
+                    onAdd={this.props.onAdd}
+                    onMealClose={this.closeModal}
+                  />
+                </Modal>
+              </Fragment>
             );
           }}
         </PlanConsumer>

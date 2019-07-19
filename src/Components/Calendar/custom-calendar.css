@@ -12,5 +12,11 @@
 }
 
 .rbc-event.rbc-selected {
-  background-color: red;
+  background-color: #088076;
+}
+
+
+
+.hidden {
+  display: none;
 }
