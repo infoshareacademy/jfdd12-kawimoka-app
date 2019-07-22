@@ -3,6 +3,7 @@ import { NutritionsPieChart } from "./PieChart/NutritionsPieChart";
 import Paper from "material-ui/Paper";
 import "./Nutrition.css";
 import { PlanConsumer } from "../../../contexts/PlanContext";
+import { SummaryDay } from "../SingleDay/SummaryDay";
 
 export function Nutrition(props) {
   return (
@@ -18,6 +19,7 @@ export function Nutrition(props) {
             <div>
               <NutritionsPieChart sumNutrition={value.sumNutrition} />
             </div>
+            <SummaryDay sumNutrition={value.sumNutrition} kcalGoal={"1800"} />
           </Paper>
         );
       }}
