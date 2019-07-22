@@ -56,9 +56,8 @@ class CalendarContainer extends Component {
     this.setState({ mealsList: mealsListState });
   }
 
-  onSelect = e => {
-    console.log({ e });
-    this.props.setSelectedDate(moment(e.start));
+  onSelect = (e, setSelectedDate) => {
+    setSelectedDate(moment(e.start));
   };
 
   toggleModal = event => {
@@ -85,7 +84,9 @@ class CalendarContainer extends Component {
               <Fragment>
                 <Calendar
                   selectable={true}
-                  onSelectSlot={this.onSelect}
+                  onSelectSlot={e => {
+                    this.onSelect(e, value.setSelectedDate);
+                  }}
                   onSelectEvent={this.toggleModal}
                   style={{ height: 800 }}
                   localizer={localizer}
@@ -94,15 +95,10 @@ class CalendarContainer extends Component {
                   endAccessor="end"
                 />
 
-                <Modal
-                  isOpen={this.state.modalIsOpen}
-                  style={customStyles}
-                  
-                >
+                <Modal isOpen={this.state.modalIsOpen} style={customStyles}>
                   <MealCardFull
                     meal={meals.find(
                       meal => meal.id === this.state.currentMealId
-                      
                     )}
                     onClick={this.closeModal}
                   />

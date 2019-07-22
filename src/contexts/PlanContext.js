@@ -46,21 +46,15 @@ export class PlanProvider extends React.Component {
   };
 
   mapPlanToEvents = () => {
-<<<<<<< HEAD
     console.log(meals);
     return this.state.plan.days
       .map(day => {
         const date = day.date;
         const { breakfastId, lunchId, snackId, dinnerId } = day.meals;
-        const breakfast = meals.find(meal => meal.id === breakfastId);
-        const lunch = meals.find(meal => meal.id === lunchId);
-        const snack = meals.find(meal => meal.id === snackId);
-        const dinner = meals.find(meal => meal.id === dinnerId);
-
-        console.log(breakfast);
-        console.log(lunch);
-        console.log(snack);
-        console.log(snack);
+        const breakfast = meals.find(meal => meal.id === breakfastId) || "";
+        const lunch = meals.find(meal => meal.id === lunchId) || "";
+        const snack = meals.find(meal => meal.id === snackId) || "";
+        const dinner = meals.find(meal => meal.id === dinnerId) || "";
 
         return [
           {
@@ -94,25 +88,6 @@ export class PlanProvider extends React.Component {
         ];
       })
       .reduce((acc, val) => acc.concat(val), []);
-=======
-    return this.state.plan.days.map(day => {
-      const date = day.date;
-      const meals = this.getMeals(date);
-
-      return {
-        id: 0,
-        title: `${
-          meals.breakfast && meals.breakfast.name ? meals.breakfast.name : ""
-        }\\n
-                ${meals.lunch && meals.lunch.name ? meals.lunch.name : ""}\n
-                ${meals.snack && meals.snack.name ? meals.snack.name : ""}\n
-                ${meals.dinner && meals.dinner.name ? meals.snack.name : ""}`,
-        allDay: true,
-        start: moment(date, "DD-MM-YYYY").toDate(),
-        end: moment(date, "DD-MM-YYYY").toDate()
-      };
-    });
->>>>>>> develop
   };
 
   getMeals = date => {
