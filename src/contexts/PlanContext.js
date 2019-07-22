@@ -51,41 +51,42 @@ export class PlanProvider extends React.Component {
       .map(day => {
         const date = day.date;
         const { breakfastId, lunchId, snackId, dinnerId } = day.meals;
-        const breakfast = meals.find(meal => meal.id === breakfastId) || "";
-        const lunch = meals.find(meal => meal.id === lunchId) || "";
-        const snack = meals.find(meal => meal.id === snackId) || "";
-        const dinner = meals.find(meal => meal.id === dinnerId) || "";
+        const breakfast = meals.find(meal => meal.id === breakfastId);
+        const lunch = meals.find(meal => meal.id === lunchId);
+        const snack = meals.find(meal => meal.id === snackId);
+        const dinner = meals.find(meal => meal.id === dinnerId);
 
+        // debugger;
         return [
           {
             id: breakfastId,
-            title: `${breakfast.name}`,
+            title: breakfast && breakfast.name,
             allDay: false,
             start: moment(date, "DD-MM-YYYY").toDate(),
             end: moment(date, "DD-MM-YYYY").toDate()
           },
           {
             id: lunchId,
-            title: `${lunch.name}`,
+            title: lunch && lunch.name,
             allDay: false,
             start: moment(date, "DD-MM-YYYY").toDate(),
             end: moment(date, "DD-MM-YYYY").toDate()
           },
           {
             id: snackId,
-            title: `${snack.name}`,
+            title: snack && snack.name,
             allDay: false,
             start: moment(date, "DD-MM-YYYY").toDate(),
             end: moment(date, "DD-MM-YYYY").toDate()
           },
           {
             id: dinnerId,
-            title: `${dinner.name}`,
+            title: dinner && dinner.name,
             allDay: false,
             start: moment(date, "DD-MM-YYYY").toDate(),
             end: moment(date, "DD-MM-YYYY").toDate()
           }
-        ];
+        ].filter(event => event.title);
       })
       .reduce((acc, val) => acc.concat(val), []);
   };
