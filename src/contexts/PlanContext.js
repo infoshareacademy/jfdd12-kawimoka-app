@@ -46,23 +46,49 @@ export class PlanProvider extends React.Component {
   };
 
   mapPlanToEvents = () => {
-    return this.state.plan.days.map(day => {
-      const date = day.date;
-      const meals = this.getMeals(date);
+    console.log(meals);
+    return this.state.plan.days
+      .map(day => {
+        const date = day.date;
+        const { breakfastId, lunchId, snackId, dinnerId } = day.meals;
+        const breakfast = meals.find(meal => meal.id === breakfastId);
+        const lunch = meals.find(meal => meal.id === lunchId);
+        const snack = meals.find(meal => meal.id === snackId);
+        const dinner = meals.find(meal => meal.id === dinnerId);
 
-      return {
-        id: 0,
-        title: `${
-          meals.breakfast && meals.breakfast.name ? meals.breakfast.name : ""
-        }\\n
-                ${meals.lunch && meals.lunch.name ? meals.lunch.name : ""}\n
-                ${meals.snack && meals.snack.name ? meals.snack.name : ""}\n
-                ${meals.dinner && meals.dinner.name ? meals.snack.name : ""}`,
-        allDay: true,
-        start: moment(date, "DD-MM-YYYY").toDate(),
-        end: moment(date, "DD-MM-YYYY").toDate()
-      };
-    });
+        // debugger;
+        return [
+          {
+            id: breakfastId,
+            title: breakfast && breakfast.name,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          },
+          {
+            id: lunchId,
+            title: lunch && lunch.name,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          },
+          {
+            id: snackId,
+            title: snack && snack.name,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          },
+          {
+            id: dinnerId,
+            title: dinner && dinner.name,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          }
+        ].filter(event => event.title);
+      })
+      .reduce((acc, val) => acc.concat(val), []);
   };
 
   getMeals = date => {
