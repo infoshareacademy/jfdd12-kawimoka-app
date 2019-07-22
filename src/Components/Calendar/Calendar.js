@@ -77,6 +77,10 @@ class CalendarContainer extends Component {
       modalIsOpen: false
     });
   };
+  
+  
+  
+  
 
   escFunction = event => {
     if (event.keyCode === 27) {
@@ -119,6 +123,7 @@ class CalendarContainer extends Component {
                       meal => meal.id === this.state.currentMealId
                     )}
                     onClick={this.closeModal}
+
                   />
                 </Modal>
               </Fragment>

@@ -28,3 +28,7 @@ code {
 .rbc-date-cell > a {
   cursor: default;
 }
+
+.rbc-day-bg {
+  cursor: pointer;
+}
