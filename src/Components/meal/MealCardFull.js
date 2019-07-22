@@ -15,43 +15,48 @@ export function MealCardFull(props) {
   const { fat, carbs, protein } = nutritions;
 
   return (
-    <Paper zDepth={3} className='mealCardFull'>
+    <Paper zDepth={3} className='mealCardFull' onClick={props.onClick}>
       <div className='mealCardTop'>
         <div className='mealCardFullInfo'>
           <h1> {name} </h1>
           <h2>Calories: {kcal} kcal</h2>
           <h2>Prep Time: {time} min </h2>
         </div>
-        <img className='mealPhoto' src={image} alt={"tu jest tekst"}/>
+        <img className="mealPhoto" src={image} alt={"tu jest tekst"} />
       </div>
 
-      <div className='mealCardMain'>
-        <div className='mealCardMainLeft'>
-          <div className='nutritions'>
+      <div className="mealCardMain">
+        <div className="mealCardMainLeft">
+          <div className="nutritions">
             <h3>Nutritions</h3>
             <p>fat: {fat}g</p>
             <p> carbs: {carbs}g </p>
             <p>protein: {protein}g </p>
           </div>
-          <div className='ingradients'>
+          <div className="ingradients">
             <h3>Ingradients:</h3>
             <p>{ingradients}</p>
           </div>
         </div>
 
-        <div className='recipe'>
+        <div className="recipe">
           <h3> Recipe</h3>
           <p>{recipe}</p>
         </div>
       </div>
-      <div className='mealCardFooter'>
+      <div className="mealCardFooter">
         <FontAwesomeIcon
-          icon={['fas', 'arrow-left']}
-          size='3x'
-          style={{ color: '#c0cbcc', padding: '15px' }}
+          icon={["fas", "arrow-left"]}
+          size="3x"
+          style={{ color: "#c0cbcc", padding: "15px" }}
           onClick={() => props.onMealClose()}
         />
-        <FontAwesomeIcon icon={['fas', 'plus']} size='3x' className='addMealButton' onClick={() => onAdd(meal)}/>
+        <FontAwesomeIcon
+          icon={["fas", "plus"]}
+          size="3x"
+          className="addMealButton"
+          onClick={() => onAdd(meal)}
+        />
       </div>
     </Paper>
   )

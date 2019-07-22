@@ -46,21 +46,49 @@ export class PlanProvider extends React.Component {
   };
 
   mapPlanToEvents = () => {
-    return this.state.plan.days.map(day => {
-      const date = day.date;
-      const meals = this.getMeals(date);
-      
-      return {
-        id: 0,
-        title: `${meals.breakfast ? meals.breakfast.name : ''}\\n
-                ${meals.lunch ? meals.lunch.name : ''}\n
-                ${meals.snack ? meals.snack.name : ''}\n
-                ${meals.dinner ? meals.snack.name : ''}`,
-        allDay: true,
-        start: moment(date, "DD-MM-YYYY").toDate(),
-        end: moment(date, "DD-MM-YYYY").toDate()
-      };
-    });
+    console.log(meals);
+    return this.state.plan.days
+      .map(day => {
+        const date = day.date;
+        const { breakfastId, lunchId, snackId, dinnerId } = day.meals;
+        const breakfast = meals.find(meal => meal.id === breakfastId);
+        const lunch = meals.find(meal => meal.id === lunchId);
+        const snack = meals.find(meal => meal.id === snackId);
+        const dinner = meals.find(meal => meal.id === dinnerId);
+
+        // debugger;
+        return [
+          {
+            id: breakfastId,
+            title: breakfast && breakfast.name,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          },
+          {
+            id: lunchId,
+            title: lunch && lunch.name,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          },
+          {
+            id: snackId,
+            title: snack && snack.name,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          },
+          {
+            id: dinnerId,
+            title: dinner && dinner.name,
+            allDay: false,
+            start: moment(date, "DD-MM-YYYY").toDate(),
+            end: moment(date, "DD-MM-YYYY").toDate()
+          }
+        ].filter(event => event.title);
+      })
+      .reduce((acc, val) => acc.concat(val), []);
   };
 
   getMeals = date => {
@@ -115,25 +143,26 @@ export class PlanProvider extends React.Component {
   };
 
   addOrRemoveMeal = (meal, isAdd) => {
-    let currentDate = this.state.activeDate.format("DD-MM-YYYY")
+    let currentDate = this.state.activeDate.format("DD-MM-YYYY");
     let mealsOfTheDay = this.getMealsByDay();
-    let mealId = isAdd ? meal.id : null
-    mealsOfTheDay[meal.type + 'Id'] = mealId;
-    let dayMealIndex = this.state.plan.days.findIndex(day => day.date === currentDate)
+    let mealId = isAdd ? meal.id : null;
+    mealsOfTheDay[meal.type + "Id"] = mealId;
+    let dayMealIndex = this.state.plan.days.findIndex(
+      day => day.date === currentDate
+    );
 
-    if(dayMealIndex !== -1){
-      this.setState((prevState) => {
+    if (dayMealIndex !== -1) {
+      this.setState(prevState => {
         prevState.plan.days.splice(dayMealIndex, 1);
         return prevState;
-      })
+      });
     }
     this.setState(prevState => ({
       [prevState.plan.days]: prevState.plan.days.push({
         date: currentDate,
         meals: mealsOfTheDay
-        })
       })
-    )
+    }));
   };
 
   setMealFilter = filterName => {
@@ -142,6 +171,21 @@ export class PlanProvider extends React.Component {
       mealFilter: filterName,
       filteredMeals: meals.filter(meal => meal.type === filterName)
     });
+  };
+
+  sumNutrition = field => {
+    const { lunchId, dinnerId, snackId, breakfastId } = this.getMealsByDay();
+    const mealsIds = [breakfastId, lunchId, snackId, dinnerId];
+
+    const foundMealsObjects = meals.filter(meal => mealsIds.includes(meal.id));
+
+    return foundMealsObjects.reduce((acc, meal) => {
+      if (field !== "kcal") {
+        return acc + meal.nutritions[field];
+      } else {
+        return acc + parseInt(meal[field]);
+      }
+    }, 0);
   };
 
   render() {
@@ -159,6 +203,7 @@ export class PlanProvider extends React.Component {
           decrementActiveDate: this.decrementActiveDate,
           incrementActiveDate: this.incrementActiveDate,
           addOrRemoveMeal: this.addOrRemoveMeal,
+          sumNutrition: this.sumNutrition
         }}
       >
         {this.props.children}

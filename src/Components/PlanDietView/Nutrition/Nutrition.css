@@ -1,5 +1,9 @@
 .nutritionContainer {
-    width: 400px;
-    height: 600px;
-    margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 400px;
+  margin: 20px;
 }

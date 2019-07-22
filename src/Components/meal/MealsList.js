@@ -20,26 +20,29 @@ prevArrow: <SamplePrevArrow />,
 };
 
 function SampleNextArrow(props) {
-  const {onClick, style} = props;
+  const {onClick, style, className} = props;
   return(
-<Icon 
-  style={{...style, display: "block"}}
-  name='angle double right' 
-  size='large' 
-  color='teal'
-  onClick={onClick}/>
+    <Icon
+      style={{...style, position: 'absolute',  top: '50%', right: '-40px'}}
+      name='angle double right' 
+      size='large' 
+      color='teal'
+      onClick={onClick}
+    />
   )
   }
 
 
 function SamplePrevArrow(props) {
-  const {onClick} = props;
+  const {onClick, style} = props;
   return(
-<Icon 
-name='angle double left' 
-size='large' 
-color='teal'
-onClick={onClick}/>
+    <Icon
+      style={{...style, position: 'absolute',  top: '50%', left: '-40px'}}
+      name='angle double left' 
+      size='large' 
+      color='teal'
+      onClick={onClick}
+    />
   )
 }
 
