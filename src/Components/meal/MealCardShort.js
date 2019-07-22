@@ -1,6 +1,6 @@
 import React from "react";
 import "./Meal.css";
-import { PlanConsumer } from "../../contexts/PlanContext";
+import { Card, Icon, Image } from 'semantic-ui-react'
 
 export function MealCardShort(props) {
   const { meal } = props;
@@ -17,3 +17,23 @@ export function MealCardShort(props) {
         </div>
   );
 }
+
+
+
+export const MealCardShort2 = props => (
+  <Card>
+    <Image src={props.meal.image} wrapped ui={false} />
+    <Card.Content>
+      <Card.Header>{props.meal.name}</Card.Header>
+
+      <Card.Description>
+        Calories: {props.meal.kcal} kcal      
+        </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+    
+        
+
+    </Card.Content>
+  </Card>
+)

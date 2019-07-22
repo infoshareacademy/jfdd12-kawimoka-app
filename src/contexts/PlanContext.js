@@ -46,6 +46,7 @@ export class PlanProvider extends React.Component {
   };
 
   mapPlanToEvents = () => {
+<<<<<<< HEAD
     console.log(meals);
     return this.state.plan.days
       .map(day => {
@@ -93,6 +94,25 @@ export class PlanProvider extends React.Component {
         ];
       })
       .reduce((acc, val) => acc.concat(val), []);
+=======
+    return this.state.plan.days.map(day => {
+      const date = day.date;
+      const meals = this.getMeals(date);
+
+      return {
+        id: 0,
+        title: `${
+          meals.breakfast && meals.breakfast.name ? meals.breakfast.name : ""
+        }\\n
+                ${meals.lunch && meals.lunch.name ? meals.lunch.name : ""}\n
+                ${meals.snack && meals.snack.name ? meals.snack.name : ""}\n
+                ${meals.dinner && meals.dinner.name ? meals.snack.name : ""}`,
+        allDay: true,
+        start: moment(date, "DD-MM-YYYY").toDate(),
+        end: moment(date, "DD-MM-YYYY").toDate()
+      };
+    });
+>>>>>>> develop
   };
 
   getMeals = date => {
@@ -147,25 +167,26 @@ export class PlanProvider extends React.Component {
   };
 
   addOrRemoveMeal = (meal, isAdd) => {
-    let currentDate = this.state.activeDate.format("DD-MM-YYYY")
+    let currentDate = this.state.activeDate.format("DD-MM-YYYY");
     let mealsOfTheDay = this.getMealsByDay();
-    let mealId = isAdd ? meal.id : null
-    mealsOfTheDay[meal.type + 'Id'] = mealId;
-    let dayMealIndex = this.state.plan.days.findIndex(day => day.date === currentDate)
+    let mealId = isAdd ? meal.id : null;
+    mealsOfTheDay[meal.type + "Id"] = mealId;
+    let dayMealIndex = this.state.plan.days.findIndex(
+      day => day.date === currentDate
+    );
 
-    if(dayMealIndex !== -1){
-      this.setState((prevState) => {
+    if (dayMealIndex !== -1) {
+      this.setState(prevState => {
         prevState.plan.days.splice(dayMealIndex, 1);
         return prevState;
-      })
+      });
     }
     this.setState(prevState => ({
       [prevState.plan.days]: prevState.plan.days.push({
         date: currentDate,
         meals: mealsOfTheDay
-        })
       })
-    )
+    }));
   };
 
   setMealFilter = filterName => {
@@ -174,6 +195,21 @@ export class PlanProvider extends React.Component {
       mealFilter: filterName,
       filteredMeals: meals.filter(meal => meal.type === filterName)
     });
+  };
+
+  sumNutrition = field => {
+    const { lunchId, dinnerId, snackId, breakfastId } = this.getMealsByDay();
+    const mealsIds = [breakfastId, lunchId, snackId, dinnerId];
+
+    const foundMealsObjects = meals.filter(meal => mealsIds.includes(meal.id));
+
+    return foundMealsObjects.reduce((acc, meal) => {
+      if (field !== "kcal") {
+        return acc + meal.nutritions[field];
+      } else {
+        return acc + parseInt(meal[field]);
+      }
+    }, 0);
   };
 
   render() {
@@ -191,6 +227,7 @@ export class PlanProvider extends React.Component {
           decrementActiveDate: this.decrementActiveDate,
           incrementActiveDate: this.incrementActiveDate,
           addOrRemoveMeal: this.addOrRemoveMeal,
+          sumNutrition: this.sumNutrition
         }}
       >
         {this.props.children}

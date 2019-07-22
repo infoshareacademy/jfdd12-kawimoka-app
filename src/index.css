@@ -20,3 +20,8 @@ code {
 .active-link {
   color: #08ada0;
 }
+
+.carousel-container {
+  width: 500px;
+  height: 150px;
+}

@@ -17,23 +17,11 @@ function SingleDay(props) {
         return (
           <Paper zDepth={3} className="singleDayContainer">
             <DayPicker date={value.activeDate} />
-            <MealSpace
-              mealTypeTitle={"breakfast"}
-              mealId={breakfastId}
-            />
-            <MealSpace
-              mealTypeTitle={"lunch"}
-              mealId={lunchId}
-            />
-            <MealSpace
-              mealTypeTitle={"snack"}
-              mealId={snackId}
-            />
-            <MealSpace
-              mealTypeTitle={"dinner"}
-              mealId={dinnerId}
-            />
-            <SummaryDay sumNutrition={sumNutrition} kcalGoal={"1800"} />
+            <MealSpace mealTypeTitle={"breakfast"} mealId={breakfastId} />
+            <MealSpace mealTypeTitle={"lunch"} mealId={lunchId} />
+            <MealSpace mealTypeTitle={"snack"} mealId={snackId} />
+            <MealSpace mealTypeTitle={"dinner"} mealId={dinnerId} />
+            <SummaryDay sumNutrition={value.sumNutrition} kcalGoal={"1800"} />
           </Paper>
         );
       }}
