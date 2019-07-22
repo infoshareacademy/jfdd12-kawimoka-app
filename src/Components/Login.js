@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Divider, Segment } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
 import { signIn } from '../services/AuthService'
 import { useForm } from '../hooks/useForm'
@@ -20,13 +20,19 @@ const LoginForm = props => {
   }
 
   return (
-    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='teal' textAlign='center'>
-          Log-in to your account
-        </Header>
-        <Form size='large'>
-          <Segment stacked>
+    <Segment placeholder>
+      <Grid
+        textAlign='center'
+        style={{ height: '100vh' }}
+        verticalAlign='middle'
+        columns={2}
+        relaxed='very'
+        stackable>
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as='h2' color='teal' textAlign='center'>
+            Log-in to your account
+          </Header>
+          <Form size='large'>
             <Form.Input
               fluid
               icon='user'
@@ -56,13 +62,14 @@ const LoginForm = props => {
               }}>
               Login
             </Button>
-          </Segment>
-        </Form>
-        <Message>
-          New to us? <a href='/sign-up'>Sign Up</a>
-        </Message>
-      </Grid.Column>
-    </Grid>
+          </Form>
+        </Grid.Column>
+        <Grid.Column verticalAlign='middle'>
+          <Button content='Sign up' icon='signup' size='big' />
+        </Grid.Column>
+      </Grid>
+      <Divider vertical>Or</Divider>
+    </Segment>
   )
 }
 
