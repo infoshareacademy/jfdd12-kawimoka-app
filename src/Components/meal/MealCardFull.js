@@ -1,12 +1,11 @@
 import React from "react";
 import "./Meal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
+
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPlus);
-library.add(faArrowLeft);
+
 
 export function MealCardFull(props) {
   const { meal, onAdd } = props;
@@ -14,7 +13,8 @@ export function MealCardFull(props) {
   const { fat, carbs, protein } = nutritions;
 
   return (
-    <div className="mealCardFull" onClick={props.onClick}>
+    
+    <div className="mealCardFull" onClick={props.onClick} >
       <div className="mealCardTop">
         <div className="mealCardFullInfo">
           <h1> {name} </h1>
@@ -43,20 +43,7 @@ export function MealCardFull(props) {
           <p>{recipe}</p>
         </div>
       </div>
-      <div className="mealCardFooter">
-        <FontAwesomeIcon
-          icon={["fas", "arrow-left"]}
-          size="3x"
-          style={{ color: "#c0cbcc", padding: "15px" }}
-          onClick={() => props.onMealClose()}
-        />
-        <FontAwesomeIcon
-          icon={["fas", "plus"]}
-          size="3x"
-          className="addMealButton"
-          onClick={() => onAdd(meal)}
-        />
-      </div>
+     
     </div>
   );
 }
