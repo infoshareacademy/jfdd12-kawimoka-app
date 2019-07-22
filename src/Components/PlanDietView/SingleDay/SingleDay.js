@@ -5,7 +5,7 @@ import "./SingleDay.css";
 import Paper from "material-ui/Paper";
 import { PlanConsumer } from "../../../contexts/PlanContext";
 
-function SingleDay(props) {
+function SingleDay() {
   return (
     <PlanConsumer>
       {value => {
