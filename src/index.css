@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fefdfd;
-  
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .default-link {
@@ -24,4 +24,7 @@ code {
 .carousel-container {
   width: 500px;
   height: 150px;
+}
+.rbc-date-cell > a {
+  cursor: default;
 }
