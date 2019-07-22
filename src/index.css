@@ -22,6 +22,10 @@ code {
 }
 
 .carousel-container {
-  width: 400px;
-  height: 150px;
+  width: 25vw;
+ 
+}
+
+.slick-active {
+  transform: 
 }

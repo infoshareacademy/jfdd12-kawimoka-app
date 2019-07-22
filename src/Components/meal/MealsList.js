@@ -1,18 +1,16 @@
-import React, { Component } from 'react'
-import meals from '../../meals.json'
-import { MealsTypes } from './MealsTypes'
-import { MealCardShort } from './MealCardShort'
+import React, { Component, Fragment, useState } from 'react'
+
 import { MealCardFull } from './MealCardFull'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import {MealModal} from "./MealModal"
+
 import Slider from "react-slick";
 
 import Paper from 'material-ui/Paper';
 import { PlanConsumer } from '../../contexts/PlanContext.js';
 import {MealCardShort2} from './MealCardShort';
-import { defaultProps } from 'recompose';
+
 
 
 library.add(faPlus);
@@ -22,11 +20,40 @@ className: "carousel-container",
 centerMode: true,
 infinite: true,
 centerPadding: "40px",
-slidesToShow: 2,
-speed: 500
+slidesToShow: 3,
+speed: 500,
+nextArrow: <SampleNextArrow />,
+prevArrow: <SamplePrevArrow />,
+
 };
 
+function SampleNextArrow(props) {
+  const { className, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ display: "block", background: "black" }}
+      onClick={onClick}
+    />
+      
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ display: "block", background: "black" }}
+      onClick={onClick}
+    />
+  );
+}
+
+
 export function MealsList() {
+
+const[x, setX]=useState(0)
 
   return (
     <PlanConsumer>
@@ -38,18 +65,30 @@ export function MealsList() {
             
             <Paper className='mealsList' zDepth={0}>
             <h2 style={{textAlign: "center", textTransform: "uppercase"}}>{value.mealFilter}</h2>
-              <Slider {...settings}>
-              {value.filteredMeals
-                .map(filteredMeal => 
-                  <>
-                  <MealCardShort2
-                                    key={filteredMeal.id}
-                                    meal={filteredMeal}
+              <Slider {...settings} afterChange={index => {
+                //TODO: logika od wyśiwetlania duzego posilku
+                setX(index)
 
-                />
-                <button onClick={() => value.addOrRemoveMeal(filteredMeal, true)}>ADD</button>
-                </>)} 
-                </Slider>
+
+
+
+                console.log(value.filteredMeals)
+              }}>
+              {value.filteredMeals
+                .map((filteredMeal, index) => 
+                  <div key={index}>
+                    <MealCardShort2
+                      key={filteredMeal.id}
+                      meal={filteredMeal}
+
+                    />
+                    <button onClick={() => value.addOrRemoveMeal(filteredMeal, true)}>ADD</button>
+                  </div>
+                )} 
+              </Slider>
+              <div>
+              <MealCardFull meal={value.filteredMeals[x]}/>
+              </div>
             </Paper>)
           }
         }
