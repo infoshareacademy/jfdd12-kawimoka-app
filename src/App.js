@@ -34,17 +34,15 @@ const App = props => {
     <MuiThemeProvider>
       <Router>
         <Navbar />
-        <Container>
-          <Switch>
-            <PrivateRoute exact path='/' component={Calendar} />
-            <PrivateRoute exact path='/plandiet' component={PlanDietContainer} />
-            <Route exact path='/sign-in' component={Login} />
-            <Route exact path='/sign-up' component={SignUp} />
-            <Redirect from='/home' to='/' />
-            <Route component={NoMatch} />
-          </Switch>
-          <Footer />
-        </Container>
+        <Switch>
+          <PrivateRoute exact path='/' component={Calendar} />
+          <PrivateRoute exact path='/plandiet' component={PlanDietContainer} />
+          <Route exact path='/sign-in' component={Login} />
+          <Route exact path='/sign-up' component={SignUp} />
+          <Redirect from='/home' to='/' />
+          <Route component={NoMatch} />
+        </Switch>
+        <Footer />
       </Router>
     </MuiThemeProvider>
   )
