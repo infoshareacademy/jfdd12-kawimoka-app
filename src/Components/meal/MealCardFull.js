@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import Paper from "material-ui/Paper";
 
 library.add(faPlus);
 library.add(faArrowLeft);
@@ -14,7 +15,7 @@ export function MealCardFull(props) {
   const { fat, carbs, protein } = nutritions;
 
   return (
-    <div className='mealCardFull'>
+    <Paper zDepth={3} className='mealCardFull'>
       <div className='mealCardTop'>
         <div className='mealCardFullInfo'>
           <h1> {name} </h1>
@@ -52,7 +53,7 @@ export function MealCardFull(props) {
         />
         <FontAwesomeIcon icon={['fas', 'plus']} size='3x' className='addMealButton' onClick={() => onAdd(meal)}/>
       </div>
-    </div>
+    </Paper>
   )
 }
 

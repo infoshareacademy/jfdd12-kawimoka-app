@@ -22,10 +22,9 @@ code {
 }
 
 .carousel-container {
-  width: 25vw;
+  display: flex;
+  flex-flow: row;
+  width: 32vw;
  
 }
 
-.slick-active {
-  transform: 
-}

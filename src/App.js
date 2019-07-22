@@ -34,7 +34,6 @@ const App = props => {
     <MuiThemeProvider>
       <Router>
         <Navbar />
-        <Container>
           <Switch>
             <PrivateRoute exact path='/' component={Calendar} />
             <PrivateRoute exact path='/plandiet' component={PlanDietContainer} />
@@ -44,7 +43,6 @@ const App = props => {
             <Route component={NoMatch} />
           </Switch>
           <Footer />
-        </Container>
       </Router>
     </MuiThemeProvider>
   )

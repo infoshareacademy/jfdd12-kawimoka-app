@@ -1,19 +1,11 @@
 import React, { Component, Fragment, useState } from 'react'
-
 import { MealCardFull } from './MealCardFull'
-
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-
 import Slider from "react-slick";
-
 import Paper from 'material-ui/Paper';
 import { PlanConsumer } from '../../contexts/PlanContext.js';
 import {MealCardShort2} from './MealCardShort';
+import {Icon } from 'semantic-ui-react'
 
-
-
-library.add(faPlus);
 
 const settings = {
 className: "carousel-container",
@@ -28,32 +20,33 @@ prevArrow: <SamplePrevArrow />,
 };
 
 function SampleNextArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ display: "block", background: "black" }}
-      onClick={onClick}
-    />
-      
-  );
-}
+  const {onClick, style} = props;
+  return(
+<Icon 
+  style={{...style, display: "block"}}
+  name='angle double right' 
+  size='large' 
+  color='teal'
+  onClick={onClick}/>
+  )
+  }
+
 
 function SamplePrevArrow(props) {
-  const { className, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ display: "block", background: "black" }}
-      onClick={onClick}
-    />
-  );
+  const {onClick} = props;
+  return(
+<Icon 
+name='angle double left' 
+size='large' 
+color='teal'
+onClick={onClick}/>
+  )
 }
 
 
 export function MealsList() {
 
-const[x, setX]=useState(0)
+const[choosenMeal, setchoosenMeal]=useState(0)
 
   return (
     <PlanConsumer>
@@ -65,29 +58,28 @@ const[x, setX]=useState(0)
             
             <Paper className='mealsList' zDepth={0}>
             <h2 style={{textAlign: "center", textTransform: "uppercase"}}>{value.mealFilter}</h2>
-              <Slider {...settings} afterChange={index => {
-                //TODO: logika od wyśiwetlania duzego posilku
-                setX(index)
 
+        <Slider  {...settings} afterChange={index => {
 
-
-
+                setchoosenMeal(index)
                 console.log(value.filteredMeals)
               }}>
               {value.filteredMeals
                 .map((filteredMeal, index) => 
-                  <div key={index}>
+                  <div key={index}  >
                     <MealCardShort2
                       key={filteredMeal.id}
                       meal={filteredMeal}
+                     
 
                     />
                     <button onClick={() => value.addOrRemoveMeal(filteredMeal, true)}>ADD</button>
                   </div>
                 )} 
               </Slider>
+
               <div>
-              <MealCardFull meal={value.filteredMeals[x]}/>
+              <MealCardFull meal={value.filteredMeals[choosenMeal]}/>
               </div>
             </Paper>)
           }
