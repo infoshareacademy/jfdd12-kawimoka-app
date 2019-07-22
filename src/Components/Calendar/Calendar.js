@@ -76,6 +76,10 @@ class CalendarContainer extends Component {
       modalIsOpen: false
     });
   };
+  
+  
+  
+  
 
   render() {
     return (
@@ -108,6 +112,7 @@ class CalendarContainer extends Component {
                       meal => meal.id === this.state.currentMealId
                     )}
                     onClick={this.closeModal}
+
                   />
                 </Modal>
               </Fragment>
