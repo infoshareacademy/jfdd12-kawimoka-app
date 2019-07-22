@@ -56,12 +56,16 @@ const Navbar = () => {
 
           {isLoggedIn && (
             <>
-              <Header as='h3'>
-                <Image circular src={require('../img/logo.png')} /> Profile Name
-              </Header>
+              <Menu.Item>
+                <NavLink>
+                  <Header as='h3'>
+                    <Image circular src={require('../img/logo.png')} /> Profile Name
+                  </Header>
+                </NavLink>
+              </Menu.Item>
               <Menu.Item>
                 <NavLink exact className='default-link' onClick={signOut} to='/'>
-                  <Icon name='log out' size='large' />
+                  Logout
                 </NavLink>
               </Menu.Item>
             </>
