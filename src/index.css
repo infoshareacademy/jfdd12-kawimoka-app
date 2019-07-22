@@ -22,9 +22,15 @@ code {
 }
 
 .carousel-container {
-  width: 500px;
-  height: 150px;
+  display: flex;
+  flex-flow: row;
+  width: 32vw;
 }
+
 .rbc-date-cell > a {
   cursor: default;
+}
+
+.rbc-day-bg {
+  cursor: pointer;
 }

@@ -55,6 +55,7 @@ class CalendarContainer extends Component {
     const dateString = Date.parse(date).toString();
 
     this.setState({ mealsList: mealsListState });
+    document.addEventListener("keydown", this.escFunction, false);
   }
 
   onSelect = (e, setSelectedDate) => {
@@ -76,6 +77,20 @@ class CalendarContainer extends Component {
       modalIsOpen: false
     });
   };
+  
+  
+  
+  
+
+  escFunction = event => {
+    if (event.keyCode === 27) {
+      this.closeModal();
+    }
+  };
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.escFunction, false);
+  }
 
   render() {
     return (
@@ -108,6 +123,7 @@ class CalendarContainer extends Component {
                       meal => meal.id === this.state.currentMealId
                     )}
                     onClick={this.closeModal}
+
                   />
                 </Modal>
               </Fragment>

@@ -1,9 +1,10 @@
-import React from "react";
-import "./Meal.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import React from 'react'
+import './Meal.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import Paper from "material-ui/Paper";
 
 library.add(faPlus);
 library.add(faArrowLeft);
@@ -14,9 +15,9 @@ export function MealCardFull(props) {
   const { fat, carbs, protein } = nutritions;
 
   return (
-    <div className="mealCardFull" onClick={props.onClick}>
-      <div className="mealCardTop">
-        <div className="mealCardFullInfo">
+    <Paper zDepth={3} className='mealCardFull' onClick={props.onClick}>
+      <div className='mealCardTop'>
+        <div className='mealCardFullInfo'>
           <h1> {name} </h1>
           <h2>Calories: {kcal} kcal</h2>
           <h2>Prep Time: {time} min </h2>
@@ -57,8 +58,8 @@ export function MealCardFull(props) {
           onClick={() => onAdd(meal)}
         />
       </div>
-    </div>
-  );
+    </Paper>
+  )
 }
 
 //TODO: Dopisać elementy nutritions, recipe, ingradients
