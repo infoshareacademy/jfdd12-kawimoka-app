@@ -7,6 +7,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 
 
+
 export function MealCardFull(props) {
   const { meal, onAdd } = props;
   const { name, time, image, kcal, nutritions, recipe, ingradients } = meal;

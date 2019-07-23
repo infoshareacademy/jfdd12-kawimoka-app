@@ -12,6 +12,7 @@ import { MealCardFull } from "../meal/MealCardFull";
 import { MealModal } from "../meal/MealModal";
 import "../meal/Meal.css";
 
+
 const localizer = momentLocalizer(moment);
 
 const customStyles = {
@@ -24,10 +25,12 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     border: "none",
     borderRadius: "10px",
-    backgroundColor: "rgb(128, 238, 210)"
+    
   },
   overlay: {
-    zIndex: 999
+    zIndex: 999,
+    backgroundColor: "rgba(0, 0, 0, 0.75)"
+
   }
 };
 

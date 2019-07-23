@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { MealCardFull } from './MealCardFull';
 import './Meal.css'
+import Paper from "material-ui/Paper";
 
 const customStyles = {
   content : {
@@ -14,7 +15,7 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)',
     border: "none",
     borderRadius: "10px",
-    backgroundColor: "rgb(128, 238, 210)"
+    
   }
 };
 
@@ -43,7 +44,7 @@ export class MealModal extends React.Component {
 
   render() {
     return (
-      <div>
+      <Paper zDepth={3}>
         <button className={"moreInfoButton"} onClick={this.openModal}>More Info</button>
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -58,7 +59,7 @@ export class MealModal extends React.Component {
             onMealClose={this.closeModal}/>
 
         </Modal>
-      </div>
+      </Paper>
     );
   }
 }
