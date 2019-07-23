@@ -5,6 +5,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import Paper from "material-ui/Paper";
+import { PlanConsumer } from '../../contexts/PlanContext.js';
 
 library.add(faPlus);
 library.add(faArrowLeft);
@@ -15,13 +16,23 @@ export function MealCardFull(props) {
   const { fat, carbs, protein } = nutritions;
 
   return (
+    <PlanConsumer>
+    {value => {
+      if (value.filteredMeals.length === 0) {
+        return null
+        } else {
+          return (  
     <Paper zDepth={3} className='mealCardFull' onClick={props.onClick}>
       <div className='mealCardTop'>
         <div className='mealCardFullInfo'>
           <h1> {name} </h1>
           <h2>Calories: {kcal} kcal</h2>
           <h2>Prep Time: {time} min </h2>
+          <Paper className='addMealButton' zDepth={2} onClick={() => value.addOrRemoveMeal(meal, true)} >  
+                    ADD +          
+</Paper>
         </div>
+
         <img className="mealPhoto" src={image} alt={"tu jest tekst"} />
       </div>
 
@@ -45,21 +56,14 @@ export function MealCardFull(props) {
         </div>
       </div>
       <div className="mealCardFooter">
-        <FontAwesomeIcon
-          icon={["fas", "arrow-left"]}
-          size="3x"
-          style={{ color: "#c0cbcc", padding: "15px" }}
-          onClick={() => props.onMealClose()}
-        />
-        <FontAwesomeIcon
-          icon={["fas", "plus"]}
-          size="3x"
-          className="addMealButton"
-          onClick={() => onAdd(meal)}
-        />
+
       </div>
     </Paper>
-  )
+          )
+    }
+  }}
+</PlanConsumer>)
+
 }
 
 //TODO: Dopisać elementy nutritions, recipe, ingradients

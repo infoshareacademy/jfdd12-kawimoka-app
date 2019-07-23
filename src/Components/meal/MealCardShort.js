@@ -27,13 +27,10 @@ export const MealCardShort2 = props => (
       <Card.Header style={{fontSize: "12px"}}>{props.meal.name}</Card.Header>
 
       <Card.Description style={{fontSize: "10px"}}>
-        Calories: {props.meal.kcal} kcal      
+        Calories: {props.meal.kcal} kcal   
+        Prep Time: {props.meal.time} min    
         </Card.Description>
     </Card.Content>
-    <Card.Content extra>
-    
-        
 
-    </Card.Content>
   </Card>
 )

@@ -24,7 +24,7 @@ code {
 .carousel-container {
   display: flex;
   flex-flow: row;
-  width: 32vw;
+  width: 25vw;
 }
 
 .rbc-date-cell > a {

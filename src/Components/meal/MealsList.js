@@ -23,7 +23,7 @@ function SampleNextArrow(props) {
   const {onClick, style, className} = props;
   return(
     <Icon
-      style={{...style, position: 'absolute',  top: '50%', right: '-40px'}}
+      style={{...style, position: 'absolute',  top: '50%', right: '-40px',  cursor: 'pointer'}}
       name='angle double right' 
       size='large' 
       color='teal'
@@ -37,7 +37,7 @@ function SamplePrevArrow(props) {
   const {onClick, style} = props;
   return(
     <Icon
-      style={{...style, position: 'absolute',  top: '50%', left: '-40px'}}
+      style={{...style, position: 'absolute',  top: '50%', left: '-40px', cursor: 'pointer'}}
       name='angle double left' 
       size='large' 
       color='teal'
@@ -76,7 +76,7 @@ const[choosenMeal, setchoosenMeal]=useState(0)
                      
 
                     />
-                    <button onClick={() => value.addOrRemoveMeal(filteredMeal, true)}>ADD</button>
+                   
                   </div>
                 )} 
               </Slider>

@@ -52,12 +52,12 @@ max-width: 370px;
 
 .mealCardFull{
 
-    border-radius: 5px;
-    margin: 10px;
+    border-radius: 5px;  
+    margin-top: 15px;   
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 600px;
+    width: 25vw;
     height: auto;
     background-color: white;
  
@@ -72,28 +72,29 @@ max-width: 370px;
     color: rgb(56, 56, 56);
     display: flex;
     flex-flow: column;
-    justify-content: flex-start;
-    width: 400px;
+    justify-content: space-between;
+    width: 15vw;
     padding: 0;
     
 }
 
 .mealCardFullInfo h1{
-    font-size: 30px;
+    font-size: 20px;
     margin-left: 10px;
-    padding: 0;
+    margin-top: 15px;
+    padding: 4px;
 }
 .mealCardFullInfo h2{
-    font-size: 18px;
+    font-size: 13px;
     margin: 0 0 0 10px;
     padding: 0;
 }
 
 .mealCardFull img{
-    width: 200px;
+    width: 10vw;
     margin: 0;
     padding: 0;
-    max-height: 200px;
+    max-height: 10vw;
     border-radius: 0px 5px 0px 0px;
 
 }
@@ -106,31 +107,34 @@ max-width: 370px;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    width: 200px;
+    width: 10vw;
 }
 
 .addMealButton{
     cursor: pointer;
-    color: #08ada0;
-    padding: 15px;
+    margin: 5px 0px 10px 10px;
+    background-color: #6de4da;
+    width: 8vw;
+    padding: 8px;
+    border: none;
 }
 
 .nutritions{
     display: flex;
     flex-flow: column;
-    width: 200px;
+    width: 10vw;
     margin-bottom: 10px;
 }
 .ingradients {
     display: flex;
     flex-flow: column;
-    width: 200px;
+    width: 10vw;
 }
 
 .recipe{
     display: flex;
     flex-flow: column;
-    width: 400px;
+    width: 15vw;
     margin-bottom: 10px;
     border-left: 1px solid black;
 }
@@ -206,7 +210,6 @@ max-width: 370px;
 .mealsShortCardOne:hover {
     background-color: #c7c7c783;
 }
-
 .mealsTypes{
     display: flex;
     flex-flow: row;
