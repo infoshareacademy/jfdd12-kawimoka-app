@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Menu, Container, Icon, Header, Image } from 'semantic-ui-react'
+import { Menu, Container, Header, Image } from 'semantic-ui-react'
 import '../index.css'
 import { signOut } from '../services/AuthService'
 import { useAuth } from '../hooks/useAuth'
@@ -57,7 +57,11 @@ const Navbar = () => {
           {isLoggedIn && (
             <>
               <Menu.Item>
-                <NavLink>
+                <NavLink
+                  exact
+                  className='default-link'
+                  activeClassName={'active-link'}
+                  to='/profile'>
                   <Header as='h3'>
                     <Image circular src={require('../img/logo.png')} /> Profile Name
                   </Header>

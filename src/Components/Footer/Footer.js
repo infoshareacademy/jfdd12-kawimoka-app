@@ -7,22 +7,22 @@ export function Footer(props) {
     <footer className={s.footerContainer}>
       <div>
         <p>
-          <a href=''>Terms of Services</a>
+          <a href='/'>Terms of Services</a>
         </p>
         <p>
-          <a href=''>Privacy Policy</a>
+          <a href='/'>Privacy Policy</a>
         </p>
       </div>
       <div>
         <p>
-          <a href='' target='_blank'>
+          <a href='/' target='_blank'>
             <FontAwesomeIcon
               icon={['fab', 'facebook-square']}
               size='2x'
               style={{ color: '#08ada0' }}
             />
           </a>{' '}
-          <a href='' target='_blank'>
+          <a href='/' target='_blank'>
             <FontAwesomeIcon icon={['fab', 'instagram']} size='2x' style={{ color: '#08ada0' }} />
           </a>{' '}
         </p>
