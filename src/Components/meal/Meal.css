@@ -18,7 +18,7 @@
   margin: 0;
   display: flex;
   flex-flow: row;
-  width: 380px;
+  width: 260px;
   height: 115px;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .mealPhoto {
-  justify-content: center;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
   width: 130px;
@@ -55,7 +55,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 600px;
+  /* width: 600px; */
   height: auto;
   background-color: white;
 }
@@ -70,7 +70,7 @@
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
-  width: 400px;
+  /* width: 400px; */
   padding: 0;
 }
 
@@ -125,7 +125,7 @@
 .recipe {
   display: flex;
   flex-flow: column;
-  width: 400px;
+  /* width: 400px; */
   margin-bottom: 10px;
   border-left: 1px solid black;
 }
@@ -181,7 +181,7 @@
   display: flex;
   flex-flow: column;
   margin: 20px;
-  flex-basis: 50%;
+  flex-basis: 450px;
 }
 .mealsShortCardsList {
   display: flex;
