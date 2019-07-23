@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   width: 450px;
-  max-height: 1075px;
+  max-height: 900px;
   justify-content: space-between;
 }
 
@@ -43,6 +43,10 @@
   margin: 5px 5px;
   text-align: center;
   font-size: 12px;
+}
+
+.numbers {
+  font-size: 18px;
 }
 
 .mealSpaceContainer {

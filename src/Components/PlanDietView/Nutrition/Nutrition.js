@@ -14,35 +14,44 @@ export function Nutrition() {
     { name: "Protein", value: sumNutrition("protein") || 1 }
   ];
 
-  return (
-    <Paper zDepth={3} className="nutritionContainer">
-      <h2>Nutrition summary</h2>
-      <div>
-        <NutritionsPieChart sumNutrition={sumNutrition} data={data} />
-      </div>
-      <ul
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignSelf: "flex-start"
-        }}
-      >
-        <li className="nutritionItem">
-          <div className="squareFat" />
-          <h5>Fat:</h5>
-        </li>
-        <li className="nutritionItem">
-          <div className="squareCarbs" />
-          <h5>Carbs:</h5>
-        </li>
-        <li className="nutritionItem">
-          <div className="squareProtein" />
-          <h5>Protein:</h5>
-        </li>
-      </ul>
+  function getMacrosValue(macroName) {
+    const macro = data.find(macro => {
+      return macro.name === macroName;
+    });
+    const macroValue = macro.value;
+    return macroValue === 1 ? 0 : macroValue;
+  }
 
-      <SummaryDay sumNutrition={sumNutrition} kcalGoal={"1800"} />
-    </Paper>
+  return (
+    <div className="nutritionContainer">
+      <h2>Nutrition</h2>
+      <Paper zDepth={3} className="nutritionCard">
+        <SummaryDay sumNutrition={sumNutrition} kcalGoal={"1800"} />
+        <div>
+          <NutritionsPieChart sumNutrition={sumNutrition} data={data} />
+        </div>
+        <ul
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignSelf: "flex-start"
+          }}
+        >
+          <li className="nutritionItem">
+            <div className="squareFat" />
+            <h5>Fat: {getMacrosValue("Fat")}</h5>
+          </li>
+          <li className="nutritionItem">
+            <div className="squareCarbs" />
+            <h5>Carbs: {getMacrosValue("Carbs")}</h5>
+          </li>
+          <li className="nutritionItem">
+            <div className="squareProtein" />
+            <h5>Protein: {getMacrosValue("Protein")}</h5>
+          </li>
+        </ul>
+      </Paper>
+    </div>
   );
 }

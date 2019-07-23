@@ -7,7 +7,7 @@ export function NutritionsPieChart(props) {
   const { data } = props;
 
   return (
-    <PieChart width={250} height={250}>
+    <PieChart width={200} height={200}>
       <Pie
         data={data}
         cx={100}
