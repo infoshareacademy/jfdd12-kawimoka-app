@@ -42,7 +42,8 @@ export class PlanProvider extends React.Component {
     },
     mealFilter: "",
     filteredMeals: [],
-    showedMeal: {}
+    showedMeal: {},
+    displayAddButton: true
   };
 
   mapPlanToEvents = () => {
@@ -163,6 +164,12 @@ export class PlanProvider extends React.Component {
         meals: mealsOfTheDay
       })
     }));
+
+    if (isAdd) {
+      this.setState({ displayAddButton: false });
+    } else {
+      this.setState({ displayAddButton: true });
+    }
   };
 
   setMealFilter = filterName => {
@@ -203,7 +210,8 @@ export class PlanProvider extends React.Component {
           decrementActiveDate: this.decrementActiveDate,
           incrementActiveDate: this.incrementActiveDate,
           addOrRemoveMeal: this.addOrRemoveMeal,
-          sumNutrition: this.sumNutrition
+          sumNutrition: this.sumNutrition,
+          displayAddButton: this.state.displayAddButton
         }}
       >
         {this.props.children}
