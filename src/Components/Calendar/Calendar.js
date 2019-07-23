@@ -2,6 +2,7 @@ import React, { Fragment, Component } from "react";
 import { PlanConsumer } from "../../contexts/PlanContext";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
+import { withRouter } from "react-router-dom";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./custom-calendar.css";
 import events from "../../events";
@@ -54,10 +55,12 @@ class CalendarContainer extends Component {
     const dateString = Date.parse(date).toString();
 
     this.setState({ mealsList: mealsListState });
+    document.addEventListener("keydown", this.escFunction, false);
   }
 
   onSelect = (e, setSelectedDate) => {
     setSelectedDate(moment(e.start));
+    this.props.history.push("plandiet");
   };
 
   toggleModal = event => {
@@ -74,6 +77,20 @@ class CalendarContainer extends Component {
       modalIsOpen: false
     });
   };
+  
+  
+  
+  
+
+  escFunction = event => {
+    if (event.keyCode === 27) {
+      this.closeModal();
+    }
+  };
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.escFunction, false);
+  }
 
   render() {
     return (
@@ -84,7 +101,12 @@ class CalendarContainer extends Component {
               <Fragment>
                 <Calendar
                   selectable={true}
+                  views={["month", "week"]}
+                  onNavigate={() => {
+                    console.log("hello");
+                  }}
                   onSelectSlot={e => {
+                    console.log("onSelect");
                     this.onSelect(e, value.setSelectedDate);
                   }}
                   onSelectEvent={this.toggleModal}
@@ -101,6 +123,7 @@ class CalendarContainer extends Component {
                       meal => meal.id === this.state.currentMealId
                     )}
                     onClick={this.closeModal}
+
                   />
                 </Modal>
               </Fragment>
@@ -112,4 +135,4 @@ class CalendarContainer extends Component {
   }
 }
 
-export default CalendarContainer;
+export default withRouter(CalendarContainer);

@@ -1,7 +1,8 @@
-.planDietContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-bottom: 100px;
-    width: 1400px;
+.planDietContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 100px;
+  width: 1400px;
+  margin: 0 auto;
 }

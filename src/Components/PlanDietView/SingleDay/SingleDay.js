@@ -1,14 +1,11 @@
 import React from "react";
 import { MealSpace } from "./MealSpace";
-import { SummaryDay } from "./SummaryDay";
 import { DayPicker } from "./DayPicker";
 import "./SingleDay.css";
 import Paper from "material-ui/Paper";
 import { PlanConsumer } from "../../../contexts/PlanContext";
 
-function SingleDay(props) {
-  const { sumNutrition } = props;
-
+function SingleDay() {
   return (
     <PlanConsumer>
       {value => {
@@ -21,7 +18,6 @@ function SingleDay(props) {
             <MealSpace mealTypeTitle={"lunch"} mealId={lunchId} />
             <MealSpace mealTypeTitle={"snack"} mealId={snackId} />
             <MealSpace mealTypeTitle={"dinner"} mealId={dinnerId} />
-            <SummaryDay sumNutrition={value.sumNutrition} kcalGoal={"1800"} />
           </Paper>
         );
       }}
