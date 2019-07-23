@@ -42,8 +42,7 @@ export class PlanProvider extends React.Component {
     },
     mealFilter: "",
     filteredMeals: [],
-    showedMeal: {},
-    displayAddButton: true
+    showedMeal: {}
   };
 
   mapPlanToEvents = () => {
@@ -210,8 +209,7 @@ export class PlanProvider extends React.Component {
           decrementActiveDate: this.decrementActiveDate,
           incrementActiveDate: this.incrementActiveDate,
           addOrRemoveMeal: this.addOrRemoveMeal,
-          sumNutrition: this.sumNutrition,
-          displayAddButton: this.state.displayAddButton
+          sumNutrition: this.sumNutrition
         }}
       >
         {this.props.children}

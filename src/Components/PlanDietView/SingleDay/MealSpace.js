@@ -21,7 +21,7 @@ export function MealSpace(props) {
   const { mealId, mealTypeTitle } = props;
   const addedMeal = meals.find(meal => meal.id === mealId);
 
-  const { addOrRemoveMeal, setMealFilter, displayAddButton } = useContext(
+  const { addOrRemoveMeal, setMealFilter} = useContext(
     PlanContext
   );
 
@@ -41,7 +41,7 @@ export function MealSpace(props) {
           </div>
         )}
 
-        {displayAddButton && (
+        {!mealId && (
           <FloatingActionButton
             style={addMealButtonStyle}
             backgroundColor={"#9CDED9"}
