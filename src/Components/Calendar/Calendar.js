@@ -98,87 +98,65 @@ class CalendarContainer extends Component {
           {value => {
             return (
               <Fragment>
-                <ContextMenuTrigger id="some_unique_identifier">
-                  <Calendar
-                    selectable={true}
-                    views={["month", "week"]}
-                    onNavigate={() => {
-                      console.log("hello");
-                    }}
-                    components={{
-                      event: props => {
-                        return (
-                          <Fragment>
-                            <ContextMenuTrigger
-                              id={
-                                props.event.start.toISOString() +
-                                "-" +
-                                props.event.id
-                              }
-                            >
-                              <div>{props.title}</div>
-                            </ContextMenuTrigger>
-                            <ContextMenu
-                              className={"context-menu"}
-                              hideOnLeave={false}
-                              id={
-                                props.event.start.toISOString() +
-                                "-" +
-                                props.event.id
-                              }
-                            >
-                              <MenuItem
-                                data={{ foo: "bar" }}
-                                preventClose={true}
-                              >
-                                Copy to day{" "}
-                                <input
-                                  type={"date"}
-                                  value={this.state.selectedDay}
-                                  onChange={event => {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-                                    this.setState({
-                                      selectedDay: event.target.value
-                                    });
-                                  }}
-                                />
-                                <button
-                                  onClick={event => {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-                                    if (this.state.selectedDay) {
-                                      value.copyToDay(
-                                        props.event,
-                                        this.state.selectedDay
-                                      );
-                                    }
-                                  }}
-                                >
-                                  Copy!
-                                </button>
-                              </MenuItem>
-                            </ContextMenu>
-                          </Fragment>
-                        );
-                      }
-                    }}
-                    onSelectSlot={e => {
-                      console.log("onSelect");
-                      this.onSelect(e, value.setSelectedDate);
-                    }}
-                    onSelectEvent={(e, event) => {
-                      console.log(event.button);
-                      console.log(e);
-                      this.toggleModal(e);
-                    }}
-                    style={{ height: 800 }}
-                    localizer={localizer}
-                    events={value.events}
-                    startAccessor="start"
-                    endAccessor="end"
-                  />
-                </ContextMenuTrigger>
+                <Calendar
+                  selectable={true}
+                  views={["month", "week"]}
+                  onNavigate={() => {
+                    console.log("hello");
+                  }}
+                  components={{
+                    event: props => {
+                      return <div>{props.title}</div>;
+                    },
+                    dateCellWrapper: props => {
+                      const style = {
+                        display: "flex",
+                        flex: 1,
+                        borderLeft: "1px solid #DDD",
+                        backgroundColor: "lightblue",
+                        position: "relative",
+                        zIndex: 10
+                      };
+                      return (
+                        <div style={style}>
+                          <button
+                            style={{
+                              height: "25px"
+                            }}
+                            onClick={event => {
+                              event.preventDefault();
+                              event.stopPropagation();
+                            }}
+                          >
+                            ...
+                          </button>
+                          <button
+                            style={{
+                              height: "25px"
+                            }}
+                            onClick={e => {
+                              console.log("onSelect");
+                              this.onSelect(props.event, value.setSelectedDate);
+                            }}
+                          >
+                            go
+                          </button>
+                          {props.children}
+                        </div>
+                      );
+                    }
+                  }}
+                  onSelectEvent={(e, event) => {
+                    console.log(event.button);
+                    console.log(e);
+                    this.toggleModal(e);
+                  }}
+                  style={{ height: 800 }}
+                  localizer={localizer}
+                  events={value.events}
+                  startAccessor="start"
+                  endAccessor="end"
+                />
 
                 <Modal isOpen={this.state.modalIsOpen} style={customStyles}>
                   <MealCardFull

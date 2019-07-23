@@ -39,3 +39,7 @@ code {
 .rbc-day-bg {
   cursor: pointer;
 }
+
+.rbc-row-content {
+  z-index: unset !important;
+}
