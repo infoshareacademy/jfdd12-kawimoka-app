@@ -45,6 +45,26 @@ export class PlanProvider extends React.Component {
     showedMeal: {}
   };
 
+  copyToDay = (event, selectedDay) => {
+    const foundDay = this.state.plan.days.find(day => {
+      return day.date === moment(event.start).format("DD-MM-YYYY");
+    });
+
+    if (foundDay) {
+      const day = {
+        ...foundDay,
+        date: moment(selectedDay).format("DD-MM-YYYY")
+      };
+
+      this.setState({
+        plan: {
+          ...this.state.plan,
+          days: [...this.state.plan.days, day]
+        }
+      });
+    }
+  };
+
   mapPlanToEvents = () => {
     console.log(meals);
     return this.state.plan.days
@@ -203,7 +223,8 @@ export class PlanProvider extends React.Component {
           decrementActiveDate: this.decrementActiveDate,
           incrementActiveDate: this.incrementActiveDate,
           addOrRemoveMeal: this.addOrRemoveMeal,
-          sumNutrition: this.sumNutrition
+          sumNutrition: this.sumNutrition,
+          copyToDay: this.copyToDay
         }}
       >
         {this.props.children}

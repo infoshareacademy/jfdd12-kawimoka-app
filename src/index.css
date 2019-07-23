@@ -6,6 +6,13 @@ body {
   background-color: #fefdfd;
 }
 
+.context-menu {
+  z-index: 100000;
+  background-color: white;
+  padding: 10px;
+  color: black;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

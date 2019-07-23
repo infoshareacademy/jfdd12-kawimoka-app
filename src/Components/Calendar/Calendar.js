@@ -11,7 +11,7 @@ import Modal from "react-modal";
 import { MealCardFull } from "../meal/MealCardFull";
 import { MealModal } from "../meal/MealModal";
 import "../meal/Meal.css";
-
+import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 
 const localizer = momentLocalizer(moment);
 
@@ -24,13 +24,11 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     border: "none",
-    borderRadius: "10px",
-    
+    borderRadius: "10px"
   },
   overlay: {
     zIndex: 999,
     backgroundColor: "rgba(0, 0, 0, 0.75)"
-
   }
 };
 
@@ -40,8 +38,10 @@ class CalendarContainer extends Component {
     mealsList: {},
     selectedEvent: events[0],
     modalIsOpen: false,
-    currentMealId: 1
+    currentMealId: 1,
+    selectedDay: null
   };
+
   componentDidMount() {
     const mealsListState = {};
     let breakfastId = mealsListState.breakfastId;
@@ -80,10 +80,6 @@ class CalendarContainer extends Component {
       modalIsOpen: false
     });
   };
-  
-  
-  
-  
 
   escFunction = event => {
     if (event.keyCode === 27) {
@@ -102,23 +98,87 @@ class CalendarContainer extends Component {
           {value => {
             return (
               <Fragment>
-                <Calendar
-                  selectable={true}
-                  views={["month", "week"]}
-                  onNavigate={() => {
-                    console.log("hello");
-                  }}
-                  onSelectSlot={e => {
-                    console.log("onSelect");
-                    this.onSelect(e, value.setSelectedDate);
-                  }}
-                  onSelectEvent={this.toggleModal}
-                  style={{ height: 800 }}
-                  localizer={localizer}
-                  events={value.events}
-                  startAccessor="start"
-                  endAccessor="end"
-                />
+                <ContextMenuTrigger id="some_unique_identifier">
+                  <Calendar
+                    selectable={true}
+                    views={["month", "week"]}
+                    onNavigate={() => {
+                      console.log("hello");
+                    }}
+                    components={{
+                      event: props => {
+                        return (
+                          <Fragment>
+                            <ContextMenuTrigger
+                              id={
+                                props.event.start.toISOString() +
+                                "-" +
+                                props.event.id
+                              }
+                            >
+                              <div>{props.title}</div>
+                            </ContextMenuTrigger>
+                            <ContextMenu
+                              className={"context-menu"}
+                              hideOnLeave={false}
+                              id={
+                                props.event.start.toISOString() +
+                                "-" +
+                                props.event.id
+                              }
+                            >
+                              <MenuItem
+                                data={{ foo: "bar" }}
+                                preventClose={true}
+                              >
+                                Copy to day{" "}
+                                <input
+                                  type={"date"}
+                                  value={this.state.selectedDay}
+                                  onChange={event => {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                    this.setState({
+                                      selectedDay: event.target.value
+                                    });
+                                  }}
+                                />
+                                <button
+                                  onClick={event => {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                    if (this.state.selectedDay) {
+                                      value.copyToDay(
+                                        props.event,
+                                        this.state.selectedDay
+                                      );
+                                    }
+                                  }}
+                                >
+                                  Copy!
+                                </button>
+                              </MenuItem>
+                            </ContextMenu>
+                          </Fragment>
+                        );
+                      }
+                    }}
+                    onSelectSlot={e => {
+                      console.log("onSelect");
+                      this.onSelect(e, value.setSelectedDate);
+                    }}
+                    onSelectEvent={(e, event) => {
+                      console.log(event.button);
+                      console.log(e);
+                      this.toggleModal(e);
+                    }}
+                    style={{ height: 800 }}
+                    localizer={localizer}
+                    events={value.events}
+                    startAccessor="start"
+                    endAccessor="end"
+                  />
+                </ContextMenuTrigger>
 
                 <Modal isOpen={this.state.modalIsOpen} style={customStyles}>
                   <MealCardFull
@@ -126,7 +186,6 @@ class CalendarContainer extends Component {
                       meal => meal.id === this.state.currentMealId
                     )}
                     onClick={this.closeModal}
-
                   />
                 </Modal>
               </Fragment>
