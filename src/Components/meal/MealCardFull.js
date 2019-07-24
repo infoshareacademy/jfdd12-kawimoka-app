@@ -38,7 +38,7 @@ export function MealCardFull(props) {
           <Button color='teal' style={{width: "8vw", margin: "10px 10px 10px 20px"}} className='addMealButton'  onClick={() => value.addOrRemoveMeal(meal, true)} >ADD +</Button>
         </div>
         <div className="mealCardFullHeart">
-          <Icon size='large' color='red' name='heart ' onClick={() => value.addToFavouritesMeals(meal)} />
+          <Icon size='large' color='red' name={value.favouritesMeals.includes(meal.id)?'heart': 'heart outline '} onClick={() => value.addToFavouritesMeals(meal)} />
         </div>
         
         <img className="mealPhoto" src={image} alt={"tu jest tekst"} />
