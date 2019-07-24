@@ -5,7 +5,7 @@ import { Checkbox } from "semantic-ui-react";
 import Slider from "@material-ui/core/Slider";
 
 export function Filters() {
-  const [value, setValue] = React.useState([20, 37]);
+  const [value, setValue] = React.useState([15, 30]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -20,6 +20,9 @@ export function Filters() {
         <Checkbox className="checkbox" label="Easy" />
         <Checkbox className="checkbox" label="Fit" />
         <h4>Preparation time</h4>
+        <p>
+          {value[0]} - {value[1]} min
+        </p>
         <Slider value={value} onChange={handleChange} />
       </div>
     </Paper>
