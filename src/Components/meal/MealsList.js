@@ -4,7 +4,9 @@ import Slider from "react-slick";
 import Paper from 'material-ui/Paper';
 import { PlanConsumer } from '../../contexts/PlanContext.js';
 import {MealCardShort2} from './MealCardShort';
-import {Icon } from 'semantic-ui-react'
+import {Icon } from 'semantic-ui-react';
+import {MotivationView} from '../MotivationView/MotivationView';
+
 
 
 // function numOfCards() {
@@ -37,7 +39,7 @@ function SampleNextArrow(props) {
   const {onClick, style, className} = props;
   return(
     <Icon
-      style={{...style, position: 'absolute',  top: '50%', right: '-40px',  cursor: 'pointer'}}
+      style={{...style, position: 'absolute', zIndex: "1", top: '80%', right: '-10px',  cursor: 'pointer'}}
       name='angle double right' 
       size='large' 
       color='teal'
@@ -51,7 +53,7 @@ function SamplePrevArrow(props) {
   const {onClick, style} = props;
   return(
     <Icon
-      style={{...style, position: 'absolute',  top: '50%', left: '-40px', cursor: 'pointer'}}
+      style={{...style, position: 'absolute',zIndex: "1",  top: '80%', left: '-10px', cursor: 'pointer'}}
       name='angle double left' 
       size='large' 
       color='teal'
@@ -69,7 +71,7 @@ const[choosenMeal, setchoosenMeal]=useState(0)
     <PlanConsumer>
       {value => {
         if (value.filteredMeals.length === 0) {
-          return null
+          return <MotivationView />
           } else {
             return (
             
