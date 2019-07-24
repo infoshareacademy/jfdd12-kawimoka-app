@@ -3,9 +3,9 @@
   margin: 20px;
   display: flex;
   flex-direction: column;
-  width: 450px;
-  max-height: 1075px;
+  flex-basis: 500px;
   justify-content: space-between;
+  max-height: 850px;
 }
 
 .changeDayIcon {
@@ -45,16 +45,33 @@
   font-size: 12px;
 }
 
+.numbers {
+  font-size: 18px;
+}
+
 .mealSpaceContainer {
   border-bottom: 1px dashed #08ada0;
   display: flex;
   flex-direction: column;
-  flex-basis: 25%;
-  max-height: 200px;
+  /* flex-basis: 25%; */
+  min-height: 200px;
+}
+
+.mealSpaceContainer h2 {
+  font-size: 20px;
+  text-transform: capitalize;
+  margin: 5px;
+}
+
+.mealSpaceContainer h2:hover {
+  color: #08ada0;
+  cursor: pointer;
 }
 
 .mealSpace {
   height: 150px;
+  display: flex;
+  align-self: flex-end;
 }
 
 .dayPicker {

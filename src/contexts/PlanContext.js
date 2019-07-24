@@ -42,7 +42,8 @@ export class PlanProvider extends React.Component {
     },
     mealFilter: "",
     filteredMeals: [],
-    showedMeal: {}
+    showedMeal: {},
+    favouritesMeals: []
   };
 
   copyToDay = (event, selectedDay) => {
@@ -183,6 +184,12 @@ export class PlanProvider extends React.Component {
         meals: mealsOfTheDay
       })
     }));
+
+    if (isAdd) {
+      this.setState({ displayAddButton: false });
+    } else {
+      this.setState({ displayAddButton: true });
+    }
   };
 
   setMealFilter = filterName => {
@@ -208,6 +215,14 @@ export class PlanProvider extends React.Component {
     }, 0);
   };
 
+  addToFavouritesMeals = (meal) => {
+    this.setState(prevState => {
+return {
+  favouritesMeals: [...prevState.favouritesMeals, meal.id ]
+}
+})} 
+      
+
   render() {
     return (
       <PlanContext.Provider
@@ -223,8 +238,13 @@ export class PlanProvider extends React.Component {
           decrementActiveDate: this.decrementActiveDate,
           incrementActiveDate: this.incrementActiveDate,
           addOrRemoveMeal: this.addOrRemoveMeal,
+<<<<<<< HEAD
           sumNutrition: this.sumNutrition,
           copyToDay: this.copyToDay
+=======
+          addToFavouritesMeals: this.addToFavouritesMeals,
+          sumNutrition: this.sumNutrition
+>>>>>>> develop
         }}
       >
         {this.props.children}

@@ -21,19 +21,16 @@ export function MealCardShort(props) {
 
 
 export const MealCardShort2 = props => (
-  <Card>
+  <Card style={{height: "12vw"}}>
     <Image src={props.meal.image} wrapped ui={false} />
     <Card.Content>
-      <Card.Header>{props.meal.name}</Card.Header>
+      <Card.Header style={{fontSize: "12px"}}>{props.meal.name}</Card.Header>
 
-      <Card.Description>
-        Calories: {props.meal.kcal} kcal      
+      <Card.Description style={{fontSize: "10px"}}>
+        Calories: {props.meal.kcal} kcal   
+        Prep Time: {props.meal.time} min    
         </Card.Description>
     </Card.Content>
-    <Card.Content extra>
-    
-        
 
-    </Card.Content>
   </Card>
 )

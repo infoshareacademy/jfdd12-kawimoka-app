@@ -1,6 +1,9 @@
 .footerContainer {
-  position: relative;
+  position: absolute;
+  width: 95%;
   bottom: 0;
+  margin-bottom: 5px;
+  margin-top: auto;
   text-align: center;
   display: flex;
   flex-direction: row;

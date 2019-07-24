@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Navbar from './Components/Navbar'
 import SignUp from './Components/SignUp'
 import Login from './Components/Login'
+import UserProfile from './Components/UserProfile'
 import 'semantic-ui-css/semantic.min.css'
 import { MuiThemeProvider } from 'material-ui'
 import { PlanDietContainer } from './Components/PlanDietView/PlanDietContainer'
@@ -39,6 +40,7 @@ const App = props => {
           <PrivateRoute exact path='/plandiet' component={PlanDietContainer} />
           <Route exact path='/sign-in' component={Login} />
           <Route exact path='/sign-up' component={SignUp} />
+          <Route exact path='/profile' component={UserProfile} />
           <Redirect from='/home' to='/' />
           <Route component={NoMatch} />
         </Switch>

@@ -4,16 +4,10 @@ import { PieChart, Pie, Cell } from "recharts";
 const COLORS = ["#FFED66", "#FF5E5B", "#00CECB"];
 
 export function NutritionsPieChart(props) {
-  const { sumNutrition } = props;
-
-  const data = [
-    { name: "Fat", value: sumNutrition("fat") || 1 },
-    { name: "Carbs", value: sumNutrition("carbs") || 1 },
-    { name: "Protein", value: sumNutrition("protein") || 1 }
-  ];
+  const { data } = props;
 
   return (
-    <PieChart width={250} height={250}>
+    <PieChart width={200} height={200}>
       <Pie
         data={data}
         cx={100}
