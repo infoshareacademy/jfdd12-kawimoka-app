@@ -26,8 +26,7 @@ export function MealSpace(props) {
 
   return (
     <div className="mealSpaceContainer">
-      <h2>{mealTypeTitle}</h2>
-
+      <h2 onClick={() => setMealFilter(mealTypeTitle)}>{mealTypeTitle}</h2>
       <div className="mealSpace">
         {mealId && (
           <div className="mealSpaceFormatter">
