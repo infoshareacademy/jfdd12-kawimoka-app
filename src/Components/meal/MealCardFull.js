@@ -1,32 +1,27 @@
-import React from 'react'
-import './Meal.css'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import React from "react";
+import PropTypes from "prop-types";
+import "./Meal.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Paper from "material-ui/Paper";
-import { PlanConsumer } from '../../contexts/PlanContext.js';
-import { Button } from 'semantic-ui-react'
-import { Icon } from 'semantic-ui-react'
-
+import { PlanConsumer } from "../../contexts/PlanContext.js";
+import { Button } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
 
 library.add(faPlus);
 library.add(faArrowLeft);
 
-
-
-
 export function MealCardFull(props) {
-  const { meal} = props;
+  const { meal, canAddMeal } = props;
   const { name, time, image, kcal, nutritions, recipe, ingradients } = meal;
   const { fat, carbs, protein } = nutritions;
-  
-
 
   return (
     <PlanConsumer>
-    {value => {
-      if (value.filteredMeals.length === 0) {
-        return null
+      {value => {
+        if (value.filteredMeals.length === 0) {
+          return null;
         } else {
           return (  
     <Paper zDepth={3} className='mealCardFull' onClick={props.onClick}>
@@ -35,7 +30,9 @@ export function MealCardFull(props) {
           <h1> {name} </h1>               
           <h2>Calories: {kcal} kcal</h2>
           <h2>Prep Time: {time} min </h2>
+          {canAddMeal && (
           <Button color='teal' style={{width: "8vw", margin: "10px 10px 10px 20px"}} className='addMealButton'  onClick={() => value.addOrRemoveMeal(meal, true)} >ADD +</Button>
+          )}
         </div>
         <div className="mealCardFullHeart">
           <Icon size='large' color='red' name={value.favouritesMeals.includes(meal.id)?'heart': 'heart outline '} onClick={() => value.addToFavouritesMeals(meal)} />
@@ -58,20 +55,25 @@ export function MealCardFull(props) {
           </div>
         </div>
 
-        <div className="recipe">
-          <h3> Recipe</h3>
-          <p>{recipe}</p>
-        </div>
-      </div>
-      <div className="mealCardFooter">
 
-      </div>
-    </Paper>
-          )
-    }
-  }}
-</PlanConsumer>)
-
+                <div className="recipe">
+                  <h3> Recipe</h3>
+                  <p>{recipe}</p>
+                </div>
+              </div>
+              <div className="mealCardFooter" />
+            </Paper>
+          );
+        }
+      }}
+    </PlanConsumer>
+  );
 }
 
+MealCardFull.propTypes = {
+  canAddMeal: PropTypes.bool
+};
 
+MealCardFull.defaultProps = {
+  canAddMeal: true
+};

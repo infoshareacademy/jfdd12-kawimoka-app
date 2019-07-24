@@ -1,12 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Menu, Container, Icon, Header, Image } from 'semantic-ui-react'
+import { Menu, Container, Header, Image } from 'semantic-ui-react'
 import '../index.css'
 import { signOut } from '../services/AuthService'
 import { useAuth } from '../hooks/useAuth'
+import { useUser } from '../hooks/useUser'
 
 const Navbar = () => {
   const isLoggedIn = useAuth()
+  const user = useUser()
+  // console.log(user)
 
   return (
     <Menu pointing secondary>
@@ -56,12 +59,25 @@ const Navbar = () => {
 
           {isLoggedIn && (
             <>
-              <Header as='h3'>
-                <Image circular src={require('../img/logo.png')} /> Profile Name
-              </Header>
+              <Menu.Item>
+                <NavLink
+                  exact
+                  className='default-link'
+                  activeClassName={'active-link'}
+                  to='/profile'>
+                  <Header as='h3'>
+                    <Image
+                      circular
+                      src={`https://api.adorable.io/avatars/285/${user && user.firstName}${user &&
+                        user.lastName}.png`}
+                    />
+                    {user && user.firstName} {user && user.lastName}
+                  </Header>
+                </NavLink>
+              </Menu.Item>
               <Menu.Item>
                 <NavLink exact className='default-link' onClick={signOut} to='/'>
-                  <Icon name='log out' size='large' />
+                  Logout
                 </NavLink>
               </Menu.Item>
             </>
