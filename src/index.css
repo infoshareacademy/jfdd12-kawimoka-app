@@ -21,11 +21,6 @@ code {
   color: #08ada0;
 }
 
-.carousel-container {
-  display: flex;
-  flex-flow: row;
-  width: 25vw;
-}
 
 .rbc-date-cell > a {
   cursor: default;

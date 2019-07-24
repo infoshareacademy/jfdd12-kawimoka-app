@@ -1,19 +1,26 @@
 import React from 'react'
 import './Meal.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import Paper from "material-ui/Paper";
 import { PlanConsumer } from '../../contexts/PlanContext.js';
+import { Button } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
+
 
 library.add(faPlus);
 library.add(faArrowLeft);
 
+
+
+
 export function MealCardFull(props) {
-  const { meal, onAdd } = props;
+  const { meal} = props;
   const { name, time, image, kcal, nutritions, recipe, ingradients } = meal;
   const { fat, carbs, protein } = nutritions;
+  
+
 
   return (
     <PlanConsumer>
@@ -25,14 +32,15 @@ export function MealCardFull(props) {
     <Paper zDepth={3} className='mealCardFull' onClick={props.onClick}>
       <div className='mealCardTop'>
         <div className='mealCardFullInfo'>
-          <h1> {name} </h1>
+          <h1> {name} </h1>               
           <h2>Calories: {kcal} kcal</h2>
           <h2>Prep Time: {time} min </h2>
-          <Paper className='addMealButton' zDepth={2} onClick={() => value.addOrRemoveMeal(meal, true)} >  
-                    ADD +          
-</Paper>
+          <Button color='teal' style={{width: "8vw", margin: "10px 10px 10px 20px"}} className='addMealButton'  onClick={() => value.addOrRemoveMeal(meal, true)} >ADD +</Button>
         </div>
-
+        <div className="mealCardFullHeart">
+          <Icon size='large' color='red' name='heart ' onClick={() => value.addToFavouritesMeals(meal)} />
+        </div>
+        
         <img className="mealPhoto" src={image} alt={"tu jest tekst"} />
       </div>
 
@@ -46,7 +54,7 @@ export function MealCardFull(props) {
           </div>
           <div className="ingradients">
             <h3>Ingradients:</h3>
-            <p>{ingradients}</p>
+            <ul>{ingradients.map((ingradient)=><li>{ingradient}</li>) }</ul>
           </div>
         </div>
 
@@ -66,4 +74,4 @@ export function MealCardFull(props) {
 
 }
 
-//TODO: Dopisać elementy nutritions, recipe, ingradients
+
