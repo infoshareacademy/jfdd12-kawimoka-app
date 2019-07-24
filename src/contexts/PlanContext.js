@@ -164,6 +164,12 @@ export class PlanProvider extends React.Component {
         meals: mealsOfTheDay
       })
     }));
+
+    if (isAdd) {
+      this.setState({ displayAddButton: false });
+    } else {
+      this.setState({ displayAddButton: true });
+    }
   };
 
   setMealFilter = filterName => {
