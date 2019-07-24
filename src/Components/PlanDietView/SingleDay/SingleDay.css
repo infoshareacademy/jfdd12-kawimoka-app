@@ -3,7 +3,7 @@
   margin: 20px;
   display: flex;
   flex-direction: column;
-  flex-basis: 450px;
+  flex-basis: 500px;
   justify-content: space-between;
   max-height: 850px;
 }
@@ -55,6 +55,17 @@
   flex-direction: column;
   /* flex-basis: 25%; */
   min-height: 200px;
+}
+
+.mealSpaceContainer h2 {
+  font-size: 20px;
+  text-transform: capitalize;
+  margin: 5px;
+}
+
+.mealSpaceContainer h2:hover {
+  color: #08ada0;
+  cursor: pointer;
 }
 
 .mealSpace {

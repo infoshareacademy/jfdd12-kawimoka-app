@@ -8,6 +8,7 @@ import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentAdd from "material-ui/svg-icons/content/add";
 import { PlanConsumer, PlanContext } from "../../../contexts/PlanContext";
+import { Label } from "semantic-ui-react";
 
 library.add(faTimesCircle);
 
@@ -21,13 +22,12 @@ export function MealSpace(props) {
   const { mealId, mealTypeTitle } = props;
   const addedMeal = meals.find(meal => meal.id === mealId);
 
-  const { addOrRemoveMeal, setMealFilter} = useContext(
-    PlanContext
-  );
+  const { addOrRemoveMeal, setMealFilter } = useContext(PlanContext);
 
   return (
     <div className="mealSpaceContainer">
-      <h3 className="mealTypeTitle">{mealTypeTitle}</h3>
+      <h2>{mealTypeTitle}</h2>
+
       <div className="mealSpace">
         {mealId && (
           <div className="mealSpaceFormatter">
