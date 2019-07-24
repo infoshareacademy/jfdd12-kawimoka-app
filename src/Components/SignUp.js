@@ -52,7 +52,6 @@ const SignUpForm = () => {
               name={'lastName'}
               onChange={handleChange}
             />
-
             <Button
               color='teal'
               fluid
