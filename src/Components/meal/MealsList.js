@@ -74,7 +74,7 @@ const[choosenMeal, setchoosenMeal]=useState(0)
             return (
             
             <Paper className='mealsList' zDepth={0}>
-            <h2 style={{textAlign: "center", textTransform: "uppercase"}}>{value.mealFilter}</h2>
+           <Paper zDepth={3}><h2 style={{textAlign: "center", textTransform: "capitalize", fontSize: "20px", margin: "4px"}}>{value.mealFilter}</h2></Paper> 
 
         <Slider  {...settings} afterChange={index => {setchoosenMeal(index)}}>
               {value.filteredMeals
