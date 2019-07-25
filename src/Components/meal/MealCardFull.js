@@ -31,7 +31,7 @@ export function MealCardFull(props) {
           <h2>Calories: {kcal} kcal</h2>
           <h2>Prep Time: {time} min </h2>
           {canAddMeal && (
-          <Button color='teal' style={{width: "8vw", margin: "10px 10px 10px 20px"}} className='addMealButton'  onClick={() => value.addOrRemoveMeal(meal, true)} >ADD +</Button>
+          <Button color='teal' style={{width: "120px", margin: "10px 10px 10px 20px"}} className='addMealButton'  onClick={() => value.addOrRemoveMeal(meal, true)} >ADD +</Button>
           )}
         </div>
         <div className="mealCardFullHeart">
