@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 
-export const fetchUser = callback => {
+export const fetchUser = () => {
   const currentUser = firebase.auth().currentUser
   let uid
 
