@@ -44,10 +44,3 @@
 .nutritionItem h5 {
   margin: 5px;
 }
-
-@media (max-width: 524px) {
-  .singleDayContainer{
-    max-width: 350px;
-  }
-  
-}
