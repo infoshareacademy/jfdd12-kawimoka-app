@@ -39,7 +39,7 @@ function SampleNextArrow(props) {
   const {onClick, style, className} = props;
   return(
     <Icon
-      style={{...style, position: 'absolute', zIndex: "1", top: '80%', right: '-10px',  cursor: 'pointer'}}
+      style={{...style, position: 'absolute', zIndex: "1", top: '50%', right: '-30px',  cursor: 'pointer'}}
       name='angle double right' 
       size='large' 
       color='teal'
@@ -53,7 +53,7 @@ function SamplePrevArrow(props) {
   const {onClick, style} = props;
   return(
     <Icon
-      style={{...style, position: 'absolute',zIndex: "1",  top: '80%', left: '-10px', cursor: 'pointer'}}
+      style={{...style, position: 'absolute',zIndex: "1",  top: '50%', left: '-30px', cursor: 'pointer'}}
       name='angle double left' 
       size='large' 
       color='teal'

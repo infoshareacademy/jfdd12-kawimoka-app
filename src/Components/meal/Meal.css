@@ -3,16 +3,6 @@
   font-family: "Lato", sans-serif;
 }
 
-.mealsListHeader {
-  font-size: 20px;
-  text-align: center;
-  margin-left: 5px;
-  padding: 5px;
-  border: 1px solid black;
-  border-bottom: none;
-  font-style: italic;
-  max-width: 370px;
-}
 
 .mealCardShort {
   margin: 0;
@@ -75,13 +65,13 @@
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-    width: 13vw;
+    width: 250px;
     padding: 0;
     
 }
 
 .mealCardFullHeart{
-    width: 2vw;
+    width: 50px;;
     margin-top: 20px;
 
 } 
@@ -103,10 +93,10 @@
 }
 
 .mealCardFull img{
-    width: 10vw;
+    width: 200px;
     margin: 0;
     padding: 0;
-    max-height: 10vw;
+    max-height: 200px;
     border-radius: 0px 5px 0px 0px;
 
 }
@@ -119,7 +109,7 @@
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    width: 10vw;
+    width: 200px;
 }
 
 .addMealButton{
@@ -129,13 +119,13 @@
 .nutritions{
     display: flex;
     flex-flow: column;
-    width: 10vw;
+    width: 200px;
     margin-bottom: 10px;
 }
 .ingradients {
     display: flex;
     flex-flow: column;
-    width: 10vw;
+    width: 200px;
 }
 
 
@@ -143,7 +133,7 @@
     display: flex;
     flex-flow: row; 
     width: 500px;
-    height: 250px;
+    max-height: 250px;
   }
 
 
@@ -163,14 +153,12 @@
 .recipe{
     display: flex;
     flex-flow: column;
-    width: 15vw;
+    width: 280px;
     padding: 5px;
-    padding-right: 15px;
-    margin-bottom: 10px;
-    margin-bottom: 10px;
+    padding-right: 5px;
+    margin-bottom: 5px;
     border-left: 1px solid black;
     text-align: justify;
-    margin-right: 10px;
 }
 
 .ingradients h3 {
@@ -181,7 +169,7 @@
 
 .recipe h3 {
   font-size: 18px;
-  margin: 0 10px 0 10px;
+  margin: 0 5px 0 5px;
   padding: 2px;
 }
 
