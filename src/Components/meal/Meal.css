@@ -142,13 +142,15 @@
     margin: auto;
 }
 
-  /* .center .slick-center div {
-    color: #e67e22;
-    opacity: 1;
-    transform: scale(1.08);
+  .center .slick-center div {
+    background-color: #e5fafa; 
+    opacity: 1; 
     position: relative;
+    transform: scale(1.02);
     z-index: 1;
-  } */
+  } 
+
+ 
 
 .recipe{
     display: flex;
