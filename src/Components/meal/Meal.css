@@ -59,8 +59,7 @@
     margin-top: 15px;   
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 25vw;
+    justify-content: space-between;   
     height: auto;
     background-color: white;
  
@@ -142,8 +141,8 @@
 
 .carousel-container {
     display: flex;
-    flex-flow: row;
-    width: 25vw;
+    flex-flow: row; 
+    width: 500px;
     height: 250px;
   }
 
