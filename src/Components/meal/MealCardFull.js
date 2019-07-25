@@ -33,7 +33,7 @@ export function MealCardFull(props) {
                   {canAddMeal && (
                     <Button
                       color="teal"
-                      style={{ width: "8vw", margin: "10px 10px 10px 20px" }}
+                      style={{ width: "120px", margin: "10px 10px 10px 20px" }}
                       className="addMealButton"
                       onClick={() => value.addOrRemoveMeal(meal, true)}
                     >
@@ -46,7 +46,7 @@ export function MealCardFull(props) {
                     size="large"
                     color="red"
                     name={
-                      value.favouritesMeals.includes(meal)
+                      value.favouritesMeals.includes(meal.id)
                         ? "heart"
                         : "heart outline "
                     }
