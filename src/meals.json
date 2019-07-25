@@ -5,6 +5,7 @@
       "name": "Three-grain porridge",
       "kcal": "179",
       "time": "10",
+      "filters":["vege", "easy", "fit"],
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2016/08/three-grain-porridge.jpg?itok=vim8k_EW",
       "nutritions": {
         "fat": 2,
@@ -25,6 +26,7 @@
       "name": "Baked green eggs",
       "time": "45",
       "kcal": "370",
+      "filters":[ "glutenFree", "easy", "fit"],
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/baked-green-eggs.jpg?itok=ID6NZMjp",
       "nutritions": {
         "fat": 54,
@@ -43,8 +45,9 @@
       "id": 3,
       "type": "breakfast",
       "name": "American pancakes",
-      "time": "5",
+      "time": "25",
       "kcal": "579",
+      "filters":["vege", "easy"],
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/05/american-style-pancakes.jpg?itok=_tikdZhR",
       "nutritions": {
           "fat": 13,
@@ -66,6 +69,7 @@
       "name": "Shakshuka",
       "time": "25",
       "kcal": "340",
+      "filters":["vege", "easy", "fit"],
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--12141_11.jpg?itok=RUtvuKpX",
       "nutritions": {
           "fat": 20,
@@ -88,6 +92,7 @@
       "name": "Matcha breakfast bowl",
       "time": "15",
       "kcal": "261",
+      "filters":["vege", "glutenFree", "easy"],
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2016/06/matcha-breakfast-bowl.jpg?itok=1sOJNp07",
       "nutritions": {
           "fat": 11,
@@ -109,6 +114,7 @@
       "name": "Spaghetti Genovese",
       "time": "25",
       "kcal": "330",
+      "filters":["vege", "easy"],
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1845_10.jpg?itok=GvW3gBBJ",
       "nutritions": {
           "fat": 23,
@@ -128,6 +134,7 @@
       "name": "Spaghetti with sardines",
       "time": "20",
       "kcal": "495",
+      "filters":["glutenFree"],
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--922495_11.jpg?itok=I-RO2oHv",
       "nutritions": {
           "fat": 14,
@@ -150,6 +157,7 @@
       "name": "Spiced carrot & lentil soup",
       "time": "25",
       "kcal": "238",
+      "filters":["vege", "glutenFree"],
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1074500_11.jpg?itok=IwEifJO_",
       "nutritions": {
           "fat": 7,
@@ -173,6 +181,7 @@
       "name": "Falafel burgers",
       "time": "15",
       "kcal": "161",
+      "filters":["vege","fit"],
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/01/recipe-image-legacy-id--326597_11.jpg?itok=0bBEqeae",
       "nutritions": {
           "fat": 8,
@@ -197,6 +206,7 @@
       "name": "Sweet & sour chicken",
       "time": "25",
       "kcal": "305",
+      "filters":["vege" , "easy"],
       "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1259495_9.jpg?itok=4cr2l-K0",
       "nutritions": {
           "fat": 2,
@@ -221,6 +231,7 @@
     "name": "Mushroom stroganoff",
     "time": "30",
     "kcal": "329",
+    "filters":["vege", "glutenFree",  "fit"],
     "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2019/05/recipe-image-legacy-id-871464_11.jpg?itok=FKgv9m2S",
     "nutritions": {
         "fat": 9,
@@ -244,6 +255,7 @@
   "name": "Pasta with salmon & peas",
   "time": "18",
   "kcal": "463",
+  "filters":["glutenFree", "fit"],
   "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/06/salmonpasta.jpg?itok=7IfYKh0f",
   "nutritions": {
       "fat": 19,
@@ -266,6 +278,7 @@
 "name": "Greek-style roast fish",
 "time": "60",
 "kcal": "388",
+"filters":["glutenFree", "easy"],
 "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/12/greek-style-roast-fish.jpg?itok=fAXt00pT",
 "nutritions": {
     "fat": 13,
@@ -290,6 +303,7 @@
 "name": "Chorizo & chickpea soup",
 "time": "15",
 "kcal": "366",
+"filters":[ "easy", "fit"],
 "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--338571_12.jpg?itok=LahNGo2c",
 "nutritions": {
     "fat": 18,
@@ -309,6 +323,7 @@
 "name": "Chicken katsu",
 "time": "40",
 "kcal": "319",
+"filters":["vege", "glutenFree", "fit"],
 "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--928562_10.jpg?itok=tQAGNgHH",
 "nutritions": {
     "fat": 5,
@@ -331,6 +346,7 @@
 "name": "Chilli chicken wraps",
 "time": "35",
 "kcal": "477",
+"filters":["glutenFree", "fit"],
 "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2016/04/chilli-chicken-wraps.jpg?itok=vymDqDgk",
 "nutritions": {
     "fat": 19,
@@ -358,6 +374,7 @@
 "name": "Thai prawn noodles",
 "time": "30",
 "kcal": "345",
+"filters":[ "glutenFree", "easy"],
 "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/thai-prawn-noodles.jpg?itok=fwRGKP5w",
 "nutritions": {
     "fat": 6,
@@ -382,6 +399,7 @@
 "name": "Crispy Greek-style pie",
 "time": "40",
 "kcal": "250",
+"filters":["vege", "easy", "fit"],
 "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--491503_12.jpg?itok=iW13g5ug",
 "nutritions": {
     "fat": 13,
@@ -401,6 +419,7 @@
 "name": "Ginger cake with lemon icing",
 "time": "50",
 "kcal": "285",
+"filters":["vege", "glutenFree"],
 "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--963_11.jpg?itok=21A0_INq",
 "nutritions": {
     "fat": 10,
@@ -429,6 +448,7 @@
 "name": "Pineapple upside-down cake",
 "time": "55",
 "kcal": "407",
+"filters":["vege", "easy"],
 "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2019/05/recipe-image-legacy-id-363769_12.jpg?itok=AkiRglSa",
 "nutritions": {
     "fat": 23,
@@ -453,6 +473,7 @@
 "name": "Banana & blueberry muffins",
 "time": "30",
 "kcal": "202",
+"filters":["vege","easy", "fit"],
 "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--192590_11.jpg?itok=YnCirEpB",
 "nutritions": {
     "fat": 5,
@@ -476,6 +497,7 @@
 "name": "Anzac biscuits",
 "time": "35",
 "kcal": "118",
+"filters":["vege", "easy", "fit"],
 "image": "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1259668_7.jpg?itok=4qEdTz6e",
 "nutritions": {
     "fat": 7,
