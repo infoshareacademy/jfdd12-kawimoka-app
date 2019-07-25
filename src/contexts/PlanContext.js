@@ -41,9 +41,40 @@ export class PlanProvider extends React.Component {
       ]
     },
     mealFilter: "",
+    filters: {
+      vege: false,
+      favourites: false,
+      glutenFree: false,
+      easy: false,
+      fit: false,
+      preparationTime: [0, 100]
+    },
     filteredMeals: [],
-    showedMeal: {},
     favouritesMeals: []
+  };
+
+  toggleFilters = (event, data) => {
+    let newValue;
+    let name;
+
+    if (Array.isArray(data)) {
+      newValue = data;
+      name = "preparationTime";
+    } else {
+      const { value, checked, name: dataName } = data;
+      newValue = value || checked;
+      name = dataName;
+    }
+
+    const filters = {
+      ...this.state.filters,
+      [name]: newValue
+    };
+    const newState = {
+      ...this.state,
+      filters
+    };
+    this.setState(newState);
   };
 
   mapPlanToEvents = () => {
@@ -175,10 +206,43 @@ export class PlanProvider extends React.Component {
   setMealFilter = filterName => {
     this.setState({
       ...this.state,
-      mealFilter: filterName,
-      filteredMeals: meals.filter(meal => meal.type === filterName)
+      mealFilter: filterName
     });
   };
+
+  get filteredMeals() {
+    const { mealFilter, filters, favouritesMeals } = this.state;
+    const {
+      vege,
+      favourites,
+      glutenFree,
+      easy,
+      fit,
+      preparationTime
+    } = filters;
+
+    // debugger;
+
+    return meals.filter(meal => {
+      // fav filter
+      const onlyFavorites = favourites
+        ? favouritesMeals.find(m => m.id === meal.id)
+        : true;
+
+      // category filter
+      const byMealCategory = meal.type === this.state.mealFilter;
+
+      // vege
+      const byVege = vege ? meal.filtres.includes("vege") : true;
+
+      const byPreparationTime =
+        parseInt(meal.time, 10) > preparationTime[0] &&
+        parseInt(meal.time, 10) < preparationTime[1];
+
+      // connect all the filters tougether
+      return byMealCategory && onlyFavorites && byVege && byPreparationTime;
+    });
+  }
 
   sumNutrition = field => {
     const { lunchId, dinnerId, snackId, breakfastId } = this.getMealsByDay();
@@ -195,13 +259,13 @@ export class PlanProvider extends React.Component {
     }, 0);
   };
 
-  addToFavouritesMeals = (meal) => {
+  addToFavouritesMeals = meal => {
     this.setState(prevState => {
-return {
-  favouritesMeals: [...prevState.favouritesMeals, meal.id ]
-}
-})} 
-      
+      return {
+        favouritesMeals: [...prevState.favouritesMeals, meal]
+      };
+    });
+  };
 
   render() {
     return (
@@ -213,13 +277,14 @@ return {
           getMeals: this.getMeals,
           setMealFilter: this.setMealFilter,
           showMeal: this.showMeal,
-          filteredMeals: this.state.filteredMeals,
+          filteredMeals: this.filteredMeals,
           getMealsByDay: this.getMealsByDay,
           decrementActiveDate: this.decrementActiveDate,
           incrementActiveDate: this.incrementActiveDate,
           addOrRemoveMeal: this.addOrRemoveMeal,
           addToFavouritesMeals: this.addToFavouritesMeals,
-          sumNutrition: this.sumNutrition
+          sumNutrition: this.sumNutrition,
+          toggleFilters: this.toggleFilters
         }}
       >
         {this.props.children}

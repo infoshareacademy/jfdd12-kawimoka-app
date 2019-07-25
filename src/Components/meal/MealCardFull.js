@@ -23,38 +23,57 @@ export function MealCardFull(props) {
         if (value.filteredMeals.length === 0) {
           return null;
         } else {
-          return (  
-    <Paper zDepth={3} className='mealCardFull' onClick={props.onClick}>
-      <div className='mealCardTop'>
-        <div className='mealCardFullInfo'>
-          <h1> {name} </h1>               
-          <h2>Calories: {kcal} kcal</h2>
-          <h2>Prep Time: {time} min </h2>
-          {canAddMeal && (
-          <Button color='teal' style={{width: "8vw", margin: "10px 10px 10px 20px"}} className='addMealButton'  onClick={() => value.addOrRemoveMeal(meal, true)} >ADD +</Button>
-          )}
-        </div>
-        <div className="mealCardFullHeart">
-          <Icon size='large' color='red' name={value.favouritesMeals.includes(meal.id)?'heart': 'heart outline '} onClick={() => value.addToFavouritesMeals(meal)} />
-        </div>
-        
-        <img className="mealPhoto" src={image} alt={"tu jest tekst"} />
-      </div>
+          return (
+            <Paper zDepth={3} className="mealCardFull" onClick={props.onClick}>
+              <div className="mealCardTop">
+                <div className="mealCardFullInfo">
+                  <h1> {name} </h1>
+                  <h2>Calories: {kcal} kcal</h2>
+                  <h2>Prep Time: {time} min </h2>
+                  {canAddMeal && (
+                    <Button
+                      color="teal"
+                      style={{ width: "8vw", margin: "10px 10px 10px 20px" }}
+                      className="addMealButton"
+                      onClick={() => value.addOrRemoveMeal(meal, true)}
+                    >
+                      ADD +
+                    </Button>
+                  )}
+                </div>
+                <div className="mealCardFullHeart">
+                  <Icon
+                    size="large"
+                    color="red"
+                    name={
+                      value.favouritesMeals.includes(meal)
+                        ? "heart"
+                        : "heart outline "
+                    }
+                    onClick={() => value.addToFavouritesMeals(meal)}
+                  />
+                </div>
 
-      <div className="mealCardMain">
-        <div className="mealCardMainLeft">
-          <div className="nutritions">
-            <h3>Nutritions</h3>
-            <p>fat: {fat}g</p>
-            <p> carbs: {carbs}g </p>
-            <p>protein: {protein}g </p>
-          </div>
-          <div className="ingradients">
-            <h3>Ingradients:</h3>
-            <ul>{ingradients.map((ingradient)=><li>{ingradient}</li>) }</ul>
-          </div>
-        </div>
+                <img className="mealPhoto" src={image} alt={"tu jest tekst"} />
+              </div>
 
+              <div className="mealCardMain">
+                <div className="mealCardMainLeft">
+                  <div className="nutritions">
+                    <h3>Nutritions</h3>
+                    <p>fat: {fat}g</p>
+                    <p> carbs: {carbs}g </p>
+                    <p>protein: {protein}g </p>
+                  </div>
+                  <div className="ingradients">
+                    <h3>Ingradients:</h3>
+                    <ul>
+                      {ingradients.map(ingradient => (
+                        <li>{ingradient}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
 
                 <div className="recipe">
                   <h3> Recipe</h3>
