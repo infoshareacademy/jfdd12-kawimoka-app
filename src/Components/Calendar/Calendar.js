@@ -115,7 +115,10 @@ class CalendarContainer extends Component {
 
                 <Modal isOpen={this.state.modalIsOpen} style={customStyles}>
                   <MealCardFull
-                    meal={meals.find(meal => meal.id === this.state.currentMealId)}
+                    canAddMeal={false}
+                    meal={meals.find(
+                      meal => meal.id === this.state.currentMealId
+                    )}
                     onClick={this.closeModal}
                   />
                 </Modal>

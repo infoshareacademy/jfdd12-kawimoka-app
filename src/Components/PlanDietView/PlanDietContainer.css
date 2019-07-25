@@ -6,3 +6,23 @@
   width: 1400px;
   margin: 0 auto;
 }
+
+@media (max-width: 524px) {
+  .planDietContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 524px;
+    flex-direction: row;
+    max-width: 524px;
+    justify-content: center;
+    max-width: 524px
+  }
+  .singleDayContainer {
+    max-width: 350px;
+    
+    
+    justify-content: center;
+    
+  }
+  
+}

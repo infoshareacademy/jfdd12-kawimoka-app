@@ -21,7 +21,7 @@ export function MealCardShort(props) {
 
 
 export const MealCardShort2 = props => (
-  <Card style={{height: "12vw"}}>
+  <Card style={{height: "220px"}}>
     <Image src={props.meal.image} wrapped ui={false} />
     <Card.Content>
       <Card.Header style={{fontSize: "12px"}}>{props.meal.name}</Card.Header>

@@ -1,13 +1,14 @@
 body {
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fefdfd;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .default-link {
@@ -20,11 +21,27 @@ code {
   color: #08ada0;
 }
 
-
 .rbc-date-cell > a {
   cursor: default;
 }
 
 .rbc-day-bg {
   cursor: pointer;
+}
+
+.MotivationView img {
+  
+  margin-top: 20px;
+  flex-basis: 450px;
+  margin-left: 25px;
+  max-height: 850px;
+}
+
+@media (max-width: 524px){
+  .MotivationView img{
+  max-width: 350px;
+  max-height: 750px;
+  display: flex;
+  justify-content: center
+  }
 }
