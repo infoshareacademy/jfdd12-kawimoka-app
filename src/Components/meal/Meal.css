@@ -59,8 +59,7 @@
     margin-top: 15px;   
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 25vw;
+    justify-content: space-between;   
     height: auto;
     background-color: white;
  
@@ -142,8 +141,8 @@
 
 .carousel-container {
     display: flex;
-    flex-flow: row;
-    width: 25vw;
+    flex-flow: row; 
+    width: 500px;
     height: 250px;
   }
 
@@ -161,16 +160,17 @@
     z-index: 1;
   } */
 
-
-
 .recipe{
     display: flex;
     flex-flow: column;
     width: 15vw;
     padding: 5px;
+    padding-right: 15px;
+    margin-bottom: 10px;
     margin-bottom: 10px;
     border-left: 1px solid black;
     text-align: justify;
+    margin-right: 10px;
 }
 
 .ingradients h3 {
@@ -181,7 +181,7 @@
 
 .recipe h3 {
   font-size: 18px;
-  margin: 0 0 0 10px;
+  margin: 0 10px 0 10px;
   padding: 2px;
 }
 
@@ -195,6 +195,7 @@
   font-size: 15px;
   margin: 0 0 0 10px;
   padding: 2px;
+  padding-right: 5px;
 }
 
 .recipe p {
