@@ -221,27 +221,42 @@ export class PlanProvider extends React.Component {
       preparationTime
     } = filters;
 
-    // debugger;
-
-    return meals.filter(meal => {
+    let filtered = meals.filter(meal => {
       // fav filter
       const onlyFavorites = favourites
         ? favouritesMeals.find(m => m.id === meal.id)
         : true;
 
       // category filter
-      const byMealCategory = meal.type === this.state.mealFilter;
+      const byMealCategory = meal.type === mealFilter;
 
       // vege
-      const byVege = vege ? meal.filtres.includes("vege") : true;
+      const byVege = vege ? meal.filters.includes("vege") : true;
+
+      const byGlutenFree = glutenFree
+        ? meal.filters.includes("glutenFree")
+        : true;
+
+      const byEasy = easy ? meal.filters.includes("easy") : true;
+
+      const byFit = fit ? meal.filters.includes("fit") : true;
 
       const byPreparationTime =
         parseInt(meal.time, 10) > preparationTime[0] &&
         parseInt(meal.time, 10) < preparationTime[1];
 
       // connect all the filters tougether
-      return byMealCategory && onlyFavorites && byVege && byPreparationTime;
+      return (
+        byMealCategory &&
+        onlyFavorites &&
+        byVege &&
+        byPreparationTime &&
+        byGlutenFree &&
+        byEasy &&
+        byFit
+      );
     });
+    return filtered;
   }
 
   sumNutrition = field => {
