@@ -6,8 +6,6 @@
   flex-basis: 500px;
   justify-content: space-between;
   max-height: 850px;
-  
-  
 }
 
 .changeDayIcon {
@@ -108,10 +106,4 @@
   margin: 5px;
 }
 
-@media (max-width: 524px) {
-  .singleDayContainer{
-    max-width: 350px   
-    
-  }
-  
-}
+

@@ -12,6 +12,17 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 524px;
-    justify-content: center
+    flex-direction: row;
+    max-width: 524px;
+    justify-content: center;
+    max-width: 524px
   }
+  .singleDayContainer {
+    max-width: 350px;
+    
+    
+    justify-content: center;
+    
+  }
+  
 }
