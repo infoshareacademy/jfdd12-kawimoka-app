@@ -14,6 +14,9 @@ library.add(faArrowLeft);
 
 export function MealCardFull(props) {
   const { meal, canAddMeal } = props;
+  if (!meal) {
+    return null;
+  }
   const { name, time, image, kcal, nutritions, recipe, ingradients } = meal;
   const { fat, carbs, protein } = nutritions;
 
@@ -46,7 +49,7 @@ export function MealCardFull(props) {
                     size="large"
                     color="red"
                     name={
-                      value.favouritesMeals.includes(meal.id)
+                      value.favouritesMeals.includes(meal)
                         ? "heart"
                         : "heart outline "
                     }
