@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { MealCardFull } from "./MealCardFull";
+import React, {useState, useRef } from 'react'
+import { MealCardFull } from './MealCardFull'
 import Slider from "react-slick";
 import Paper from "material-ui/Paper";
 import { PlanConsumer } from "../../contexts/PlanContext.js";
@@ -7,29 +7,14 @@ import { MealCardShort2 } from "./MealCardShort";
 import { Icon } from "semantic-ui-react";
 import { MotivationView } from "../MotivationView/MotivationView";
 
-// function numOfCards() {
-//   const[numberOfCards, setNumberOfCards]=useState()
-
-//  let screenWidth = window.innerWidth;
-
-//  if(screenWidth < 1000){
-//   setNumberOfCards(numberOfCards===1)
-//   }else{
-//     setNumberOfCards(numberOfCards===3)
-//   }
-
-// return{numberOfCards}
-// }
-
 const settings = {
-  className: "center carousel-container",
-  centerMode: true,
-  infinite: true,
-  slidesToShow: 3,
-  speed: 250,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-  transform: true
+className: "center carousel-container",
+centerMode: true,
+infinite: true,
+speed: 250,
+nextArrow: <SampleNextArrow />,
+prevArrow: <SamplePrevArrow />,
+transform: true
 };
 
 function SampleNextArrow(props) {
@@ -73,7 +58,9 @@ function SamplePrevArrow(props) {
 }
 
 export function MealsList() {
-  const [choosenMeal, setchoosenMeal] = useState(0);
+
+const[choosenMeal, setchoosenMeal]=useState(0)
+const carousel = useRef()
 
   return (
     <PlanConsumer>
@@ -84,42 +71,33 @@ export function MealsList() {
           } else {
             return (
               <Paper zDepth={3} className="motivationView">
-                <div>
-                  <h4>Oops! We didn't find any meals</h4>
-                  <p>Change your filters and try again</p>
-                </div>
+              <div>
+                <h4>Oops! We didn't find any meals</h4>
+                <p>Change your filters and try again</p>
+              </div>
 
-                <img src={require("../../img/smallArrow.png")} />
-              </Paper>
-            );
-          }
-        } else {
-          return (
-            <Paper className="mealsList" zDepth={0}>
-              <Paper zDepth={3}>
-                <h2
-                  style={{
-                    textAlign: "center",
-                    textTransform: "capitalize",
-                    fontSize: "20px",
-                    margin: "4px"
-                  }}
-                >
-                  {value.mealFilter}
-                </h2>
-              </Paper>
+              <img src={require("../../img/smallArrow.png")} />
+            </Paper>
+          );
+        }
+      } else {
+        return (
+            <Paper className='mealsList' zDepth={0}>
+           <Paper zDepth={3}><h2 style={{textAlign: "center", textTransform: "capitalize", fontSize: "20px", margin: "4px"}}>{value.mealFilter}</h2></Paper> 
 
-              <Slider
-                {...settings}
-                afterChange={index => {
-                  setchoosenMeal(index);
-                }}
-              >
-                {value.filteredMeals.map((filteredMeal, index) => (
-                  <div key={index}>
-                    <MealCardShort2 key={filteredMeal.id} meal={filteredMeal} />
+            <Slider  {...settings} slidesToShow={Math.min(value.filteredMeals.length, 3)} afterChange={index => {setchoosenMeal(index)}} ref={carousel}>
+                {value.filteredMeals
+                .map((filteredMeal, index) => 
+                  <div style={{maxWidth: "300px", maxHeight: "350px"}} key={index} onClick={() => carousel.current.slickGoTo(index)} >
+                    <MealCardShort2
+                      key={filteredMeal.id}
+                      meal={filteredMeal}
+                      style={{maxWidth: "300px", maxHeight: "350px"}}
+                    
+
+                    />
                   </div>
-                ))}
+                )}
               </Slider>
 
               <div>
