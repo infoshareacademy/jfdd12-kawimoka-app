@@ -29,12 +29,14 @@ code {
   cursor: pointer;
 }
 
-.MotivationView img {
+.MotivationView {
+  
   margin-top: 20px;
-  flex-basis: 450px;
+  flex-basis: 515px;
   margin-left: 25px;
   max-height: 850px;
 }
+
 
 .ui.menu > .container.mobileNav {
   display: none;
@@ -57,4 +59,12 @@ code {
   .ui.menu > .container.desktopNav {
     display: none;
   }
+
+.MotivationView img{
+  width: 515px;
+  max-height: 850px;
 }
+
+
+  }
+
