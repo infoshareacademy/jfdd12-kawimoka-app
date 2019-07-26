@@ -29,6 +29,7 @@ code {
   cursor: pointer;
 }
 
+
 .MotivationView {
   
   margin-top: 20px;
@@ -37,6 +38,10 @@ code {
   max-height: 850px;
 }
 
+.MotivationView img{
+  width: 515px;
+  max-height: 850px;
+}
 
 .ui.menu > .container.mobileNav {
   display: none;
