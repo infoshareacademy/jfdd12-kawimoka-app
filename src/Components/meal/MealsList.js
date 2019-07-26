@@ -82,7 +82,11 @@ export function MealsList() {
           if (value.displayMotivationView) {
             return <MotivationView />;
           } else {
-            return <Paper>no meals</Paper>;
+            return (
+              <Paper>
+                <img src={require("../../img/arrow.png")} />
+              </Paper>
+            );
           }
         } else {
           return (
