@@ -83,8 +83,13 @@ export function MealsList() {
             return <MotivationView />;
           } else {
             return (
-              <Paper>
-                <img src={require("../../img/arrow.png")} />
+              <Paper zDepth={3} className="motivationView">
+                <div>
+                  <h4>Oops! We didn't find any meals</h4>
+                  <p>Change your filters and try again</p>
+                </div>
+
+                <img src={require("../../img/smallArrow.png")} />
               </Paper>
             );
           }
