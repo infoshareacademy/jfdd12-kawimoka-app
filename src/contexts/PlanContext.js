@@ -50,7 +50,14 @@ export class PlanProvider extends React.Component {
       preparationTime: [0, 100]
     },
     filteredMeals: [],
-    favouritesMeals: []
+    favouritesMeals: [],
+    displayMotivationView: true
+  };
+
+  dismissMotivationView = () => {
+    this.setState({
+      displayMotivationView: false
+    });
   };
 
   toggleFilters = (event, data) => {
@@ -75,6 +82,7 @@ export class PlanProvider extends React.Component {
       filters
     };
     this.setState(newState);
+    this.dismissMotivationView();
   };
 
   mapPlanToEvents = () => {
@@ -299,7 +307,8 @@ export class PlanProvider extends React.Component {
           addOrRemoveMeal: this.addOrRemoveMeal,
           addToFavouritesMeals: this.addToFavouritesMeals,
           sumNutrition: this.sumNutrition,
-          toggleFilters: this.toggleFilters
+          toggleFilters: this.toggleFilters,
+          dismissMotivationView: this.dismissMotivationView
         }}
       >
         {this.props.children}
