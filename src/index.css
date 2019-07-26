@@ -50,3 +50,8 @@ code {
   justify-content: center
   }
 }
+
+.ui.card {
+width: 130px;
+
+}
