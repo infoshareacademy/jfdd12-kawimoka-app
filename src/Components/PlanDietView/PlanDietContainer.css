@@ -11,18 +11,14 @@
   .planDietContainer {
     display: flex;
     flex-wrap: wrap;
-    max-width: 524px;
+    
     flex-direction: row;
-    max-width: 524px;
+    max-width: 100%;
     justify-content: center;
-    max-width: 524px
+    
   }
   .singleDayContainer {
-    max-width: 350px;
-    
-    
+    max-width: 290px;
     justify-content: center;
-    
   }
-  
 }

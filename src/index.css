@@ -30,13 +30,11 @@ code {
 }
 
 .MotivationView {
-  
   margin-top: 20px;
   flex-basis: 515px;
   margin-left: 25px;
   max-height: 850px;
 }
-
 
 .ui.menu > .container.mobileNav {
   display: none;
@@ -60,11 +58,22 @@ code {
     display: none;
   }
 
-.MotivationView img{
-  width: 515px;
-  max-height: 850px;
-}
-
-
+  .MotivationView{
+    max-width: 280px;
+    display: flex;
+    justify-content: center;
   }
 
+  .MotivationView img {
+    max-width: 280px;
+    max-height: 850px;
+  }
+
+  .singleDayContainer{
+    max-width: 250px
+  }
+
+  .ui.secondary.pointing.menu{
+    max-width: 524px
+  }
+}
