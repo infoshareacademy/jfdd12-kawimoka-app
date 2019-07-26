@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import firebase from 'firebase'
 import meals from '../meals.json'
 import { findMeal } from '../utils.js'
 import { sendPlan, fetchPlan } from '../services/PlanService'
@@ -12,7 +13,7 @@ export class PlanProvider extends React.Component {
     plan: {
       days: [
         {
-          date: '',
+          date: null,
           meals: {
             breakfastId: null,
             snackId: null,
@@ -60,8 +61,7 @@ export class PlanProvider extends React.Component {
   }
 
   mapPlanToEvents = () => {
-    console.log(meals)
-    return this.state.plan.days
+    return this.planDays
       .map(day => {
         const date = day.date
         const { breakfastId, lunchId, snackId, dinnerId } = day.meals
@@ -70,7 +70,6 @@ export class PlanProvider extends React.Component {
         const snack = meals.find(meal => meal.id === snackId)
         const dinner = meals.find(meal => meal.id === dinnerId)
 
-        // debugger;
         return [
           {
             id: breakfastId,
@@ -106,7 +105,7 @@ export class PlanProvider extends React.Component {
   }
 
   getMeals = date => {
-    const dayObject = this.state.plan.days.find(day => {
+    const dayObject = this.planDays.find(day => {
       return day.date === date
     })
     if (!dayObject) {
@@ -123,7 +122,7 @@ export class PlanProvider extends React.Component {
   }
 
   getMealsByDay = () => {
-    const foundDay = this.state.plan.days.find(day => {
+    const foundDay = this.planDays.find(day => {
       if (day.date === this.state.activeDate.format('DD-MM-YYYY')) {
         return true
       }
@@ -156,12 +155,16 @@ export class PlanProvider extends React.Component {
     }))
   }
 
+  get planDays() {
+    return this.state.plan.days.filter(Boolean)
+  }
+
   addOrRemoveMeal = (meal, isAdd) => {
     let currentDate = this.state.activeDate.format('DD-MM-YYYY')
     let mealsOfTheDay = this.getMealsByDay()
     let mealId = isAdd ? meal.id : null
     mealsOfTheDay[meal.type + 'Id'] = mealId
-    let dayMealIndex = this.state.plan.days.findIndex(day => day.date === currentDate)
+    let dayMealIndex = this.planDays.findIndex(day => day.date === currentDate)
 
     if (dayMealIndex !== -1) {
       this.setState(prevState => {
@@ -252,6 +255,16 @@ export class PlanProvider extends React.Component {
     this.setState(prevState => {
       return {
         favouritesMeals: [...prevState.favouritesMeals, meal]
+      }
+    })
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        fetchPlan(plan => {
+          this.setState({ plan })
+        }, user.uid)
       }
     })
   }

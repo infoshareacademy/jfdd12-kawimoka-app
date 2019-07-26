@@ -1,6 +1,5 @@
 import firebase from 'firebase'
 import { mapObjectToArray } from '../utils/mapObjectToArray'
-import moment from 'moment'
 
 export const sendPlan = plan => {
   if (plan === '') {
@@ -19,19 +18,16 @@ export const sendPlan = plan => {
     .set(plan)
 }
 
-export const fetchPlan = callback => {
-  const currentUser = firebase.auth().currentUser
-  let userId
-  if (currentUser != null) {
-    userId = currentUser.uid
-  }
-
-  const planRef = firebase.database().ref(`plan/${userId}`)
+export const fetchPlan = (callback, uid) => {
+  const planRef = firebase.database().ref(`plan/${uid}`)
 
   planRef.on('value', snapshot => {
-    const value = snapshot.val()
-    const plan = mapObjectToArray(value)
-    callback(plan)
+    const plan = snapshot.val()
+    if (plan !== null) {
+      callback(plan)
+    } else {
+      callback({})
+    }
   })
 
   return planRef
