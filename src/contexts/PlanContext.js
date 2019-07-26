@@ -253,6 +253,11 @@ export class PlanProvider extends React.Component {
 
   addToFavouritesMeals = meal => {
     this.setState(prevState => {
+      if (prevState.favouritesMeals.includes(meal)) {
+        return {
+          favouritesMeals: prevState.favouritesMeals.filter(m => m !== meal)
+        }
+      }
       return {
         favouritesMeals: [...prevState.favouritesMeals, meal]
       }

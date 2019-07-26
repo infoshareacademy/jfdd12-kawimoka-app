@@ -8,8 +8,8 @@
   margin: 0;
   display: flex;
   flex-flow: row;
-  width: 300px;
-  height: 115px;
+  max-width: 130px;
+  max-height: 115px;
 }
 
 .mealCardShortInfo {
@@ -142,15 +142,14 @@
     margin: auto;
 }
 
-  .center .slick-center div {
+  .center .slick-center .ui.card{
     background-color: #e5fafa; 
     opacity: 1; 
     position: relative;
-    transform: scale(1.02);
     z-index: 1;
+    border: none;
   } 
 
- 
 
 .recipe{
     display: flex;
@@ -271,4 +270,9 @@
   font-size: 20px;
   padding: 10px;
   margin: 3px;
+}
+
+.carouselCard {
+  max-width: 130px;
+  max-height: 350px;
 }
