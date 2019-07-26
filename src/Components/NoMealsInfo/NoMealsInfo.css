@@ -1,0 +1,31 @@
+.noMealsInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis:450px;
+  align-items: center;
+  max-height: 850px;
+  margin-top: 20px;
+}
+
+
+.noMealsInfoContainer img {
+  align-self: flex-start;
+  margin-top: 50px;
+}
+
+.noMealsInfoText {
+  text-align: center;
+}
+
+.noMealsInfoText h3 {
+  font-size: 30px;
+}
+
+.noMealsInfoText h4 {
+  font-size: 24px;
+}
+
+.noMealsInfoText p {
+  font-size: 20px;
+}

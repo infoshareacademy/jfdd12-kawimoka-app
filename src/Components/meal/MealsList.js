@@ -6,6 +6,7 @@ import { PlanConsumer } from "../../contexts/PlanContext.js";
 import { MealCardShort2 } from "./MealCardShort";
 import { Icon } from "semantic-ui-react";
 import { MotivationView } from "../MotivationView/MotivationView";
+import { NoMealsInfo } from '../NoMealsInfo/NoMealsInfo'
 
 const settings = {
 className: "center carousel-container",
@@ -70,14 +71,7 @@ const carousel = useRef()
             return <MotivationView />;
           } else {
             return (
-              <Paper zDepth={3} className="motivationView">
-              <div>
-                <h4>Oops! We didn't find any meals</h4>
-                <p>Change your filters and try again</p>
-              </div>
-
-              <img src={require("../../img/smallArrow.png")} />
-            </Paper>
+             <NoMealsInfo />
           );
         }
       } else {

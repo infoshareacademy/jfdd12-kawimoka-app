@@ -8,8 +8,9 @@
   margin: 0;
   display: flex;
   flex-flow: row;
-  max-width: 130px;
+  /* max-width: 130px; */
   max-height: 115px;
+  width: 350px;
 }
 
 .mealCardShortInfo {
