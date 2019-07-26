@@ -37,21 +37,41 @@ code {
   max-height: 850px;
 }
 
+
+.ui.menu > .container.mobileNav {
+  display: none;
+}
+
+.ui.card {
+  width: 130px;
+  
+  }
+
+@media (max-width: 524px) {
+  .MotivationView img {
+    max-width: 350px;
+    max-height: 750px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ui.menu > .container.mobileNav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .ui.menu > .container.desktopNav {
+    display: none;
+  }
+
 .MotivationView img{
   width: 515px;
   max-height: 850px;
 }
 
-@media (max-width: 524px){
-  .MotivationView {
-  max-width: 350px;
-  max-height: 750px;
-  display: flex;
-  justify-content: center
+
   }
-}
 
-.ui.card {
-width: 130px;
 
-}
+
