@@ -71,6 +71,9 @@ export class PlanProvider extends React.Component {
   mapPlanToEvents = () => {
     return this.planDays
       .map(day => {
+        if (!day.meals) {
+          return
+        }
         const date = day.date
         const { breakfastId, lunchId, snackId, dinnerId } = day.meals
         const breakfast = meals.find(meal => meal.id === breakfastId)
