@@ -8,14 +8,17 @@ import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentAdd from "material-ui/svg-icons/content/add";
 import { PlanConsumer, PlanContext } from "../../../contexts/PlanContext";
-import { Label } from "semantic-ui-react";
+
 
 library.add(faTimesCircle);
 
 const addMealButtonStyle = {
   width: "56px",
   height: "56px",
-  margin: "10px"
+  margin: "10px",
+  position: "absolute",
+  right: "5px",
+  top: "13%"
 };
 
 export function MealSpace(props) {

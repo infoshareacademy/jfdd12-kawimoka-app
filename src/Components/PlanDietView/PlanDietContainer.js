@@ -13,7 +13,9 @@ export class PlanDietContainer extends React.Component {
           style={{
             display: "flex",
             flexDirection: "column",
-            flexBasis: "300px"
+            flexBasis: "300px",
+            justifyContent: "space-between",
+            maxHeight: "890px"
           }}
         >
           <Nutrition />

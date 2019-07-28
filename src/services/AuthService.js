@@ -26,6 +26,21 @@ export const signUp = formData => {
           firstName: formData.firstName,
           lastName: formData.lastName
         })
+
+      firebase
+        .database()
+        .ref(`plan/${value.user.uid}/days`)
+        .set([
+          {
+            date: '01-01-1991',
+            meals: {
+              breakfastId: 1,
+              snackId: 1,
+              lunchId: 1,
+              dinnerId: 1
+            }
+          }
+        ])
     })
 }
 
