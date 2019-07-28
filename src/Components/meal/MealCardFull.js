@@ -47,7 +47,7 @@ export function MealCardFull(props) {
                   <Icon
                     size='large'
                     color='red'
-                    name={value.favouritesMeals.includes(meal) ? 'heart' : 'heart outline '}
+                    name={value.favouritesMeals.includes(meal) ? 'heart' : 'heart outline'}
                     onClick={() => value.addToFavouritesMeals(meal)}
                   />
                 </div>

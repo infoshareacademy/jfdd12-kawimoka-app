@@ -9,7 +9,6 @@ import events from '../../events'
 import meals from '../../meals.json'
 import Modal from 'react-modal'
 import { MealCardFull } from '../meal/MealCardFull'
-import { MealModal } from '../meal/MealModal'
 import '../meal/Meal.css'
 
 const localizer = momentLocalizer(moment)
@@ -41,18 +40,6 @@ class CalendarContainer extends Component {
   }
   componentDidMount() {
     const mealsListState = {}
-    let breakfastId = mealsListState.breakfastId
-    let dinnnerId = mealsListState.dinnerId
-    let lunchId = mealsListState.lunchId
-    let snackId = mealsListState.snackId
-    let listMeal = [breakfastId, dinnnerId, lunchId, snackId]
-    const mealsNames = listMeal
-      .filter(mealId => mealId)
-      .map(mealId => meals.find(meal => meal.id === mealId))
-      .map(meal => meal.name)
-
-    const date = new Date(2019, 6, 10)
-    const dateString = Date.parse(date).toString()
 
     this.setState({ mealsList: mealsListState })
     document.addEventListener('keydown', this.escFunction, false)
@@ -98,11 +85,7 @@ class CalendarContainer extends Component {
                 <Calendar
                   selectable={true}
                   views={['month', 'week']}
-                  onNavigate={() => {
-                    console.log('hello')
-                  }}
                   onSelectSlot={e => {
-                    console.log('onSelect')
                     this.onSelect(e, value.setSelectedDate)
                   }}
                   onSelectEvent={this.toggleModal}
@@ -116,9 +99,7 @@ class CalendarContainer extends Component {
                 <Modal isOpen={this.state.modalIsOpen} style={customStyles}>
                   <MealCardFull
                     canAddMeal={false}
-                    meal={meals.find(
-                      meal => meal.id === this.state.currentMealId
-                    )}
+                    meal={meals.find(meal => meal.id === this.state.currentMealId)}
                     onClick={this.closeModal}
                   />
                 </Modal>

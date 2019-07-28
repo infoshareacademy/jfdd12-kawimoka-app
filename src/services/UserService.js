@@ -1,4 +1,6 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 
 export const fetchUser = () => {
   const currentUser = firebase.auth().currentUser

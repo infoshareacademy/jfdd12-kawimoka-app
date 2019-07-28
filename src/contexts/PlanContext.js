@@ -1,6 +1,8 @@
 import React from 'react'
 import moment from 'moment'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 import meals from '../meals.json'
 import { findMeal } from '../utils.js'
 import { sendPlan, fetchPlan } from '../services/PlanService'
@@ -35,13 +37,13 @@ export class PlanProvider extends React.Component {
     filteredMeals: [],
     favouritesMeals: [],
     displayMotivationView: true
-  };
+  }
 
   dismissMotivationView = () => {
     this.setState({
       displayMotivationView: false
-    });
-  };
+    })
+  }
 
   toggleFilters = (event, data) => {
     let newValue
@@ -63,10 +65,10 @@ export class PlanProvider extends React.Component {
     const newState = {
       ...this.state,
       filters
-    };
-    this.setState(newState);
-    this.dismissMotivationView();
-  };
+    }
+    this.setState(newState)
+    this.dismissMotivationView()
+  }
 
   mapPlanToEvents = () => {
     return this.planDays
@@ -304,8 +306,7 @@ export class PlanProvider extends React.Component {
           sumNutrition: this.sumNutrition,
           toggleFilters: this.toggleFilters,
           dismissMotivationView: this.dismissMotivationView
-        }}
-      >
+        }}>
         {this.props.children}
       </PlanContext.Provider>
     )

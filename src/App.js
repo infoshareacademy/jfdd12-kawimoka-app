@@ -12,7 +12,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab, faFacebookSquare, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import Calendar from './Components/Calendar/Calendar'
 import './firebase'
-import { Container, Dimmer, Loader } from 'semantic-ui-react'
+import { Dimmer, Loader } from 'semantic-ui-react'
 import PrivateRoute from './Components/PrivateRoute'
 import { useAuth } from './hooks/useAuth'
 
