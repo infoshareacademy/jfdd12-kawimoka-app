@@ -6,6 +6,7 @@ import 'firebase/database'
 import meals from '../meals.json'
 import { findMeal } from '../utils.js'
 import { sendPlan, fetchPlan } from '../services/PlanService'
+import { sendFavourites, fetchFavourites } from '../services/FavouritesService'
 
 export const PlanContext = React.createContext()
 
@@ -196,7 +197,6 @@ export class PlanProvider extends React.Component {
         sendPlan(this.state.plan)
       }
     )
-    // sendPlan(this.setState)
 
     if (isAdd) {
       this.setState({ displayAddButton: false })
@@ -265,16 +265,21 @@ export class PlanProvider extends React.Component {
   }
 
   addToFavouritesMeals = meal => {
-    this.setState(prevState => {
-      if (prevState.favouritesMeals.includes(meal)) {
-        return {
-          favouritesMeals: prevState.favouritesMeals.filter(m => m !== meal)
+    this.setState(
+      prevState => {
+        if (prevState.favouritesMeals.includes(meal)) {
+          return {
+            favouritesMeals: prevState.favouritesMeals.filter(m => m !== meal)
+          }
         }
+        return {
+          favouritesMeals: [...prevState.favouritesMeals, meal]
+        }
+      },
+      () => {
+        sendFavourites(this.state.favouritesMeals)
       }
-      return {
-        favouritesMeals: [...prevState.favouritesMeals, meal]
-      }
-    })
+    )
   }
 
   componentDidMount() {
@@ -282,6 +287,10 @@ export class PlanProvider extends React.Component {
       if (user) {
         fetchPlan(plan => {
           this.setState({ plan })
+        }, user.uid)
+
+        fetchFavourites(favouritesMeals => {
+          this.setState(favouritesMeals)
         }, user.uid)
       }
     })
