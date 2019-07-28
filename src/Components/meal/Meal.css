@@ -288,4 +288,30 @@
   padding-top: 8px;
   font-size: 10px;
 }
+
+.carousel-container {
+  width: 350px;
+}
+
+.mealsList {
+  flex-basis: 350px;
+  width: 80vw;
+}
+
+.mealCardMain {
+  flex-flow: column;
+  align-items: center;
+}
+
+.mealCardTop {
+  display: flex;
+  flex-flow: column-reverse;
+  width: 100%;
+  align-items: center;
+}
+
+.recipe {
+  border-left: 1px white;
+  margin-left: 25px;
+}
 }
