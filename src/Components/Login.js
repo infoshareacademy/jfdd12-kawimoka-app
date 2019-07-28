@@ -1,5 +1,5 @@
 import React from 'react'
-import { Responsive, Button, Form, Grid, Header, Divider, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
 import { signIn } from '../services/AuthService'
 import { useForm } from '../hooks/useForm'

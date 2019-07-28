@@ -2,13 +2,23 @@ import React from 'react'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { useForm } from '../hooks/useForm'
 import { signUp } from '../services/AuthService'
+import { useAuth } from '../hooks/useAuth'
+import { Redirect } from 'react-router-dom'
 
-const SignUpForm = () => {
+const SignUpForm = props => {
+  const isLoggedIn = useAuth()
   const { state, handleChange } = useForm({
     email: '',
     password: '',
     firstName: ''
   })
+
+  if (isLoggedIn) {
+    const redirectUrl =
+      props.location.state && props.location.state.from && props.location.state.from.pathname
+
+    return <Redirect to={redirectUrl ? redirectUrl : '/'} />
+  }
 
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -26,6 +36,7 @@ const SignUpForm = () => {
               value={state.email}
               name={'email'}
               onChange={handleChange}
+              required
             />
             <Form.Input
               fluid
@@ -36,6 +47,7 @@ const SignUpForm = () => {
               value={state.password}
               name={'password'}
               onChange={handleChange}
+              required
             />
             <Form.Input
               fluid
@@ -43,13 +55,13 @@ const SignUpForm = () => {
               value={state.firstName}
               name={'firstName'}
               onChange={handleChange}
+              required
             />
             <Button
               color='teal'
               fluid
               size='large'
               onClick={() => {
-                console.log(state)
                 signUp(state)
               }}>
               Create account
