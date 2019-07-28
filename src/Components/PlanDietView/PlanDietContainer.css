@@ -17,11 +17,7 @@
     
   }
   .singleDayContainer {
-    max-width: 350px;
-    
-    
+    max-width: 290px;
     justify-content: center;
-    
   }
-  
 }
