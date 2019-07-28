@@ -1,5 +1,6 @@
-import firebase from 'firebase'
-import { mapObjectToArray } from '../utils/mapObjectToArray'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 
 export const sendPlan = plan => {
   if (plan === '') {

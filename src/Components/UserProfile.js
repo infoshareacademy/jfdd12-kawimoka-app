@@ -15,11 +15,6 @@ const Profile = () => {
               placeholder={user && user.firstName}
               value={user && user.firstName}
             />
-            <Form.Input
-              label='Last name'
-              placeholder={user && user.lastName}
-              value={user && user.lastName}
-            />
           </Form.Group>
           <Form.Group widths={4}>
             <Form.Input label='Weight' placeholder='Weight' />

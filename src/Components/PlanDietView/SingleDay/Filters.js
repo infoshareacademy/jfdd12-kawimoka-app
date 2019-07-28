@@ -1,50 +1,50 @@
-import React, { useState, useContext } from "react";
-import Paper from "material-ui/Paper";
-import "./SingleDay.css";
-import { Checkbox } from "semantic-ui-react";
-import Slider from "@material-ui/core/Slider";
-import { PlanContext } from "../../../contexts/PlanContext";
+import React, { useContext } from 'react'
+import Paper from 'material-ui/Paper'
+import './SingleDay.css'
+import { Checkbox } from 'semantic-ui-react'
+import Slider from '@material-ui/core/Slider'
+import { PlanContext } from '../../../contexts/PlanContext'
 
 export function Filters() {
-  const { toggleFilters, filters } = useContext(PlanContext);
-  const { vege, favourites, glutenFree, easy, fit, preparationTime } = filters;
+  const { toggleFilters, filters } = useContext(PlanContext)
+  const { vege, favourites, glutenFree, easy, fit, preparationTime } = filters
 
   return (
-    <Paper zDepth={3} className="filterContainer">
+    <Paper zDepth={3} className='filterContainer'>
       <h2>Filter meals</h2>
-      <div className="filters">
+      <div className='filters'>
         <Checkbox
-          className="checkbox"
-          label="Favourites"
-          name="favourites"
+          className='checkbox'
+          label='Favourites'
+          name='favourites'
           onChange={toggleFilters}
           checked={favourites}
         />
         <Checkbox
-          className="checkbox"
-          label="Vege"
-          name="vege"
+          className='checkbox'
+          label='Vege'
+          name='vege'
           onChange={toggleFilters}
           checked={vege}
         />
         <Checkbox
-          className="checkbox"
-          label="Gluten-free"
-          name="glutenFree"
+          className='checkbox'
+          label='Gluten-free'
+          name='glutenFree'
           onChange={toggleFilters}
           checked={glutenFree}
         />
         <Checkbox
-          className="checkbox"
-          label="Easy"
-          name="easy"
+          className='checkbox'
+          label='Easy'
+          name='easy'
           onChange={toggleFilters}
           checked={easy}
         />
         <Checkbox
-          className="checkbox"
-          label="Fit"
-          name="fit"
+          className='checkbox'
+          label='Fit'
+          name='fit'
           onChange={toggleFilters}
           checked={fit}
         />
@@ -54,11 +54,11 @@ export function Filters() {
         </p>
         <Slider
           value={preparationTime}
-          name={"preparationTime"}
+          name={'preparationTime'}
           onChange={toggleFilters}
-          className="sliderColor"
+          className='sliderColor'
         />
       </div>
     </Paper>
-  );
+  )
 }

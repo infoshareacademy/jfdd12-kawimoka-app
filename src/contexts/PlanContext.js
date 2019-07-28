@@ -1,9 +1,12 @@
 import React from 'react'
 import moment from 'moment'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 import meals from '../meals.json'
 import { findMeal } from '../utils.js'
 import { sendPlan, fetchPlan } from '../services/PlanService'
+import { sendFavourites, fetchFavourites } from '../services/FavouritesService'
 
 export const PlanContext = React.createContext()
 
@@ -35,13 +38,13 @@ export class PlanProvider extends React.Component {
     filteredMeals: [],
     favouritesMeals: [],
     displayMotivationView: true
-  };
+  }
 
   dismissMotivationView = () => {
     this.setState({
       displayMotivationView: false
-    });
-  };
+    })
+  }
 
   toggleFilters = (event, data) => {
     let newValue
@@ -63,10 +66,10 @@ export class PlanProvider extends React.Component {
     const newState = {
       ...this.state,
       filters
-    };
-    this.setState(newState);
-    this.dismissMotivationView();
-  };
+    }
+    this.setState(newState)
+    this.dismissMotivationView()
+  }
 
   mapPlanToEvents = () => {
     return this.planDays
@@ -194,7 +197,6 @@ export class PlanProvider extends React.Component {
         sendPlan(this.state.plan)
       }
     )
-    // sendPlan(this.setState)
 
     if (isAdd) {
       this.setState({ displayAddButton: false })
@@ -263,16 +265,21 @@ export class PlanProvider extends React.Component {
   }
 
   addToFavouritesMeals = meal => {
-    this.setState(prevState => {
-      if (prevState.favouritesMeals.includes(meal)) {
-        return {
-          favouritesMeals: prevState.favouritesMeals.filter(m => m !== meal)
+    this.setState(
+      prevState => {
+        if (prevState.favouritesMeals.includes(meal)) {
+          return {
+            favouritesMeals: prevState.favouritesMeals.filter(m => m !== meal)
+          }
         }
+        return {
+          favouritesMeals: [...prevState.favouritesMeals, meal]
+        }
+      },
+      () => {
+        sendFavourites(this.state.favouritesMeals)
       }
-      return {
-        favouritesMeals: [...prevState.favouritesMeals, meal]
-      }
-    })
+    )
   }
 
   componentDidMount() {
@@ -280,6 +287,10 @@ export class PlanProvider extends React.Component {
       if (user) {
         fetchPlan(plan => {
           this.setState({ plan })
+        }, user.uid)
+
+        fetchFavourites(favouritesMeals => {
+          this.setState(favouritesMeals)
         }, user.uid)
       }
     })
@@ -304,8 +315,7 @@ export class PlanProvider extends React.Component {
           sumNutrition: this.sumNutrition,
           toggleFilters: this.toggleFilters,
           dismissMotivationView: this.dismissMotivationView
-        }}
-      >
+        }}>
         {this.props.children}
       </PlanContext.Provider>
     )
