@@ -14,14 +14,14 @@ export function SummaryDay(props) {
   return (
     <div className="summaryContainer">
       <div>
-        <h3 className="summaryText numbers">
+        <h3 className="summaryText numbers left">
           {sumCaloriesCount} / {kcalGoal}
         </h3>
-        <h3 className="summaryText">calories / kcal goal</h3>
+        <h3 className="summaryText right">calories / kcal goal</h3>
       </div>
       <div>
-        <h3 className="summaryText numbers">{leftCalories}</h3>
-        <h3 className="summaryText">calories left</h3>
+        <h3 className="summaryText numbers left">{leftCalories}</h3>
+        <h3 className="summaryText left">calories left</h3>
       </div>
     </div>
   );

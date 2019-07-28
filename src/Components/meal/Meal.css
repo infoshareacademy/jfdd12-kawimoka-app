@@ -10,7 +10,8 @@
   flex-flow: row;
   /* max-width: 130px; */
   max-height: 115px;
-  width: 350px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .mealCardShortInfo {
@@ -276,4 +277,15 @@
 .carouselCard {
   max-width: 130px;
   max-height: 350px;
+}
+
+@media (max-width: 524px) {
+.mealCardShortInfo h1 {
+  font-size: 12px;
+}
+
+.mealCardShortInfo h2 {
+  padding-top: 8px;
+  font-size: 10px;
+}
 }

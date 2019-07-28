@@ -56,6 +56,7 @@ export function Filters() {
           value={preparationTime}
           name={"preparationTime"}
           onChange={toggleFilters}
+          className="sliderColor"
         />
       </div>
     </Paper>
