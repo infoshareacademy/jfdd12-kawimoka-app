@@ -5,10 +5,9 @@ import { signUp } from '../services/AuthService'
 
 const SignUpForm = () => {
   const { state, handleChange } = useForm({
-    email: 'test+1@example.com',
-    password: 'test123',
-    firstName: 'Jim',
-    lastName: 'Doe'
+    email: '',
+    password: '',
+    firstName: ''
   })
 
   return (
@@ -43,13 +42,6 @@ const SignUpForm = () => {
               placeholder='First name'
               value={state.firstName}
               name={'firstName'}
-              onChange={handleChange}
-            />
-            <Form.Input
-              fluid
-              placeholder='Last name'
-              value={state.lastName}
-              name={'lastName'}
               onChange={handleChange}
             />
             <Button

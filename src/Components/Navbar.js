@@ -51,10 +51,7 @@ function UserProfileLink({ user }) {
       <NavLink exact className='default-link' activeClassName={'active-link'} to='/profile'>
         {user && (
           <Header as='h3'>
-            <Image
-              circular
-              src={`https://api.adorable.io/avatars/285/${user.firstName}${user.lastName}.png`}
-            />
+            <Image circular src={`https://api.adorable.io/avatars/285/${user.firstName}.png`} />
             {user.firstName}
           </Header>
         )}

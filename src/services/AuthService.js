@@ -7,12 +7,7 @@ export const signIn = (email, password) => {
 }
 
 export const signUp = formData => {
-  if (
-    formData.email === '' ||
-    formData.password === '' ||
-    formData.firstName === '' ||
-    formData.lastName === ''
-  ) {
+  if (formData.email === '' || formData.password === '' || formData.firstName === '') {
     return
   }
 
@@ -25,8 +20,7 @@ export const signUp = formData => {
         .ref('users')
         .child(value.user.uid)
         .set({
-          firstName: formData.firstName,
-          lastName: formData.lastName
+          firstName: formData.firstName
         })
 
       firebase

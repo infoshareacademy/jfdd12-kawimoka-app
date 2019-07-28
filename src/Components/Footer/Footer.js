@@ -31,8 +31,7 @@ export function Footer(props) {
         </p>
       </div>
       <div>
-        <p>Homepage update: 10.06.19</p>
-        <p>Planned app release: 26.07.19</p>
+        <p>Last update: 29.07.19</p>
       </div>
     </footer>
   )
