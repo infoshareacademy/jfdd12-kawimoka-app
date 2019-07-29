@@ -76,7 +76,6 @@ code {
     max-height: 550px;
     display: flex;
     justify-content: center;
-    
   }
 
   .singleDayContainer {
@@ -87,8 +86,5 @@ code {
     max-width: 524px;
   }
 
-  .ReactModal__Content--after-open {
-    position: absolute;
-    top: 75%;
-  }
+ 
 }
