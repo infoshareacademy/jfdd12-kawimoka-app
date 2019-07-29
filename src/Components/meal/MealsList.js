@@ -97,7 +97,10 @@ export function MealsList() {
                   <div
                     style={{ maxWidth: '300px', maxHeight: '350px' }}
                     key={index}
-                    onClick={() => carousel.current.slickGoTo(index)}>
+                    onClick={() => {
+                      carousel.current.slickGoTo(index)
+                      setchoosenMeal(index)
+                    }}>
                     <MealCardShort2
                       key={filteredMeal.id}
                       meal={filteredMeal}
