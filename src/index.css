@@ -29,8 +29,6 @@ code {
   cursor: pointer;
 }
 
-
-
 .MotivationView {
   margin-top: 20px;
   flex-basis: 515px;
@@ -38,12 +36,10 @@ code {
   max-height: 850px;
 }
 
-
-.MotivationView img{
+.MotivationView img {
   width: 515px;
   max-height: 850px;
 }
-
 
 .ui.menu > .container.mobileNav {
   display: none;
@@ -51,16 +47,15 @@ code {
 
 .ui.card {
   width: 130px;
-  
-  }
+}
 
 @media (max-width: 524px) {
   .MotivationView {
-    max-width:350px;
+    max-width: 350px;
   }
   .MotivationView img {
     max-width: 350px;
-    max-height: 750px;
+    max-height: 550px;
     display: flex;
     justify-content: center;
   }
@@ -75,7 +70,7 @@ code {
     display: none;
   }
 
-  .MotivationView{
+  .MotivationView {
     max-width: 280px;
     display: flex;
     justify-content: center;
@@ -83,14 +78,14 @@ code {
 
   .MotivationView img {
     max-width: 280px;
-    max-height: 850px;
+    max-height: 550px;
   }
 
-  .singleDayContainer{
-    max-width: 250px
+  .singleDayContainer {
+    max-width: 250px;
   }
 
-  .ui.secondary.pointing.menu{
-    max-width: 524px
+  .ui.secondary.pointing.menu {
+    max-width: 524px;
   }
 }
