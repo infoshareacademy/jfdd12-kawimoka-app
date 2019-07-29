@@ -4,11 +4,10 @@
   display: flex;
   flex-direction: column;
   flex-basis: 500px;
+  min-width: 300px;
   justify-content: space-between;
   max-height: 850px;
 }
-
-
 
 .changeDayIcon {
   cursor: pointer;
@@ -147,5 +146,5 @@ div.filterContainer > * {
 }
 
 .sliderColor {
-  color:  #08ada0 !important;
+  color: #08ada0 !important;
 }
