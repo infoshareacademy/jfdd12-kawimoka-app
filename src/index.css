@@ -49,14 +49,8 @@ code {
 }
 
 @media (max-width: 524px) {
-  .MotivationView {
-    max-width: 350px;
-  }
   .MotivationView img {
     max-width: 350px;
-    max-height: 750px;
-    display: flex;
-    justify-content: center;
   }
 
   .ui.menu > .container.mobileNav {
@@ -73,11 +67,14 @@ code {
     max-width: 280px;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
   }
 
   .MotivationView img {
     max-width: 280px;
-    max-height: 850px;
+    max-height: 550px;
+    display: flex;
+    justify-content: center;
   }
 
   .singleDayContainer {
