@@ -53,12 +53,6 @@ code {
   .MotivationView {
     max-width: 350px;
   }
-  .MotivationView img {
-    max-width: 350px;
-    max-height: 550px;
-    display: flex;
-    justify-content: center;
-  }
 
   .ui.menu > .container.mobileNav {
     display: flex;
@@ -74,11 +68,15 @@ code {
     max-width: 280px;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
   }
 
   .MotivationView img {
     max-width: 280px;
     max-height: 550px;
+    display: flex;
+    justify-content: center;
+    
   }
 
   .singleDayContainer {
@@ -87,5 +85,10 @@ code {
 
   .ui.secondary.pointing.menu {
     max-width: 524px;
+  }
+
+  .ReactModal__Content--after-open {
+    position: absolute;
+    top: 75%;
   }
 }
