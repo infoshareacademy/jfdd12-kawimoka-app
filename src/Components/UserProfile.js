@@ -7,7 +7,7 @@ const Profile = () => {
   const user = useUser()
   return (
     <>
-      <Container>
+      <Container style={{ minHeight: '78vh' }}>
         <Form>
           <Form.Group widths={4}>
             <Form.Input
